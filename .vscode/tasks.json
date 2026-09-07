@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "OpenCode: Interfaz TUI",
+      "type": "shell",
+      "command": "opencode",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "focus": true
+      }
+    },
+    {
+      "label": "OpenCode: Auditoría de Seguridad & HTTP",
+      "type": "shell",
+      "command": "opencode run \"Realiza una auditoría completa del proyecto actual: analiza seguridad, sanitización de entradas, peticiones HTTP, cabeceras, dependencias y vulnerabilidades OWASP.\"",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": true
+      }
+    },
+    {
+      "label": "OpenCode: Servidor Web UI",
+      "type": "shell",
+      "command": "opencode web",
+      "problemMatcher": [],
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+  ]
+}
