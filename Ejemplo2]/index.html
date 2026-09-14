@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Los súper robots creados por Go Nagai: origen de la saga, ficha técnica de cada unidad y simulador de asignación de piloto del Instituto Fotón, con validaciones nativas de HTML5 y accesibilidad AA.">
-    <title>Súper Robots de Go Nagai | Instituto Fotón</title>
+    <meta name="description" content="Los súper robots creados por Go Nagai: origen de la saga, fundamentos científicos, ficha técnica y planos esquemáticos de cada unidad, y simulador de alistamiento de piloto de Academia Nagai, con validaciones nativas de HTML5 y accesibilidad AA.">
+    <title>Súper Robots de Go Nagai | Academia Nagai</title>
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://images.unsplash.com https://upload.wikimedia.org; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
@@ -14,10 +14,10 @@
 
     <header class="site-header">
       <div class="container header-content">
-        <a class="brand" href="#inicio" aria-label="Ir al inicio del Instituto Fotón">
-          <span class="brand-mark" aria-hidden="true">IF</span>
+        <a class="brand" href="#inicio" aria-label="Ir al inicio de Academia Nagai">
+          <span class="brand-mark" aria-hidden="true">AN</span>
           <span class="brand-text">
-            <span class="brand-name">Instituto Fotón</span>
+            <span class="brand-name">Academia Nagai</span>
             <span class="brand-tagline">Súper Robots de Go Nagai</span>
           </span>
         </a>
@@ -34,6 +34,8 @@
         <nav class="main-nav" id="main-menu" aria-label="Navegación principal">
           <a class="nav-link" href="#sobre">La saga</a>
           <a class="nav-link" href="#ficha-tecnica">Ficha técnica</a>
+          <a class="nav-link" href="#fundamentos">Fundamentos</a>
+          <a class="nav-link" href="#planos">Modelos y planos</a>
           <a class="nav-link" href="#galeria">Galería</a>
           <a class="nav-link" href="#alistamiento">Simulador</a>
         </nav>
@@ -47,15 +49,16 @@
           <div class="hero-copy">
             <p class="badge-pill">
               <span class="badge-dot" aria-hidden="true"></span>
-              <span>Instituto Fotón · Programa de pilotos</span>
+              <span>Academia Nagai · Programa de pilotos</span>
             </p>
             <h1 id="titulo-principal">Súper Robots de Go Nagai</h1>
             <p class="lead">
               Go Nagai creó en 1972 Mazinger Z, el origen del género "super
               robot": una máquina gigante pilotada desde una cabina, no
               controlada a distancia. De ahí nació una saga con varias
-              unidades. Completa el simulador del Instituto Fotón y descubre
-              qué unidad pilotarías.
+              unidades, cada una con su propia tecnología y fundamento
+              científico-ficticio. Completa el simulador de Academia Nagai y
+              descubre qué unidad pilotarías.
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="#alistamiento">
@@ -125,7 +128,7 @@
               pilotado desde una cabina interior, en lugar de controlado a
               distancia como los robots anteriores. A partir de ahí, Nagai
               (solo o junto a Ken Ishikawa) desarrolló un universo compartido
-              de unidades que el Instituto Fotón usa hoy como base de su
+              de unidades que Academia Nagai usa hoy como base de su
               programa de pilotos.
             </p>
           </div>
@@ -219,50 +222,106 @@
         <div class="section-heading">
           <p class="eyebrow">Datos de campo</p>
           <h2 id="titulo-ficha">Ficha técnica</h2>
+          <p>
+            Un resumen de las características principales de cada unidad:
+            piloto, dimensiones, fuente de energía y su rasgo de combate más
+            distintivo.
+          </p>
         </div>
 
         <div class="robots-grid">
           <article class="robot-card">
             <h3>Mazinger Z</h3>
+            <p class="robot-card-highlight">
+              La unidad fundacional del género: fuerza bruta cuerpo a cuerpo
+              respaldada por un blindaje casi indestructible.
+            </p>
             <dl>
               <div><dt>Piloto</dt><dd>Kouji Kabuto</dd></div>
               <div><dt>Debut</dt><dd>1972</dd></div>
+              <div><dt>Altura / Peso</dt><dd>18 m / 20 t</dd></div>
+              <div><dt>Fuente de energía</dt><dd>Energía Fotónica</dd></div>
+              <div><dt>Material del casco</dt><dd>Super Aleación Z</dd></div>
               <div><dt>Arma distintiva</dt><dd>Rocket Punch</dd></div>
+              <div><dt>Habilidad especial</dt><dd>Puños teledirigidos y Breast Fire</dd></div>
+              <div><dt>Laboratorio</dt><dd>Instituto de Energía Fotónica (Dr. Kabuto)</dd></div>
             </dl>
           </article>
           <article class="robot-card">
             <h3>Great Mazinger</h3>
+            <p class="robot-card-highlight">
+              El sucesor: mismo principio que Mazinger Z, pero con más
+              blindaje, más potencia y un vuelo propio sin nave auxiliar.
+            </p>
             <dl>
               <div><dt>Piloto</dt><dd>Tetsuya Tsurugi</dd></div>
               <div><dt>Debut</dt><dd>1974</dd></div>
+              <div><dt>Altura / Peso</dt><dd>~30 m / ~65 t</dd></div>
+              <div><dt>Fuente de energía</dt><dd>Energía Fotónica de nueva generación</dd></div>
+              <div><dt>Material del casco</dt><dd>Nueva Aleación Z</dd></div>
               <div><dt>Arma distintiva</dt><dd>Thunder Break</dd></div>
+              <div><dt>Habilidad especial</dt><dd>Vuelo autónomo (Screw Crusher Punch)</dd></div>
+              <div><dt>Laboratorio</dt><dd>Instituto de Energía Fotónica — División de Combate Avanzado</dd></div>
             </dl>
           </article>
           <article class="robot-card">
             <h3>UFO Robot Grendizer</h3>
+            <p class="robot-card-highlight">
+              Tecnología alienígena del planeta Fleed: combate a distancia con
+              discos giratorios y capacidad de vuelo espacial.
+            </p>
             <dl>
               <div><dt>Piloto</dt><dd>Duke Fleed</dd></div>
               <div><dt>Debut</dt><dd>1975</dd></div>
+              <div><dt>Altura / Peso</dt><dd>~30 m / ~90 t</dd></div>
+              <div><dt>Fuente de energía</dt><dd>Tecnología Fleedania</dd></div>
+              <div><dt>Material del casco</dt><dd>Aleación espacial Fleedania</dd></div>
               <div><dt>Arma distintiva</dt><dd>Double Harken</dd></div>
+              <div><dt>Habilidad especial</dt><dd>Vuelo espacial sin nave auxiliar</dd></div>
+              <div><dt>Laboratorio</dt><dd>Laboratorio de Energía Fotónica del Dr. Umon</dd></div>
             </dl>
           </article>
           <article class="robot-card">
             <h3>Getter Robo</h3>
+            <p class="robot-card-highlight">
+              El primer robot combinable: tres naves Getter se ensamblan en
+              tres configuraciones distintas según la misión.
+            </p>
             <dl>
-              <div><dt>Pilotos</dt><dd>Equipo de 3</dd></div>
+              <div><dt>Pilotos</dt><dd>Equipo de 3 (Ryoma, Hayato, Musashi)</dd></div>
               <div><dt>Debut</dt><dd>1974</dd></div>
+              <div><dt>Altura / Peso</dt><dd>~23 m / ~90 t (Getter-1)</dd></div>
+              <div><dt>Fuente de energía</dt><dd>Rayos Getter (energía cósmica)</dd></div>
+              <div><dt>Material del casco</dt><dd>Aleación de titanio reforzado</dd></div>
               <div><dt>Arma distintiva</dt><dd>Getter Tomahawk</dd></div>
+              <div><dt>Habilidad especial</dt><dd>Combinación en 3 configuraciones (Getter-1, 2 y 3)</dd></div>
+              <div><dt>Laboratorio</dt><dd>Instituto de Investigación Saotome</dd></div>
             </dl>
           </article>
           <article class="robot-card">
             <h3>Mazinkaiser</h3>
+            <p class="robot-card-highlight">
+              Reinterpretación de Mazinger Z con un reactor fotónico más
+              eficiente: más potencia de combate en el mismo chasis base.
+            </p>
             <dl>
               <div><dt>Piloto</dt><dd>Kouji Kabuto</dd></div>
               <div><dt>Debut</dt><dd>2001</dd></div>
+              <div><dt>Altura / Peso</dt><dd>18 m / ~31 t</dd></div>
+              <div><dt>Fuente de energía</dt><dd>Energía Fotónica (reactor mejorado)</dd></div>
+              <div><dt>Material del casco</dt><dd>Aleación Z reforzada</dd></div>
               <div><dt>Arma distintiva</dt><dd>Kaiser Blade</dd></div>
+              <div><dt>Habilidad especial</dt><dd>Combinación con Kaiser Pilder</dd></div>
+              <div><dt>Laboratorio</dt><dd>Instituto Fotón — Programa Mazinkaiser</dd></div>
             </dl>
           </article>
         </div>
+
+        <p class="hint">
+          Las cifras de altura y peso son las citadas con más frecuencia por
+          la afición y pueden variar levemente según la adaptación (manga,
+          anime u OVA); se marcan con "~" cuando no hay una fuente única.
+        </p>
 
         <div class="meter-block">
           <label id="meter-label" for="nivel-fotonico">Nivel de Energía Fotónica de referencia (Mazinkaiser)</label>
@@ -270,6 +329,251 @@
             92 de 100
           </meter>
           <p class="hint">Valor demostrativo del reactor en condiciones óptimas de combate.</p>
+        </div>
+      </section>
+
+      <!-- FUNDAMENTOS CIENTÍFICOS -->
+      <section id="fundamentos" class="section section-dark" aria-labelledby="titulo-fundamentos">
+        <div class="container">
+          <div class="section-heading section-heading-dark">
+            <p class="eyebrow">Ciencia ficticia</p>
+            <h2 id="titulo-fundamentos">Fundamentos científicos de la saga</h2>
+            <p class="prose">
+              Cada familia de súper robots de Go Nagai se apoya en su propia
+              "tecnología madre" ficticia. Conocerla ayuda a entender por qué
+              cada unidad combate como combate.
+            </p>
+          </div>
+
+          <div class="fundamentos-grid">
+            <article class="fundamento-card">
+              <span class="fundamento-icono" aria-hidden="true">⚛</span>
+              <h3>Energía Fotónica</h3>
+              <p>
+                Motor de <strong>Mazinger Z</strong>, <strong>Great Mazinger</strong>
+                y <strong>Mazinkaiser</strong>. En la ficción, es la energía
+                liberada al convertir los "Rayos Fotónicos" —hallados en las
+                ruinas del imperio de Bardos— mediante un reactor atómico
+                controlado. Se combina con la Super Aleación Z, un material
+                capaz de resistir el calor de un reactor nuclear, para dar
+                forma al blindaje del robot.
+              </p>
+            </article>
+            <article class="fundamento-card">
+              <span class="fundamento-icono" aria-hidden="true">☄</span>
+              <h3>Rayos Getter</h3>
+              <p>
+                Motor de <strong>Getter Robo</strong>. Los Rayos Getter son una
+                radiación cósmica que llega constantemente a la Tierra desde
+                el espacio profundo; un reactor Getter la capta y la convierte
+                en energía mecánica. Su inestabilidad es lo que justifica que
+                el robot deba combinarse en distintas configuraciones según el
+                tipo de combate.
+              </p>
+            </article>
+            <article class="fundamento-card">
+              <span class="fundamento-icono" aria-hidden="true">🛸</span>
+              <h3>Tecnología Fleedania</h3>
+              <p>
+                Motor de <strong>UFO Robot Grendizer</strong>. A diferencia de
+                las anteriores, no es un invento humano: es tecnología del
+                planeta Fleed, traída a la Tierra por su piloto tras la
+                invasión del Imperio Vegano. Permite vuelo espacial sin nave
+                auxiliar y armamento basado en proyectiles giratorios en vez
+                de energía pura.
+              </p>
+            </article>
+          </div>
+
+          <p class="hint">
+            Estas explicaciones son la ciencia ficticia propia del universo
+            narrativo de Go Nagai, no física real; se resumen aquí con fines
+            educativos y de contexto para el simulador.
+          </p>
+        </div>
+      </section>
+
+      <!-- MODELOS Y PLANOS -->
+      <section id="planos" class="section container" aria-labelledby="titulo-planos">
+        <div class="section-heading">
+          <p class="eyebrow">Diagramas esquemáticos</p>
+          <h2 id="titulo-planos">Modelos y planos</h2>
+          <p>
+            Siluetas esquemáticas originales, a modo de plano de referencia,
+            para comparar de un vistazo la silueta y la escala relativa de
+            cada unidad. No están a escala exacta ni reproducen arte oficial
+            de la franquicia.
+          </p>
+        </div>
+
+        <svg hidden aria-hidden="true">
+          <defs>
+            <pattern id="patron-plano" width="16" height="16" patternUnits="userSpaceOnUse">
+              <rect width="16" height="16" fill="#0b1f2e" />
+              <path d="M 16 0 L 0 0 0 16" fill="none" stroke="#173a52" stroke-width="1" />
+            </pattern>
+          </defs>
+        </svg>
+
+        <div class="planos-grid">
+          <figure class="plano-card">
+            <svg viewBox="0 0 200 260" role="img" aria-labelledby="plano-mazinger-z-titulo plano-mazinger-z-desc">
+              <title id="plano-mazinger-z-titulo">Plano esquemático de Mazinger Z</title>
+              <desc id="plano-mazinger-z-desc">Silueta de robot humanoide con antenas en V, hombros angulares y puños grandes.</desc>
+              <rect width="200" height="260" fill="url(#patron-plano)" />
+              <line x1="178" y1="30" x2="178" y2="228" stroke="#5fd0ff" stroke-width="1" stroke-dasharray="4 3" />
+              <line x1="172" y1="30" x2="184" y2="30" stroke="#5fd0ff" stroke-width="1" />
+              <line x1="172" y1="228" x2="184" y2="228" stroke="#5fd0ff" stroke-width="1" />
+              <text x="188" y="132" fill="#5fd0ff" font-size="9" transform="rotate(90 188 132)">18 m</text>
+              <line x1="60" y1="18" x2="80" y2="42" stroke="#d64545" stroke-width="3" stroke-linecap="round" />
+              <line x1="120" y1="18" x2="100" y2="42" stroke="#d64545" stroke-width="3" stroke-linecap="round" />
+              <rect x="76" y="40" width="30" height="26" rx="4" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <polygon points="60,66 122,66 132,110 50,110" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <circle cx="91" cy="86" r="9" fill="none" stroke="#d64545" stroke-width="2" />
+              <rect x="34" y="70" width="20" height="18" rx="3" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="128" y="70" width="20" height="18" rx="3" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="30" y="88" width="16" height="46" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="136" y="88" width="16" height="46" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="22" y="132" width="26" height="20" rx="4" fill="none" stroke="#d64545" stroke-width="2" />
+              <rect x="134" y="132" width="26" height="20" rx="4" fill="none" stroke="#d64545" stroke-width="2" />
+              <polygon points="56,110 126,110 118,160 64,160" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="66" y="160" width="22" height="52" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="94" y="160" width="22" height="52" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="60" y="212" width="30" height="14" rx="2" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="92" y="212" width="30" height="14" rx="2" fill="none" stroke="#e7f6ff" stroke-width="2" />
+            </svg>
+            <figcaption>
+              <strong>Mazinger Z</strong> — perfil compacto, antenas en V y
+              puños de gran tamaño (Rocket Punch).
+            </figcaption>
+          </figure>
+
+          <figure class="plano-card">
+            <svg viewBox="0 0 200 260" role="img" aria-labelledby="plano-great-titulo plano-great-desc">
+              <title id="plano-great-titulo">Plano esquemático de Great Mazinger</title>
+              <desc id="plano-great-desc">Silueta más alta y de hombreras más grandes, con una aleta central en la cabeza.</desc>
+              <rect width="200" height="260" fill="url(#patron-plano)" />
+              <line x1="178" y1="14" x2="178" y2="228" stroke="#5fd0ff" stroke-width="1" stroke-dasharray="4 3" />
+              <line x1="172" y1="14" x2="184" y2="14" stroke="#5fd0ff" stroke-width="1" />
+              <line x1="172" y1="228" x2="184" y2="228" stroke="#5fd0ff" stroke-width="1" />
+              <text x="188" y="125" fill="#5fd0ff" font-size="9" transform="rotate(90 188 125)">~30 m</text>
+              <polygon points="91,10 101,10 106,30 86,30" fill="none" stroke="#c9c9d6" stroke-width="2" />
+              <rect x="76" y="30" width="30" height="26" rx="4" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <polygon points="54,56 128,56 140,104 42,104" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <circle cx="91" cy="78" r="10" fill="none" stroke="#d64545" stroke-width="2" />
+              <rect x="20" y="58" width="28" height="26" rx="4" fill="none" stroke="#c9c9d6" stroke-width="2" />
+              <rect x="134" y="58" width="28" height="26" rx="4" fill="none" stroke="#c9c9d6" stroke-width="2" />
+              <rect x="26" y="84" width="16" height="52" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="140" y="84" width="16" height="52" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="18" y="136" width="28" height="20" rx="4" fill="none" stroke="#d64545" stroke-width="2" />
+              <rect x="136" y="136" width="28" height="20" rx="4" fill="none" stroke="#d64545" stroke-width="2" />
+              <polygon points="48,104 134,104 124,158 58,158" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="64" y="158" width="22" height="54" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="94" y="158" width="22" height="54" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="58" y="212" width="30" height="14" rx="2" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="92" y="212" width="30" height="14" rx="2" fill="none" stroke="#e7f6ff" stroke-width="2" />
+            </svg>
+            <figcaption>
+              <strong>Great Mazinger</strong> — silueta más alta, hombreras
+              reforzadas y aleta frontal (cañones Thunder Break).
+            </figcaption>
+          </figure>
+
+          <figure class="plano-card">
+            <svg viewBox="0 0 200 260" role="img" aria-labelledby="plano-grendizer-titulo plano-grendizer-desc">
+              <title id="plano-grendizer-titulo">Plano esquemático de UFO Robot Grendizer</title>
+              <desc id="plano-grendizer-desc">Silueta con cuernos curvos y discos circulares en los antebrazos (Double Harken).</desc>
+              <rect width="200" height="260" fill="url(#patron-plano)" />
+              <line x1="178" y1="20" x2="178" y2="228" stroke="#5fd0ff" stroke-width="1" stroke-dasharray="4 3" />
+              <line x1="172" y1="20" x2="184" y2="20" stroke="#5fd0ff" stroke-width="1" />
+              <line x1="172" y1="228" x2="184" y2="228" stroke="#5fd0ff" stroke-width="1" />
+              <text x="188" y="128" fill="#5fd0ff" font-size="9" transform="rotate(90 188 128)">~30 m</text>
+              <path d="M 78 40 C 60 20, 55 10, 62 4" fill="none" stroke="#d4af37" stroke-width="3" stroke-linecap="round" />
+              <path d="M 104 40 C 122 20, 127 10, 120 4" fill="none" stroke="#d4af37" stroke-width="3" stroke-linecap="round" />
+              <rect x="76" y="38" width="30" height="26" rx="10" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <polygon points="58,64 124,64 132,106 50,106" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <circle cx="91" cy="84" r="9" fill="none" stroke="#d4af37" stroke-width="2" />
+              <rect x="28" y="66" width="20" height="18" rx="3" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="134" y="66" width="20" height="18" rx="3" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="24" y="84" width="16" height="40" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="142" y="84" width="16" height="40" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <circle cx="32" cy="132" r="14" fill="none" stroke="#d64545" stroke-width="2" />
+              <circle cx="150" cy="132" r="14" fill="none" stroke="#d64545" stroke-width="2" />
+              <polygon points="54,106 128,106 120,158 62,158" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="64" y="158" width="22" height="52" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="96" y="158" width="22" height="52" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="58" y="210" width="30" height="14" rx="2" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="94" y="210" width="30" height="14" rx="2" fill="none" stroke="#e7f6ff" stroke-width="2" />
+            </svg>
+            <figcaption>
+              <strong>UFO Robot Grendizer</strong> — cuernos curvos y discos
+              Double Harken en los antebrazos.
+            </figcaption>
+          </figure>
+
+          <figure class="plano-card">
+            <svg viewBox="0 0 200 260" role="img" aria-labelledby="plano-getter-titulo plano-getter-desc">
+              <title id="plano-getter-titulo">Plano esquemático de Getter Robo</title>
+              <desc id="plano-getter-desc">Silueta con cresta triangular en la cabeza y tres bloques apilados en el torso que representan las tres naves combinadas.</desc>
+              <rect width="200" height="260" fill="url(#patron-plano)" />
+              <line x1="178" y1="26" x2="178" y2="228" stroke="#5fd0ff" stroke-width="1" stroke-dasharray="4 3" />
+              <line x1="172" y1="26" x2="184" y2="26" stroke="#5fd0ff" stroke-width="1" />
+              <line x1="172" y1="228" x2="184" y2="228" stroke="#5fd0ff" stroke-width="1" />
+              <text x="188" y="130" fill="#5fd0ff" font-size="9" transform="rotate(90 188 130)">~23 m</text>
+              <polygon points="91,14 108,44 74,44" fill="none" stroke="#d64545" stroke-width="2" />
+              <rect x="76" y="44" width="30" height="24" rx="4" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="58" y="70" width="74" height="14" fill="none" stroke="#d64545" stroke-width="2" />
+              <rect x="58" y="86" width="74" height="14" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="58" y="102" width="74" height="14" fill="none" stroke="#d64545" stroke-width="2" />
+              <rect x="30" y="72" width="20" height="18" rx="3" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="140" y="72" width="20" height="18" rx="3" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="26" y="90" width="16" height="44" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="148" y="90" width="16" height="44" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <polygon points="22,134 46,124 46,156 22,166" fill="none" stroke="#d64545" stroke-width="2" />
+              <rect x="140" y="134" width="26" height="20" rx="4" fill="none" stroke="#d64545" stroke-width="2" />
+              <polygon points="56,116 126,116 118,160 64,160" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="66" y="160" width="22" height="52" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="94" y="160" width="22" height="52" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="60" y="212" width="30" height="14" rx="2" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="92" y="212" width="30" height="14" rx="2" fill="none" stroke="#e7f6ff" stroke-width="2" />
+            </svg>
+            <figcaption>
+              <strong>Getter Robo</strong> — tres bloques en el torso (las tres
+              naves Getter combinadas) y el hacha Getter Tomahawk al brazo.
+            </figcaption>
+          </figure>
+
+          <figure class="plano-card">
+            <svg viewBox="0 0 200 260" role="img" aria-labelledby="plano-kaiser-titulo plano-kaiser-desc">
+              <title id="plano-kaiser-titulo">Plano esquemático de Mazinkaiser</title>
+              <desc id="plano-kaiser-desc">Silueta similar a Mazinger Z pero más angulosa, con cuernos rectos y una espada Kaiser Blade en la mano derecha.</desc>
+              <rect width="200" height="260" fill="url(#patron-plano)" />
+              <line x1="178" y1="30" x2="178" y2="228" stroke="#5fd0ff" stroke-width="1" stroke-dasharray="4 3" />
+              <line x1="172" y1="30" x2="184" y2="30" stroke="#5fd0ff" stroke-width="1" />
+              <line x1="172" y1="228" x2="184" y2="228" stroke="#5fd0ff" stroke-width="1" />
+              <text x="188" y="132" fill="#5fd0ff" font-size="9" transform="rotate(90 188 132)">18 m</text>
+              <line x1="62" y1="12" x2="80" y2="40" stroke="#8b1014" stroke-width="4" stroke-linecap="round" />
+              <line x1="118" y1="12" x2="100" y2="40" stroke="#8b1014" stroke-width="4" stroke-linecap="round" />
+              <rect x="76" y="40" width="30" height="26" rx="2" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <polygon points="56,66 126,66 136,110 46,110" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <circle cx="91" cy="86" r="10" fill="none" stroke="#8b1014" stroke-width="2" />
+              <rect x="30" y="70" width="20" height="18" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="132" y="70" width="20" height="18" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="26" y="88" width="16" height="44" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="140" y="88" width="16" height="44" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="18" y="130" width="26" height="18" rx="2" fill="none" stroke="#8b1014" stroke-width="2" />
+              <line x1="150" y1="86" x2="176" y2="46" stroke="#c9c9d6" stroke-width="3" stroke-linecap="round" />
+              <polygon points="52,110 130,110 122,160 60,160" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="64" y="160" width="22" height="52" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="96" y="160" width="22" height="52" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="58" y="212" width="30" height="14" rx="2" fill="none" stroke="#e7f6ff" stroke-width="2" />
+              <rect x="92" y="212" width="30" height="14" rx="2" fill="none" stroke="#e7f6ff" stroke-width="2" />
+            </svg>
+            <figcaption>
+              <strong>Mazinkaiser</strong> — cuernos rectos más agresivos y la
+              espada Kaiser Blade desenvainada.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -337,12 +641,12 @@
       <section id="alistamiento" class="section section-light" aria-labelledby="titulo-alistamiento">
         <div class="container">
           <div class="section-heading">
-            <p class="eyebrow">Instituto Fotón</p>
+            <p class="eyebrow">Academia Nagai</p>
             <h2 id="titulo-alistamiento">Simulador de asignación de piloto</h2>
             <p>
               Completa la simulación para descubrir qué súper robot de la
-              saga de Go Nagai pilotarías en el Instituto Fotón. Al final
-              recibirás tu carnet de piloto con la unidad asignada. Los
+              saga de Go Nagai pilotarías en Academia Nagai. Al final
+              recibirás tu carnet de piloto con la unidad elegida. Los
               campos marcados como obligatorios deben completarse con el
               formato indicado; el navegador validará el formulario
               automáticamente antes de enviarlo.
@@ -391,7 +695,7 @@
                     required
                     autocomplete="email"
                     aria-describedby="correo-hint"
-                    placeholder="piloto@institutofoton.jp"
+                    placeholder="piloto@academianagai.test"
                   >
                   <p id="correo-hint" class="hint">Formato: nombre@dominio.com</p>
                 </div>
@@ -717,7 +1021,7 @@
               <div class="checkbox-option">
                 <input type="checkbox" id="terminos" name="terminos" required aria-describedby="terminos-hint">
                 <label for="terminos">
-                  Acepto los términos del Instituto Fotón y el reglamento de pilotaje
+                  Acepto los términos de Academia Nagai y el reglamento de pilotaje
                   <span class="required" aria-hidden="true">*</span>
                   <span class="visually-hidden">(obligatorio)</span>
                 </label>
@@ -737,7 +1041,7 @@
             <h3 id="carnet-titulo" tabindex="-1">Resultado de la simulación: tu carnet de piloto</h3>
             <div class="carnet" aria-labelledby="carnet-titulo">
               <div class="carnet-header">
-                <span class="carnet-instituto">Instituto Fotón</span>
+                <span class="carnet-instituto">Academia Nagai</span>
                 <span class="carnet-tipo">Carnet de piloto</span>
               </div>
 
@@ -759,7 +1063,10 @@
                   <img id="carnet-mecha-logo" alt="" hidden>
                   <span id="carnet-mecha-placeholder" class="carnet-mecha-placeholder" aria-hidden="true"></span>
                 </div>
-                <p class="carnet-mecha-linea">Mecha asignada: <strong id="carnet-mecha-nombre">—</strong></p>
+                <div class="carnet-mecha-info">
+                  <p class="carnet-mecha-linea">Mecha asignada: <strong id="carnet-mecha-nombre">—</strong></p>
+                  <p class="carnet-mecha-linea">Piloto canónico: <span id="carnet-mecha-piloto">—</span></p>
+                </div>
               </div>
 
               <p class="carnet-id" id="carnet-id"></p>
@@ -772,7 +1079,7 @@
     <footer class="site-footer">
       <div class="container footer-content">
         <div class="footer-info">
-          <p class="footer-title"><strong>Instituto Fotón · Súper Robots de Go Nagai</strong></p>
+          <p class="footer-title"><strong>Academia Nagai · Súper Robots de Go Nagai</strong></p>
           <p class="footer-desc">Proyecto educativo creado con HTML, CSS y JavaScript vanilla.</p>
         </div>
         <a class="back-to-top" href="#inicio">

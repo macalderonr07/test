@@ -106,26 +106,31 @@
   const UNIDADES = {
     "mazinger-z": {
       nombre: "Mazinger Z",
+      pilotoCanonico: "Kouji Kabuto",
       laboratorio: "Instituto de Energía Fotónica (Dr. Kabuto)",
       logo: "https://upload.wikimedia.org/wikipedia/commons/a/a7/Mazinger-z-logo-official2.png",
     },
     "great-mazinger": {
       nombre: "Great Mazinger",
+      pilotoCanonico: "Tetsuya Tsurugi",
       laboratorio: "Instituto de Energía Fotónica — División de Combate Avanzado",
       logo: null,
     },
     grendizer: {
       nombre: "UFO Robot Grendizer",
+      pilotoCanonico: "Duke Fleed",
       laboratorio: "Laboratorio de Energía Fotónica del Dr. Umon",
       logo: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Ufo-robo-grendizer-logo.png",
     },
     "getter-robo": {
       nombre: "Getter Robo",
+      pilotoCanonico: "Ryoma Nagare, Hayato Jin y Musashi Tomoe",
       laboratorio: "Instituto de Investigación Saotome",
       logo: null,
     },
     mazinkaiser: {
       nombre: "Mazinkaiser",
+      pilotoCanonico: "Kouji Kabuto",
       laboratorio: "Instituto Fotón — Programa Mazinkaiser",
       logo: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Mazinkaiser.png",
     },
@@ -143,6 +148,7 @@
   const carnetMechaLogo = document.getElementById("carnet-mecha-logo");
   const carnetMechaPlaceholder = document.getElementById("carnet-mecha-placeholder");
   const carnetMechaNombre = document.getElementById("carnet-mecha-nombre");
+  const carnetMechaPiloto = document.getElementById("carnet-mecha-piloto");
   const carnetId = document.getElementById("carnet-id");
 
   function textoOpcionSeleccionada(select) {
@@ -168,6 +174,7 @@
     if (carnetClase) carnetClase.textContent = etiquetaRadioMarcado("clase_piloto");
     if (carnetLaboratorio) carnetLaboratorio.textContent = unidad ? unidad.laboratorio : "—";
     if (carnetMechaNombre) carnetMechaNombre.textContent = unidad ? unidad.nombre : "—";
+    if (carnetMechaPiloto) carnetMechaPiloto.textContent = unidad ? unidad.pilotoCanonico : "—";
 
     if (carnetMechaLogo && carnetMechaPlaceholder) {
       if (unidad && unidad.logo) {
@@ -201,7 +208,7 @@
 
     if (carnetId) {
       const folio = Math.floor(Math.random() * 90000 + 10000);
-      carnetId.textContent = `Folio de simulación N.º ${folio} · Instituto Fotón`;
+      carnetId.textContent = `Folio de simulación N.º ${folio} · Academia Nagai`;
     }
 
     carnetResultado.hidden = false;
