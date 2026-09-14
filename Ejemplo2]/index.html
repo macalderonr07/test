@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Los súper robots creados por Go Nagai: origen de la saga, ficha técnica de cada unidad y simulador de asignación de piloto del Instituto Fotón, con validaciones nativas de HTML5 y accesibilidad AA.">
+    <title>Súper Robots de Go Nagai | Instituto Fotón</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://images.unsplash.com https://upload.wikimedia.org; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#inicio">Saltar al contenido principal</a>
+
+    <header class="site-header">
+      <div class="container header-content">
+        <a class="brand" href="#inicio" aria-label="Ir al inicio del Instituto Fotón">
+          <span class="brand-mark" aria-hidden="true">IF</span>
+          <span class="brand-text">
+            <span class="brand-name">Instituto Fotón</span>
+            <span class="brand-tagline">Súper Robots de Go Nagai</span>
+          </span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" aria-label="Abrir menú de navegación">
+          <span class="menu-icon" aria-hidden="true">
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+          </span>
+          <span class="visually-hidden">Abrir menú</span>
+        </button>
+
+        <nav class="main-nav" id="main-menu" aria-label="Navegación principal">
+          <a class="nav-link" href="#sobre">La saga</a>
+          <a class="nav-link" href="#ficha-tecnica">Ficha técnica</a>
+          <a class="nav-link" href="#galeria">Galería</a>
+          <a class="nav-link" href="#alistamiento">Simulador</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="inicio" tabindex="-1">
+      <!-- HERO -->
+      <section class="hero-section" aria-labelledby="titulo-principal">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="badge-pill">
+              <span class="badge-dot" aria-hidden="true"></span>
+              <span>Instituto Fotón · Programa de pilotos</span>
+            </p>
+            <h1 id="titulo-principal">Súper Robots de Go Nagai</h1>
+            <p class="lead">
+              Go Nagai creó en 1972 Mazinger Z, el origen del género "super
+              robot": una máquina gigante pilotada desde una cabina, no
+              controlada a distancia. De ahí nació una saga con varias
+              unidades. Completa el simulador del Instituto Fotón y descubre
+              qué unidad pilotarías.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#alistamiento">
+                <span>Ir al simulador de asignación</span>
+                <span class="btn-arrow" aria-hidden="true">↓</span>
+              </a>
+              <a class="button button-secondary" href="#sobre">Conocer la saga</a>
+            </div>
+          </div>
+
+          <figure class="hero-visual">
+            <div class="hero-logos-grid">
+              <div class="hero-logo-frame">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Mazinger-z-logo-official2.png"
+                  alt="Logotipo oficial de Mazinger Z (1972)"
+                  width="590"
+                  height="233"
+                  fetchpriority="high"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                >
+              </div>
+              <div class="hero-logo-frame">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Ufo-robo-grendizer-logo.png"
+                  alt="Logotipo oficial de UFO Robot Grendizer (1975)"
+                  width="590"
+                  height="250"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                >
+              </div>
+              <div class="hero-logo-frame">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Mazinkaiser.png"
+                  alt="Logotipo oficial del OVA Mazinkaiser (2001)"
+                  width="550"
+                  height="250"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                >
+              </div>
+            </div>
+            <figcaption>
+              Logotipos oficiales de la saga (Wikimedia Commons), de dominio
+              público por no superar el umbral de originalidad.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- SOBRE -->
+      <section id="sobre" class="section section-dark" aria-labelledby="titulo-sobre">
+        <div class="container">
+          <div class="section-heading section-heading-dark">
+            <p class="eyebrow">Origen</p>
+            <h2 id="titulo-sobre">¿Qué son los súper robots de Go Nagai?</h2>
+          </div>
+
+          <div class="prose">
+            <p>
+              En 1972 el mangaka Go Nagai creó <cite>Mazinger Z</cite> y con
+              él fundó el género "super robot": el primer robot gigante
+              pilotado desde una cabina interior, en lugar de controlado a
+              distancia como los robots anteriores. A partir de ahí, Nagai
+              (solo o junto a Ken Ishikawa) desarrolló un universo compartido
+              de unidades que el Instituto Fotón usa hoy como base de su
+              programa de pilotos.
+            </p>
+          </div>
+
+          <ul class="robot-timeline">
+            <li class="robot-timeline-item">
+              <figure class="logo-figure">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Mazinger-z-logo-official2.png"
+                  alt="Logotipo oficial de Mazinger Z"
+                  width="590"
+                  height="233"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                >
+              </figure>
+              <p>
+                <strong>Mazinger Z (1972–74).</strong> Pilotado por Kouji
+                Kabuto, es la unidad fundacional de la saga. Arma icónica: el
+                Rocket Punch.
+              </p>
+            </li>
+            <li class="robot-timeline-item">
+              <p>
+                <strong>Great Mazinger (1974–75).</strong> Sucesor de Mazinger
+                Z, pilotado por Tetsuya Tsurugi, con mayor blindaje y potencia
+                de combate.
+              </p>
+            </li>
+            <li class="robot-timeline-item">
+              <figure class="logo-figure">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Ufo-robo-grendizer-logo.png"
+                  alt="Logotipo oficial de UFO Robot Grendizer"
+                  width="590"
+                  height="250"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                >
+              </figure>
+              <p>
+                <strong>UFO Robot Grendizer (1975–77).</strong> Pilotado por
+                Duke Fleed, un príncipe alienígena refugiado en la Tierra;
+                comparte universo con la saga Mazinger.
+              </p>
+            </li>
+            <li class="robot-timeline-item">
+              <p>
+                <strong>Getter Robo (1974, con Ken Ishikawa).</strong> Robot
+                combinable formado por tres naves Getter, pilotado por un
+                equipo de tres personas en vez de una sola.
+              </p>
+            </li>
+            <li class="robot-timeline-item">
+              <figure class="logo-figure">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Mazinkaiser.png"
+                  alt="Logotipo oficial del OVA Mazinkaiser (2001)"
+                  width="550"
+                  height="250"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                >
+              </figure>
+              <p>
+                <strong>Mazinkaiser (2001–03).</strong> Reinterpretación más
+                poderosa de Mazinger Z, con el Kaiser Blade y un núcleo de
+                Energía Fotónica más eficiente. También pilotado por Kouji
+                Kabuto. La serie <cite>Mazinkaiser SKL</cite> (2010–11) narra
+                una versión alternativa y más oscura, en otra línea temporal.
+              </p>
+            </li>
+          </ul>
+
+          <div class="prose">
+            <p class="hint">
+              Los logotipos mostrados son de dominio público por no superar el
+              umbral de originalidad (Wikimedia Commons); los nombres pueden
+              estar protegidos como marca registrada. No se usa arte de
+              personajes con derechos de autor de la franquicia.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FICHA TÉCNICA -->
+      <section id="ficha-tecnica" class="section container" aria-labelledby="titulo-ficha">
+        <div class="section-heading">
+          <p class="eyebrow">Datos de campo</p>
+          <h2 id="titulo-ficha">Ficha técnica</h2>
+        </div>
+
+        <div class="robots-grid">
+          <article class="robot-card">
+            <h3>Mazinger Z</h3>
+            <dl>
+              <div><dt>Piloto</dt><dd>Kouji Kabuto</dd></div>
+              <div><dt>Debut</dt><dd>1972</dd></div>
+              <div><dt>Arma distintiva</dt><dd>Rocket Punch</dd></div>
+            </dl>
+          </article>
+          <article class="robot-card">
+            <h3>Great Mazinger</h3>
+            <dl>
+              <div><dt>Piloto</dt><dd>Tetsuya Tsurugi</dd></div>
+              <div><dt>Debut</dt><dd>1974</dd></div>
+              <div><dt>Arma distintiva</dt><dd>Thunder Break</dd></div>
+            </dl>
+          </article>
+          <article class="robot-card">
+            <h3>UFO Robot Grendizer</h3>
+            <dl>
+              <div><dt>Piloto</dt><dd>Duke Fleed</dd></div>
+              <div><dt>Debut</dt><dd>1975</dd></div>
+              <div><dt>Arma distintiva</dt><dd>Double Harken</dd></div>
+            </dl>
+          </article>
+          <article class="robot-card">
+            <h3>Getter Robo</h3>
+            <dl>
+              <div><dt>Pilotos</dt><dd>Equipo de 3</dd></div>
+              <div><dt>Debut</dt><dd>1974</dd></div>
+              <div><dt>Arma distintiva</dt><dd>Getter Tomahawk</dd></div>
+            </dl>
+          </article>
+          <article class="robot-card">
+            <h3>Mazinkaiser</h3>
+            <dl>
+              <div><dt>Piloto</dt><dd>Kouji Kabuto</dd></div>
+              <div><dt>Debut</dt><dd>2001</dd></div>
+              <div><dt>Arma distintiva</dt><dd>Kaiser Blade</dd></div>
+            </dl>
+          </article>
+        </div>
+
+        <div class="meter-block">
+          <label id="meter-label" for="nivel-fotonico">Nivel de Energía Fotónica de referencia (Mazinkaiser)</label>
+          <meter id="nivel-fotonico" min="0" max="100" value="92" low="30" high="70" optimum="100" aria-labelledby="meter-label">
+            92 de 100
+          </meter>
+          <p class="hint">Valor demostrativo del reactor en condiciones óptimas de combate.</p>
+        </div>
+      </section>
+
+      <!-- GALERÍA -->
+      <section id="galeria" class="section section-dark gallery-section" aria-labelledby="titulo-galeria">
+        <div class="container">
+          <div class="section-heading section-heading-dark">
+            <p class="eyebrow">Referencias visuales</p>
+            <h2 id="titulo-galeria">Galería</h2>
+            <p class="prose">
+              Fotografías ilustrativas con licencia libre, usadas solo como
+              referencia estética del programa de pilotos; ninguna corresponde
+              a material oficial de la franquicia.
+            </p>
+          </div>
+
+          <div class="gallery">
+            <figure class="gallery-card">
+              <div class="gallery-img-container">
+                <img
+                  src="https://images.unsplash.com/photo-1621502822601-b84996c82b79?auto=format&amp;fit=crop&amp;w=900&amp;h=675&amp;q=85"
+                  alt="Escultura de un robot en tonos grises y negros, con formas antropomórficas"
+                  width="900"
+                  height="675"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                >
+              </div>
+              <figcaption>Así imaginamos el acabado metálico de una unidad de combate.</figcaption>
+            </figure>
+            <figure class="gallery-card">
+              <div class="gallery-img-container">
+                <img
+                  src="https://images.unsplash.com/photo-1755547721614-1ba70753ad8d?auto=format&amp;fit=crop&amp;w=900&amp;h=675&amp;q=85"
+                  alt="Panel de control con múltiples interruptores y un botón de parada de emergencia"
+                  width="900"
+                  height="675"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                >
+              </div>
+              <figcaption>La cabina de simulacro exige control preciso de cada interruptor.</figcaption>
+            </figure>
+            <figure class="gallery-card">
+              <div class="gallery-img-container">
+                <img
+                  src="https://images.unsplash.com/photo-1429552077091-836152271555?auto=format&amp;fit=crop&amp;w=900&amp;h=675&amp;q=85"
+                  alt="Rayo eléctrico brillante cayendo desde una nube de tormenta"
+                  width="900"
+                  height="675"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                >
+              </div>
+              <figcaption>La energía que impulsa a estas unidades se libera con la fuerza de una tormenta.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMULARIO -->
+      <section id="alistamiento" class="section section-light" aria-labelledby="titulo-alistamiento">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Instituto Fotón</p>
+            <h2 id="titulo-alistamiento">Simulador de asignación de piloto</h2>
+            <p>
+              Completa la simulación para descubrir qué súper robot de la
+              saga de Go Nagai pilotarías en el Instituto Fotón. Al final
+              recibirás tu carnet de piloto con la unidad asignada. Los
+              campos marcados como obligatorios deben completarse con el
+              formato indicado; el navegador validará el formulario
+              automáticamente antes de enviarlo.
+            </p>
+          </div>
+
+          <form id="form-alistamiento" novalidate aria-labelledby="titulo-alistamiento">
+            <input type="hidden" name="formulario_id" value="simulador-superrobots-v1">
+
+            <!-- DATOS PERSONALES -->
+            <fieldset class="form-fieldset">
+              <legend>Datos personales</legend>
+
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="nombre">
+                    Nombre completo
+                    <span class="required" aria-hidden="true">*</span>
+                    <span class="visually-hidden">(obligatorio)</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    required
+                    minlength="3"
+                    maxlength="60"
+                    pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s]{3,60}"
+                    autocomplete="name"
+                    aria-describedby="nombre-hint"
+                    placeholder="Ej: Kouji Kabuto"
+                  >
+                  <p id="nombre-hint" class="hint">Solo letras y espacios, entre 3 y 60 caracteres.</p>
+                </div>
+
+                <div class="form-field">
+                  <label for="correo">
+                    Correo de contacto
+                    <span class="required" aria-hidden="true">*</span>
+                    <span class="visually-hidden">(obligatorio)</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    required
+                    autocomplete="email"
+                    aria-describedby="correo-hint"
+                    placeholder="piloto@institutofoton.jp"
+                  >
+                  <p id="correo-hint" class="hint">Formato: nombre@dominio.com</p>
+                </div>
+
+                <div class="form-field">
+                  <label for="telefono">Teléfono</label>
+                  <input
+                    type="tel"
+                    id="telefono"
+                    name="telefono"
+                    pattern="[0-9+\s()-]{7,15}"
+                    autocomplete="tel"
+                    aria-describedby="telefono-hint"
+                    placeholder="+34 600 123 456"
+                  >
+                  <p id="telefono-hint" class="hint">Entre 7 y 15 caracteres: números, espacios, +, - o paréntesis.</p>
+                </div>
+
+                <div class="form-field">
+                  <label for="fecha-nacimiento">
+                    Fecha de nacimiento
+                    <span class="required" aria-hidden="true">*</span>
+                    <span class="visually-hidden">(obligatorio)</span>
+                  </label>
+                  <input
+                    type="date"
+                    id="fecha-nacimiento"
+                    name="fecha_nacimiento"
+                    required
+                    autocomplete="bday"
+                    aria-describedby="fecha-nacimiento-hint"
+                  >
+                  <p id="fecha-nacimiento-hint" class="hint">Debes tener al menos 16 años.</p>
+                </div>
+
+                <div class="form-field">
+                  <label for="portafolio">Portafolio o canal</label>
+                  <input
+                    type="url"
+                    id="portafolio"
+                    name="portafolio"
+                    aria-describedby="portafolio-hint"
+                    placeholder="https://ejemplo.com/piloto"
+                  >
+                  <p id="portafolio-hint" class="hint">URL completa, incluyendo https://</p>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- SELECCIÓN DE MECHA -->
+            <fieldset class="form-fieldset">
+              <legend>
+                Elige tu unidad de combate
+                <span class="required" aria-hidden="true">*</span>
+                <span class="visually-hidden">(obligatorio)</span>
+              </legend>
+
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" id="mecha-mazinger-z" name="unidad_elegida" value="mazinger-z" required>
+                  <label for="mecha-mazinger-z">Mazinger Z</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="mecha-great-mazinger" name="unidad_elegida" value="great-mazinger" required>
+                  <label for="mecha-great-mazinger">Great Mazinger</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="mecha-grendizer" name="unidad_elegida" value="grendizer" required>
+                  <label for="mecha-grendizer">UFO Robot Grendizer</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="mecha-getter-robo" name="unidad_elegida" value="getter-robo" required>
+                  <label for="mecha-getter-robo">Getter Robo</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="mecha-mazinkaiser" name="unidad_elegida" value="mazinkaiser" required>
+                  <label for="mecha-mazinkaiser">Mazinkaiser</label>
+                </div>
+              </div>
+              <p class="hint">Esta será la unidad que aparezca en tu carnet de piloto al final de la simulación.</p>
+            </fieldset>
+
+            <!-- CREDENCIALES -->
+            <fieldset class="form-fieldset">
+              <legend>Credenciales de acceso al simulador</legend>
+
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="clave">
+                    Contraseña
+                    <span class="required" aria-hidden="true">*</span>
+                    <span class="visually-hidden">(obligatorio)</span>
+                  </label>
+                  <div class="input-with-button">
+                    <input
+                      type="password"
+                      id="clave"
+                      name="clave"
+                      required
+                      minlength="8"
+                      pattern="(?=.*[A-Za-z])(?=.*\d).{8,}"
+                      autocomplete="new-password"
+                      aria-describedby="clave-hint"
+                    >
+                    <button type="button" class="toggle-password" data-target="clave" aria-pressed="false">
+                      <span class="toggle-text">Mostrar</span>
+                      <span class="visually-hidden"> contraseña</span>
+                    </button>
+                  </div>
+                  <p id="clave-hint" class="hint">Mínimo 8 caracteres, con al menos una letra y un número.</p>
+                </div>
+
+                <div class="form-field">
+                  <label for="clave-confirmar">
+                    Confirmar contraseña
+                    <span class="required" aria-hidden="true">*</span>
+                    <span class="visually-hidden">(obligatorio)</span>
+                  </label>
+                  <div class="input-with-button">
+                    <input
+                      type="password"
+                      id="clave-confirmar"
+                      name="clave_confirmar"
+                      required
+                      autocomplete="new-password"
+                      aria-describedby="clave-confirmar-hint"
+                    >
+                    <button type="button" class="toggle-password" data-target="clave-confirmar" aria-pressed="false">
+                      <span class="toggle-text">Mostrar</span>
+                      <span class="visually-hidden"> contraseña</span>
+                    </button>
+                  </div>
+                  <p id="clave-confirmar-hint" class="hint">Debe coincidir exactamente con la contraseña anterior.</p>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- PILOTO Y UNIDAD -->
+            <fieldset class="form-fieldset">
+              <legend>Piloto y unidad</legend>
+
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="experiencia">Años de experiencia en simulacro</label>
+                  <input
+                    type="number"
+                    id="experiencia"
+                    name="experiencia"
+                    min="0"
+                    max="50"
+                    step="1"
+                    inputmode="numeric"
+                    aria-describedby="experiencia-hint"
+                  >
+                  <p id="experiencia-hint" class="hint">Entre 0 y 50 años.</p>
+                </div>
+
+                <div class="form-field">
+                  <label for="sincronizacion">Nivel de sincronización con la Energía Fotónica</label>
+                  <div class="range-row">
+                    <input
+                      type="range"
+                      id="sincronizacion"
+                      name="sincronizacion"
+                      min="0"
+                      max="100"
+                      step="5"
+                      value="50"
+                      aria-describedby="sincronizacion-hint"
+                    >
+                    <output id="sincronizacion-valor" for="sincronizacion">50%</output>
+                  </div>
+                  <p id="sincronizacion-hint" class="hint">Autoevaluación del 0 al 100 %.</p>
+                </div>
+
+                <div class="form-field">
+                  <label for="color-armadura">Color de armadura personalizada</label>
+                  <input
+                    type="color"
+                    id="color-armadura"
+                    name="color_armadura"
+                    value="#c81d25"
+                    aria-describedby="color-armadura-hint"
+                  >
+                  <p id="color-armadura-hint" class="hint">Elige el color principal de tu unidad.</p>
+                </div>
+
+                <div class="form-field">
+                  <label for="mes-inicio">Mes de inicio de entrenamiento</label>
+                  <input type="month" id="mes-inicio" name="mes_inicio">
+                </div>
+
+                <div class="form-field">
+                  <label for="semana-evaluacion">Semana de evaluación médica</label>
+                  <input type="week" id="semana-evaluacion" name="semana_evaluacion">
+                </div>
+
+                <div class="form-field">
+                  <label for="horario-simulacro">Horario preferido de simulacro</label>
+                  <input type="time" id="horario-simulacro" name="horario_simulacro">
+                </div>
+
+                <div class="form-field">
+                  <label for="fecha-entrevista">Fecha y hora de la entrevista</label>
+                  <input
+                    type="datetime-local"
+                    id="fecha-entrevista"
+                    name="fecha_entrevista"
+                    aria-describedby="fecha-entrevista-hint"
+                  >
+                  <p id="fecha-entrevista-hint" class="hint">Debe ser una fecha futura.</p>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- PREFERENCIAS Y HABILIDADES -->
+            <fieldset class="form-fieldset">
+              <legend>
+                Clase de piloto preferida
+                <span class="required" aria-hidden="true">*</span>
+                <span class="visually-hidden">(obligatorio)</span>
+              </legend>
+
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" id="clase-combate" name="clase_piloto" value="combate" required>
+                  <label for="clase-combate">Combate cuerpo a cuerpo</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="clase-artilleria" name="clase_piloto" value="artilleria" required>
+                  <label for="clase-artilleria">Artillería a distancia</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="clase-soporte" name="clase_piloto" value="soporte" required>
+                  <label for="clase-soporte">Soporte táctico</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-fieldset">
+              <legend>Habilidades adicionales</legend>
+
+              <div class="checkbox-group">
+                <div class="checkbox-option">
+                  <input type="checkbox" id="skill-pilotaje" name="habilidades" value="pilotaje">
+                  <label for="skill-pilotaje">Pilotaje avanzado</label>
+                </div>
+                <div class="checkbox-option">
+                  <input type="checkbox" id="skill-mantenimiento" name="habilidades" value="mantenimiento">
+                  <label for="skill-mantenimiento">Mantenimiento mecánico</label>
+                </div>
+                <div class="checkbox-option">
+                  <input type="checkbox" id="skill-estrategia" name="habilidades" value="estrategia">
+                  <label for="skill-estrategia">Estrategia de combate</label>
+                </div>
+                <div class="checkbox-option">
+                  <input type="checkbox" id="skill-comunicaciones" name="habilidades" value="comunicaciones">
+                  <label for="skill-comunicaciones">Comunicaciones</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-fieldset">
+              <legend>Motivación y perfil</legend>
+
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="rango">
+                    Rango militar deseado
+                    <span class="required" aria-hidden="true">*</span>
+                    <span class="visually-hidden">(obligatorio)</span>
+                  </label>
+                  <select id="rango" name="rango" required aria-describedby="rango-hint">
+                    <option value="">Selecciona un rango</option>
+                    <optgroup label="Rangos de entrada">
+                      <option value="cadete">Cadete</option>
+                      <option value="teniente">Teniente</option>
+                    </optgroup>
+                    <optgroup label="Rangos avanzados">
+                      <option value="capitan">Capitán</option>
+                      <option value="comandante">Comandante</option>
+                    </optgroup>
+                  </select>
+                  <p id="rango-hint" class="hint">Selecciona una opción de la lista.</p>
+                </div>
+
+                <div class="form-field form-field-wide">
+                  <label for="foto">Fotografía de identificación</label>
+                  <input
+                    type="file"
+                    id="foto"
+                    name="foto"
+                    accept="image/png, image/jpeg, image/webp"
+                    aria-describedby="foto-hint"
+                  >
+                  <p id="foto-hint" class="hint">Formatos admitidos: PNG, JPG o WEBP.</p>
+                </div>
+
+                <div class="form-field form-field-wide">
+                  <label for="motivacion">
+                    Carta de motivación
+                    <span class="required" aria-hidden="true">*</span>
+                    <span class="visually-hidden">(obligatorio)</span>
+                  </label>
+                  <textarea
+                    id="motivacion"
+                    name="motivacion"
+                    required
+                    minlength="20"
+                    maxlength="500"
+                    rows="5"
+                    aria-describedby="motivacion-hint motivacion-contador"
+                  ></textarea>
+                  <p id="motivacion-hint" class="hint">Entre 20 y 500 caracteres.</p>
+                  <p id="motivacion-contador" class="hint" aria-live="polite">500 caracteres restantes</p>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-fieldset">
+              <legend>Confirmación</legend>
+
+              <div class="checkbox-option">
+                <input type="checkbox" id="terminos" name="terminos" required aria-describedby="terminos-hint">
+                <label for="terminos">
+                  Acepto los términos del Instituto Fotón y el reglamento de pilotaje
+                  <span class="required" aria-hidden="true">*</span>
+                  <span class="visually-hidden">(obligatorio)</span>
+                </label>
+              </div>
+              <p id="terminos-hint" class="hint">Debes aceptar el reglamento para continuar.</p>
+            </fieldset>
+
+            <div class="form-actions">
+              <button type="reset" class="button button-secondary">Limpiar formulario</button>
+              <button type="submit" class="button button-primary">Simular asignación</button>
+            </div>
+
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="carnet-resultado" id="carnet-resultado" hidden>
+            <h3 id="carnet-titulo" tabindex="-1">Resultado de la simulación: tu carnet de piloto</h3>
+            <div class="carnet" aria-labelledby="carnet-titulo">
+              <div class="carnet-header">
+                <span class="carnet-instituto">Instituto Fotón</span>
+                <span class="carnet-tipo">Carnet de piloto</span>
+              </div>
+
+              <div class="carnet-body">
+                <div class="carnet-foto">
+                  <img id="carnet-foto-piloto" alt="Fotografía de identificación del piloto" hidden>
+                  <span id="carnet-foto-placeholder" class="carnet-foto-placeholder" aria-hidden="true">Sin foto</span>
+                </div>
+                <dl class="carnet-datos">
+                  <div><dt>Piloto</dt><dd id="carnet-nombre">—</dd></div>
+                  <div><dt>Rango</dt><dd id="carnet-rango">—</dd></div>
+                  <div><dt>Clase</dt><dd id="carnet-clase">—</dd></div>
+                  <div><dt>Laboratorio</dt><dd id="carnet-laboratorio">—</dd></div>
+                </dl>
+              </div>
+
+              <div class="carnet-mecha">
+                <div class="carnet-mecha-imagen">
+                  <img id="carnet-mecha-logo" alt="" hidden>
+                  <span id="carnet-mecha-placeholder" class="carnet-mecha-placeholder" aria-hidden="true"></span>
+                </div>
+                <p class="carnet-mecha-linea">Mecha asignada: <strong id="carnet-mecha-nombre">—</strong></p>
+              </div>
+
+              <p class="carnet-id" id="carnet-id"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div class="footer-info">
+          <p class="footer-title"><strong>Instituto Fotón · Súper Robots de Go Nagai</strong></p>
+          <p class="footer-desc">Proyecto educativo creado con HTML, CSS y JavaScript vanilla.</p>
+        </div>
+        <a class="back-to-top" href="#inicio">
+          <span>Volver al inicio</span>
+          <span class="top-arrow" aria-hidden="true">↑</span>
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>
