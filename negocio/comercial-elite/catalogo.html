@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de insumos — Comercial Elite</title>
+  <meta name="description" content="Catálogo filtrable de cueros, sintéticos, suelas, plantillas, hilos, adhesivos, herrajes y herramienta menor de Comercial Elite.">
+  <link rel="canonical" href="https://www.comercialelite.com/catalogo.html">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="sitio-header">
+    <div class="envoltorio barra-header">
+      <a class="logo-enlace" href="index.html">
+        <img src="assets/img/logo.svg" alt="Comercial Elite" width="180" height="68">
+      </a>
+      <nav class="nav-principal" aria-label="Principal">
+        <button type="button" class="boton-menu" id="botonMenu" aria-expanded="false" aria-controls="listaNav">
+          <span aria-hidden="true">☰</span> Menú
+        </button>
+        <ul class="lista-nav" id="listaNav">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html" aria-current="page">Catálogo</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <a class="telefono-header" href="tel:+593999999999">
+        <span aria-hidden="true">📞</span> 099&nbsp;999&nbsp;9999
+      </a>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <nav class="migas envoltorio" aria-label="Miga de pan">
+      <ol>
+        <li><a href="index.html">Inicio</a></li>
+        <li aria-current="page">Catálogo</li>
+      </ol>
+    </nav>
+
+    <div class="envoltorio seccion seccion--sin-relleno-superior">
+      <h1>Catálogo de insumos</h1>
+
+      <div class="catalogo-layout">
+        <details class="aside-filtros" data-plegable open>
+          <summary>Filtrar productos</summary>
+          <div class="filtros-contenido">
+            <div class="campo-buscar">
+              <label for="buscador">Buscar por nombre o código</label>
+              <input type="search" id="buscador" name="buscador" placeholder="Ej. cuero, CE-1042…" autocomplete="off">
+            </div>
+            <fieldset id="filtroCategoria">
+              <legend>Categoría</legend>
+              <!-- Las opciones se generan desde data/catalogo.json (menu.js las deja listas, catalogo.js las puebla) -->
+            </fieldset>
+            <button type="button" class="boton boton--secundario boton-limpiar" id="botonLimpiar">Limpiar filtros</button>
+          </div>
+        </details>
+
+        <div>
+          <p class="texto-contador" id="contadorResultados" role="status" aria-live="polite">Cargando catálogo…</p>
+          <ul class="rejilla rejilla--productos" id="rejillaProductos" aria-busy="true">
+          </ul>
+          <p id="sinResultados" hidden>No encontramos productos con ese filtro. <button type="button" class="boton boton--secundario" id="botonLimpiarAlterno">Limpiar filtros</button></p>
+          <p id="errorCarga" role="alert" hidden>
+            No pudimos cargar el catálogo en este momento. Puedes
+            <a href="assets/catalogo.pdf">descargar el catálogo en PDF</a>
+            o <a href="https://wa.me/593999999999?text=Hola%2C%20quiero%20el%20catálogo%20de%20Comercial%20Elite">pedirlo por WhatsApp</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="sitio-footer">
+    <div class="envoltorio footer-rejilla">
+      <div>
+        <h2>Comercial Elite</h2>
+        <address>
+          Calle Los Curtidores N45-12 y Av. de los Talabarteros, Quito, Ecuador<br>
+          <a href="tel:+593999999999">099&nbsp;999&nbsp;9999</a> (WhatsApp)<br>
+          <a href="mailto:ventas@comercialelite.com">ventas@comercialelite.com</a>
+        </address>
+      </div>
+      <div>
+        <h2>Horario</h2>
+        <ul>
+          <li>Lunes a viernes: 08:30 – 18:00</li>
+          <li>Sábado: 09:00 – 13:00</li>
+        </ul>
+        <p><a href="assets/catalogo.pdf">Descargar catálogo (PDF, 4 KB)</a></p>
+      </div>
+      <div>
+        <h2>Síguenos</h2>
+        <ul class="lista-inline">
+          <li><a href="https://www.facebook.com/comercialelite" target="_blank" rel="noopener noreferrer">Facebook <span class="solo-lectores">(se abre en una pestaña nueva)</span></a></li>
+          <li><a href="https://www.instagram.com/comercialelite" target="_blank" rel="noopener noreferrer">Instagram <span class="solo-lectores">(se abre en una pestaña nueva)</span></a></li>
+        </ul>
+        <p><a href="contacto.html">Cómo llegar y contacto</a></p>
+      </div>
+    </div>
+    <div class="footer-legal envoltorio">
+      <p>© 2026 Comercial Elite. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/menu.js"></script>
+  <script src="js/catalogo.js"></script>
+</body>
+</html>

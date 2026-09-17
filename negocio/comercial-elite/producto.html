@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ficha de producto — Comercial Elite</title>
+  <meta name="description" id="descripcionPagina" content="Ficha de producto de Comercial Elite: código, presentación, colores y uso típico.">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="sitio-header">
+    <div class="envoltorio barra-header">
+      <a class="logo-enlace" href="index.html">
+        <img src="assets/img/logo.svg" alt="Comercial Elite" width="180" height="68">
+      </a>
+      <nav class="nav-principal" aria-label="Principal">
+        <button type="button" class="boton-menu" id="botonMenu" aria-expanded="false" aria-controls="listaNav">
+          <span aria-hidden="true">☰</span> Menú
+        </button>
+        <ul class="lista-nav" id="listaNav">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html" aria-current="page">Catálogo</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <a class="telefono-header" href="tel:+593999999999">
+        <span aria-hidden="true">📞</span> 099&nbsp;999&nbsp;9999
+      </a>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <nav class="migas envoltorio" aria-label="Miga de pan" id="migas">
+      <ol>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li aria-current="page" id="migaProducto">Producto</li>
+      </ol>
+    </nav>
+
+    <div class="envoltorio seccion seccion--sin-relleno-superior">
+      <div id="estadoCarga">Cargando ficha de producto…</div>
+
+      <article id="fichaProducto" class="ficha-producto" hidden>
+        <div class="ficha-producto__galeria">
+          <figure id="figuraPrincipal">
+          </figure>
+        </div>
+        <div>
+          <h1 id="nombreProducto">Cargando producto…</h1>
+          <dl>
+            <div>
+              <dt>Código</dt>
+              <dd id="codigoProducto"></dd>
+            </div>
+            <div>
+              <dt>Presentación</dt>
+              <dd id="presentacionProducto"></dd>
+            </div>
+            <div>
+              <dt>Colores disponibles</dt>
+              <dd id="coloresProducto"></dd>
+            </div>
+            <div>
+              <dt>Uso típico</dt>
+              <dd id="usoProducto"></dd>
+            </div>
+          </dl>
+          <div class="hero__acciones">
+            <a class="boton boton--primario" id="enlaceWhatsApp" href="#" target="_blank" rel="noopener noreferrer">
+              Cotizar por WhatsApp <span class="solo-lectores">(se abre en una pestaña nueva)</span>
+            </a>
+            <a class="boton boton--secundario" id="enlaceCorreo" href="#">Solicitar por correo</a>
+          </div>
+        </div>
+      </article>
+
+      <p id="errorProducto" role="alert" hidden>
+        No encontramos ese producto. Puede haber cambiado de código o haber sido retirado del catálogo.
+        <a href="catalogo.html">Volver al catálogo</a>.
+      </p>
+
+      <section id="seccionRelacionados" aria-labelledby="tituloRelacionados" hidden>
+        <h2 id="tituloRelacionados">Productos relacionados</h2>
+        <ul class="rejilla rejilla--productos" id="rejillaRelacionados"></ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="sitio-footer">
+    <div class="envoltorio footer-rejilla">
+      <div>
+        <h2>Comercial Elite</h2>
+        <address>
+          Calle Los Curtidores N45-12 y Av. de los Talabarteros, Quito, Ecuador<br>
+          <a href="tel:+593999999999">099&nbsp;999&nbsp;9999</a> (WhatsApp)<br>
+          <a href="mailto:ventas@comercialelite.com">ventas@comercialelite.com</a>
+        </address>
+      </div>
+      <div>
+        <h2>Horario</h2>
+        <ul>
+          <li>Lunes a viernes: 08:30 – 18:00</li>
+          <li>Sábado: 09:00 – 13:00</li>
+        </ul>
+        <p><a href="assets/catalogo.pdf">Descargar catálogo (PDF, 4 KB)</a></p>
+      </div>
+      <div>
+        <h2>Síguenos</h2>
+        <ul class="lista-inline">
+          <li><a href="https://www.facebook.com/comercialelite" target="_blank" rel="noopener noreferrer">Facebook <span class="solo-lectores">(se abre en una pestaña nueva)</span></a></li>
+          <li><a href="https://www.instagram.com/comercialelite" target="_blank" rel="noopener noreferrer">Instagram <span class="solo-lectores">(se abre en una pestaña nueva)</span></a></li>
+        </ul>
+        <p><a href="contacto.html">Cómo llegar y contacto</a></p>
+      </div>
+    </div>
+    <div class="footer-legal envoltorio">
+      <p>© 2026 Comercial Elite. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/menu.js"></script>
+  <script src="js/producto.js"></script>
+</body>
+</html>

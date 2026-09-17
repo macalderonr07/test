@@ -1,0 +1,57 @@
+/*
+  Paleta y escala tipográfica de Comercial Elite.
+  Contraste verificado contra fondo blanco (#FFFFFF), ver documento
+  "Comercial Elite — Análisis y propuesta de plataforma web de catálogo".
+*/
+:root {
+  /* Color: verde de marca y derivados */
+  --verde-marca: #2f731f;   /* 5.84:1 — logo, enlaces, fondo de botón primario */
+  --verde-oscuro: #1f4d14;  /* 9.86:1 — encabezados, hover de enlaces, anillo de foco */
+  --verde-medio: #245e17;   /* 7.81:1 — hover / activo del botón primario */
+  --verde-tenue: #e3efe0;   /* fondo de secciones alternas, chips, filas de tabla */
+  --color-texto: #1a1a1a;   /* 17.4:1 */
+  --color-fondo: #ffffff;
+  --color-borde: #8fbf7f;   /* 2.12:1 — nunca es el único indicador de un campo */
+  --color-error: #b3261e;   /* 5.9:1 sobre blanco */
+  --color-error-fondo: #fbeceb;
+
+  /* Tipografía: sans geométrica del sistema, sin descarga de fuentes */
+  --fuente-base: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --tamano-texto: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  --tamano-pequeno: clamp(0.875rem, 0.85rem + 0.15vw, 0.95rem);
+  --tamano-h1: clamp(1.75rem, 1.4rem + 1.8vw, 2.75rem);
+  --tamano-h2: clamp(1.375rem, 1.2rem + 1vw, 1.875rem);
+  --tamano-h3: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+  --interlineado: 1.55;
+  --letter-spacing-titulo: 0.01em;
+
+  /* Espaciado */
+  --espacio-xs: 0.5rem;
+  --espacio-sm: 0.75rem;
+  --espacio-md: 1.25rem;
+  --espacio-lg: 2rem;
+  --espacio-xl: 3.5rem;
+
+  /* Estructura */
+  --ancho-maximo: 72rem;
+  --radio-borde: 0.5rem;
+  --sombra-tarjeta: 0 1px 3px rgba(26, 26, 26, 0.12);
+  --duracion-transicion: 0.18s;
+
+  /* Objetivo táctil mínimo recomendado (WCAG 2.5.8) */
+  --objetivo-tactil: 44px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-texto: #eef3ec;
+    --color-fondo: #10160f;
+    --verde-tenue: #17301a;
+    --color-borde: #3f6b34;
+    --verde-marca: #57b13c;
+    --verde-oscuro: #8fdc7a;
+    --verde-medio: #6fce55;
+    --color-error: #ff8a80;
+    --color-error-fondo: #3a1613;
+  }
+}

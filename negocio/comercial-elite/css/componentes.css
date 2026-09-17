@@ -1,0 +1,319 @@
+/* Botones */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  min-height: var(--objetivo-tactil);
+  padding: 0.65em 1.4em;
+  border-radius: var(--radio-borde);
+  border: 2px solid transparent;
+  font-weight: 700;
+  font-size: var(--tamano-texto);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--duracion-transicion) ease,
+    color var(--duracion-transicion) ease;
+}
+
+.boton--primario {
+  background: var(--verde-marca);
+  color: #fff;
+}
+
+.boton--primario:hover,
+.boton--primario:focus-visible {
+  background: var(--verde-medio);
+  color: #fff;
+}
+
+.boton--secundario {
+  background: var(--color-fondo);
+  color: var(--verde-oscuro);
+  border-color: var(--verde-oscuro);
+}
+
+.boton--secundario:hover,
+.boton--secundario:focus-visible {
+  background: var(--verde-tenue);
+  color: var(--verde-oscuro);
+}
+
+.boton--bloque {
+  width: 100%;
+}
+
+/* Tarjetas de categoría */
+.tarjeta-categoria {
+  display: block;
+  background: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  padding: var(--espacio-md);
+  text-align: center;
+  text-decoration: none;
+  box-shadow: var(--sombra-tarjeta);
+  transition: transform var(--duracion-transicion) ease;
+}
+
+.tarjeta-categoria:hover,
+.tarjeta-categoria:focus-visible {
+  transform: translateY(-2px);
+}
+
+.tarjeta-categoria__icono {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-inline: auto;
+  margin-bottom: var(--espacio-xs);
+  color: var(--verde-marca);
+}
+
+.tarjeta-categoria h3 {
+  margin-bottom: 0;
+  font-size: var(--tamano-texto);
+}
+
+/* Tarjetas de producto (artículos del catálogo) */
+.tarjeta-producto {
+  background: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+  box-shadow: var(--sombra-tarjeta);
+  display: flex;
+  flex-direction: column;
+}
+
+.tarjeta-producto figure {
+  margin: 0;
+  background: var(--verde-tenue);
+}
+
+.tarjeta-producto__cuerpo {
+  padding: var(--espacio-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+  flex-grow: 1;
+}
+
+.tarjeta-producto h3 {
+  font-size: var(--tamano-texto);
+  margin-bottom: 0;
+}
+
+.tarjeta-producto h3 a {
+  text-decoration: none;
+  color: var(--verde-oscuro);
+}
+
+.tarjeta-producto h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.tarjeta-producto {
+  position: relative;
+}
+
+.tarjeta-producto__meta {
+  color: var(--color-texto);
+  font-size: var(--tamano-pequeno);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  background: var(--verde-tenue);
+  color: var(--verde-oscuro);
+  border: 1px solid var(--color-borde);
+  border-radius: 999px;
+  padding: 0.15em 0.75em;
+  font-size: var(--tamano-pequeno);
+  font-weight: 600;
+}
+
+.chip--novedad::before {
+  content: "●";
+  font-size: 0.7em;
+}
+
+/* Filtros del catálogo */
+.filtros-contenido fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 var(--espacio-md);
+}
+
+.filtros-contenido legend {
+  font-weight: 700;
+  color: var(--verde-oscuro);
+  padding: 0;
+  margin-bottom: var(--espacio-xs);
+}
+
+.opcion-filtro {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  min-height: 2.25rem;
+}
+
+.opcion-filtro input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--verde-oscuro);
+}
+
+.campo-buscar {
+  margin-bottom: var(--espacio-md);
+}
+
+.campo-buscar label {
+  display: block;
+  font-weight: 700;
+  color: var(--verde-oscuro);
+  margin-bottom: 0.35em;
+}
+
+.boton-limpiar {
+  margin-top: var(--espacio-xs);
+}
+
+/* Campos de texto y formularios (contacto, búsqueda) */
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  min-height: var(--objetivo-tactil);
+  padding: 0.6em 0.8em;
+  font: inherit;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+}
+
+textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  border-color: var(--verde-oscuro);
+}
+
+.campo {
+  margin-bottom: var(--espacio-md);
+}
+
+.campo label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.35em;
+}
+
+.campo .indicacion {
+  display: block;
+  font-size: var(--tamano-pequeno);
+  color: var(--color-texto);
+  margin-bottom: 0.35em;
+}
+
+.campo[data-invalido] input,
+.campo[data-invalido] textarea {
+  border-color: var(--color-error);
+  background: var(--color-error-fondo);
+}
+
+.campo__error {
+  display: block;
+  color: var(--color-error);
+  font-weight: 600;
+  font-size: var(--tamano-pequeno);
+  margin-top: 0.35em;
+}
+
+.campo__error:empty {
+  display: none;
+}
+
+.mensaje-estado {
+  border-radius: var(--radio-borde);
+  padding: var(--espacio-md);
+  margin-bottom: var(--espacio-md);
+  border: 2px solid var(--verde-oscuro);
+  background: var(--verde-tenue);
+}
+
+.mensaje-estado[data-tipo="error"] {
+  border-color: var(--color-error);
+  background: var(--color-error-fondo);
+}
+
+/* Ficha de producto: pares término/definición */
+.ficha-producto dl {
+  margin: var(--espacio-md) 0;
+}
+
+.ficha-producto dl > div {
+  display: flex;
+  gap: var(--espacio-sm);
+  padding-block: 0.4em;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.ficha-producto dt {
+  flex: 0 0 9rem;
+  font-weight: 700;
+  color: var(--verde-oscuro);
+}
+
+.ficha-producto dd {
+  margin: 0;
+}
+
+/* Novedades */
+.lista-novedades li {
+  display: flex;
+  gap: var(--espacio-sm);
+  align-items: baseline;
+  padding-block: var(--espacio-xs);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.lista-novedades time {
+  color: var(--verde-oscuro);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Utilidades */
+.texto-contador {
+  font-weight: 600;
+  margin-bottom: var(--espacio-sm);
+}
+
+.lista-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-sm);
+}
+
+.seccion--sin-relleno-superior {
+  padding-top: 0;
+}
+
+.espacio-superior {
+  margin-top: var(--espacio-md);
+}
+
+.indicacion--en-linea {
+  display: inline;
+}

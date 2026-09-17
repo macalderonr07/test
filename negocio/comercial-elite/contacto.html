@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto — Comercial Elite</title>
+  <meta name="description" content="Teléfono, WhatsApp, correo, dirección, horario y formulario de cotización de Comercial Elite en Quito.">
+  <link rel="canonical" href="https://www.comercialelite.com/contacto.html">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Comercial Elite",
+    "telephone": "+593999999999",
+    "email": "ventas@comercialelite.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle Los Curtidores N45-12 y Av. de los Talabarteros",
+      "addressLocality": "Quito",
+      "addressCountry": "EC"
+    },
+    "url": "https://www.comercialelite.com/contacto.html"
+  }
+  </script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="sitio-header">
+    <div class="envoltorio barra-header">
+      <a class="logo-enlace" href="index.html">
+        <img src="assets/img/logo.svg" alt="Comercial Elite" width="180" height="68">
+      </a>
+      <nav class="nav-principal" aria-label="Principal">
+        <button type="button" class="boton-menu" id="botonMenu" aria-expanded="false" aria-controls="listaNav">
+          <span aria-hidden="true">☰</span> Menú
+        </button>
+        <ul class="lista-nav" id="listaNav">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+        </ul>
+      </nav>
+      <a class="telefono-header" href="tel:+593999999999">
+        <span aria-hidden="true">📞</span> 099&nbsp;999&nbsp;9999
+      </a>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <nav class="migas envoltorio" aria-label="Miga de pan">
+      <ol>
+        <li><a href="index.html">Inicio</a></li>
+        <li aria-current="page">Contacto</li>
+      </ol>
+    </nav>
+
+    <div class="envoltorio seccion seccion--sin-relleno-superior">
+      <h1>Contacto</h1>
+
+      <div class="contacto-layout">
+        <section aria-labelledby="titulo-formulario">
+          <h2 id="titulo-formulario">Solicitar cotización</h2>
+          <p id="estadoFormulario" class="mensaje-estado" role="alert" hidden></p>
+          <form id="formularioContacto" novalidate>
+            <div class="campo">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" autocomplete="name" required aria-describedby="errorNombre">
+              <span class="campo__error" id="errorNombre"></span>
+            </div>
+
+            <div class="campo">
+              <label for="correo">Correo electrónico</label>
+              <input type="email" id="correo" name="correo" autocomplete="email" required aria-describedby="indicacionCorreo errorCorreo">
+              <span class="indicacion" id="indicacionCorreo">Ejemplo: nombre@empresa.com</span>
+              <span class="campo__error" id="errorCorreo"></span>
+            </div>
+
+            <div class="campo">
+              <label for="telefono">Teléfono <span class="indicacion indicacion--en-linea">(opcional)</span></label>
+              <input type="tel" id="telefono" name="telefono" autocomplete="tel" aria-describedby="indicacionTelefono errorTelefono" placeholder="0999999999">
+              <span class="indicacion" id="indicacionTelefono">Solo números, entre 7 y 10 dígitos</span>
+              <span class="campo__error" id="errorTelefono"></span>
+            </div>
+
+            <div class="campo">
+              <label for="mensaje">Mensaje</label>
+              <span class="indicacion" id="indicacionMensaje">Cuéntanos qué producto o línea te interesa</span>
+              <textarea id="mensaje" name="mensaje" required aria-describedby="indicacionMensaje errorMensaje"></textarea>
+              <span class="campo__error" id="errorMensaje"></span>
+            </div>
+
+            <button type="submit" class="boton boton--primario boton--bloque">Enviar solicitud</button>
+          </form>
+        </section>
+
+        <section aria-labelledby="titulo-datos">
+          <h2 id="titulo-datos">Datos de contacto</h2>
+          <address>
+            Calle Los Curtidores N45-12 y Av. de los Talabarteros, Quito, Ecuador<br>
+            <a href="tel:+593999999999">📞&nbsp;099&nbsp;999&nbsp;9999&nbsp;(WhatsApp)</a><br>
+            <a href="tel:+59320000000">📞&nbsp;(02)&nbsp;000&nbsp;0000</a><br>
+            <a href="mailto:ventas@comercialelite.com">✉ ventas@comercialelite.com</a>
+          </address>
+          <p>
+            <strong>Horario:</strong><br>
+            Lunes a viernes: 08:30 – 18:00<br>
+            Sábado: 09:00 – 13:00
+          </p>
+
+          <div class="mapa-envoltorio">
+            <iframe
+              src="https://www.google.com/maps?q=Calle%20Los%20Curtidores%20N45-12%2C%20Quito%2C%20Ecuador&output=embed"
+              title="Mapa de ubicación de Comercial Elite en Quito"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <p>
+            <a class="boton boton--secundario" href="https://www.google.com/maps/search/?api=1&query=Calle+Los+Curtidores+N45-12+y+Av.+de+los+Talabarteros%2C+Quito%2C+Ecuador" target="_blank" rel="noopener noreferrer">
+              Cómo llegar <span class="solo-lectores">(se abre en una pestaña nueva)</span>
+            </a>
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="sitio-footer">
+    <div class="envoltorio footer-rejilla">
+      <div>
+        <h2>Comercial Elite</h2>
+        <address>
+          Calle Los Curtidores N45-12 y Av. de los Talabarteros, Quito, Ecuador<br>
+          <a href="tel:+593999999999">099&nbsp;999&nbsp;9999</a> (WhatsApp)<br>
+          <a href="mailto:ventas@comercialelite.com">ventas@comercialelite.com</a>
+        </address>
+      </div>
+      <div>
+        <h2>Horario</h2>
+        <ul>
+          <li>Lunes a viernes: 08:30 – 18:00</li>
+          <li>Sábado: 09:00 – 13:00</li>
+        </ul>
+        <p><a href="assets/catalogo.pdf">Descargar catálogo (PDF, 4 KB)</a></p>
+      </div>
+      <div>
+        <h2>Síguenos</h2>
+        <ul class="lista-inline">
+          <li><a href="https://www.facebook.com/comercialelite" target="_blank" rel="noopener noreferrer">Facebook <span class="solo-lectores">(se abre en una pestaña nueva)</span></a></li>
+          <li><a href="https://www.instagram.com/comercialelite" target="_blank" rel="noopener noreferrer">Instagram <span class="solo-lectores">(se abre en una pestaña nueva)</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal envoltorio">
+      <p>© 2026 Comercial Elite. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/menu.js"></script>
+  <script src="js/contacto.js"></script>
+</body>
+</html>

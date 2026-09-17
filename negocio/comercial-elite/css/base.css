@@ -1,0 +1,140 @@
+/* Reset mínimo */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Tipografía base */
+body {
+  font-family: var(--fuente-base);
+  font-size: var(--tamano-texto);
+  line-height: var(--interlineado);
+  color: var(--color-texto);
+  background: var(--color-fondo);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--verde-oscuro);
+  letter-spacing: var(--letter-spacing-titulo);
+  line-height: 1.25;
+  margin: 0 0 var(--espacio-sm);
+}
+
+h1 {
+  font-size: var(--tamano-h1);
+}
+
+h2 {
+  font-size: var(--tamano-h2);
+}
+
+h3 {
+  font-size: var(--tamano-h3);
+}
+
+p {
+  margin: 0 0 var(--espacio-md);
+}
+
+a {
+  color: var(--verde-marca);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--verde-oscuro);
+}
+
+/* Foco visible propio: nunca outline:none sin reemplazo (WCAG 2.4.7) */
+a,
+button,
+input,
+select,
+textarea,
+summary,
+[tabindex] {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--verde-oscuro);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--color-fondo);
+  border-radius: 2px;
+}
+
+/* Enlace "Saltar al contenido": primer elemento tabulable (WCAG 2.4.1) */
+.saltar {
+  position: absolute;
+  left: var(--espacio-sm);
+  top: -3rem;
+  background: var(--verde-oscuro);
+  color: #fff;
+  padding: var(--espacio-xs) var(--espacio-md);
+  border-radius: var(--radio-borde);
+  z-index: 1000;
+  transition: top var(--duracion-transicion) ease;
+}
+
+.saltar:focus {
+  top: var(--espacio-sm);
+}
+
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Movimiento: respeta la preferencia del sistema (WCAG 2.3.3 / 2.2.2) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
