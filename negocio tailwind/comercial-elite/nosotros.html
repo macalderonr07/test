@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiénes somos — Comercial Elite</title>
+  <meta name="description" content="Trayectoria, marcas representadas y cobertura de Comercial Elite, distribuidor de insumos para calzado y marroquinería en Quito.">
+  <link rel="canonical" href="https://www.comercialelite.com/nosotros.html">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "media",
+      theme: {
+        extend: {
+          colors: {
+            elite: { DEFAULT: "#2f731f", dark: "#1f4d14", medium: "#245e17", tint: "#e3efe0", border: "#8fbf7f", text: "#1a1a1a" },
+            elitenight: { DEFAULT: "#57b13c", dark: "#8fdc7a", medium: "#6fce55", tint: "#17301a", border: "#3f6b34", bg: "#10160f", text: "#eef3ec" },
+            error: { DEFAULT: "#b3261e", tint: "#fbeceb", dark: "#ff8a80", darktint: "#3a1613" },
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white font-sans leading-[1.55] text-elite-text antialiased dark:bg-elitenight-bg dark:text-elitenight-text">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="sticky top-0 z-50 border-b border-elite-border bg-white dark:border-elitenight-border dark:bg-elitenight-bg">
+    <div class="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-5 px-4 py-3">
+      <a class="inline-flex items-center no-underline" href="index.html">
+        <img class="w-[clamp(9rem,8rem+4vw,12rem)]" src="assets/img/logo.svg" alt="Comercial Elite" width="180" height="68">
+      </a>
+      <nav class="flex flex-wrap items-center gap-5" aria-label="Principal">
+        <button type="button" class="inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-lg border border-elite-border bg-elite-tint px-3 font-semibold text-elite-dark dark:border-elitenight-border dark:bg-elitenight-tint dark:text-elitenight-dark md:hidden" id="botonMenu" aria-expanded="false" aria-controls="listaNav">
+          <span aria-hidden="true">☰</span> Menú
+        </button>
+        <ul class="hidden w-full flex-col gap-0 border-t border-elite-border pt-3 dark:border-elitenight-border md:flex md:w-auto md:flex-row md:gap-5 md:border-0 md:pt-0" id="listaNav">
+          <li><a class="flex min-h-11 items-center font-semibold text-elite no-underline hover:text-elite-dark dark:text-elitenight dark:hover:text-elitenight-dark" href="index.html">Inicio</a></li>
+          <li><a class="flex min-h-11 items-center font-semibold text-elite no-underline hover:text-elite-dark dark:text-elitenight dark:hover:text-elitenight-dark" href="catalogo.html">Catálogo</a></li>
+          <li><a class="flex min-h-11 items-center font-semibold text-elite-dark no-underline underline underline-offset-4 dark:text-elitenight-dark" href="nosotros.html" aria-current="page">Nosotros</a></li>
+          <li><a class="flex min-h-11 items-center font-semibold text-elite no-underline hover:text-elite-dark dark:text-elitenight dark:hover:text-elitenight-dark" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <a class="inline-flex min-h-11 items-center gap-1.5 font-semibold text-elite no-underline hover:text-elite-dark dark:text-elitenight dark:hover:text-elitenight-dark" href="tel:+593999999999">
+        <span aria-hidden="true">📞</span> 099&nbsp;999&nbsp;9999
+      </a>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <nav class="mx-auto max-w-6xl px-4 py-3 text-sm" aria-label="Miga de pan">
+      <ol class="flex flex-wrap gap-1.5">
+        <li class="after:mx-1.5 after:text-elite-border after:content-['›'] last:after:content-none dark:after:text-elitenight-border"><a href="index.html">Inicio</a></li>
+        <li class="font-semibold" aria-current="page">Nosotros</li>
+      </ol>
+    </nav>
+
+    <div class="mx-auto max-w-6xl px-4 pb-14">
+      <h1 class="text-3xl font-bold md:text-4xl">Quiénes somos</h1>
+      <p>Comercial Elite distribuye insumos para calzado y marroquinería a talleres, fábricas pequeñas y artesanos en Quito: cueros, sintéticos, suelas, plantillas, hilos, adhesivos, herrajes y herramienta menor.</p>
+    </div>
+
+    <section class="bg-elite-tint dark:bg-elitenight-tint" aria-labelledby="titulo-trayectoria">
+      <div class="mx-auto max-w-6xl px-4 py-14">
+        <h2 class="text-2xl font-bold md:text-3xl" id="titulo-trayectoria">Trayectoria</h2>
+        <p class="mb-0">Más de 20 años de reconocimiento local en el sector del calzado y la marroquinería, atendiendo de forma directa a talleres, fábricas pequeñas, artesanos y compradores corporativos. Esa presencia física no tenía, hasta ahora, un reflejo en un catálogo digital propio.</p>
+      </div>
+    </section>
+
+    <section class="py-14" aria-labelledby="titulo-marcas">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-2xl font-bold md:text-3xl" id="titulo-marcas">Marcas representadas</h2>
+        <p>Comercial Elite trabaja con proveedores reconocidos en la industria del cuero, el caucho y los adhesivos industriales, lo que permite ofrecer insumos con especificaciones técnicas verificables: espesores de plancha, densidades de espuma y resistencias de hilo, entre otras.</p>
+        <ul class="list-disc space-y-1.5 pl-5">
+          <li>Cueros y sintéticos certificados por espesor y acabado.</li>
+          <li>Suelas de caucho y EVA con control de talla y antideslizamiento.</li>
+          <li>Adhesivos y cementos industriales con ficha técnica disponible al momento de la cotización.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="bg-elite-tint dark:bg-elitenight-tint" aria-labelledby="titulo-cobertura">
+      <div class="mx-auto max-w-6xl px-4 py-14">
+        <h2 class="text-2xl font-bold md:text-3xl" id="titulo-cobertura">Cobertura</h2>
+        <p>Atención presencial en el local de Quito y despacho a talleres y fábricas dentro y fuera de la ciudad, coordinado por WhatsApp o correo electrónico una vez confirmada la cotización.</p>
+        <p class="mb-0"><a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border-2 border-transparent bg-elite px-6 py-2.5 font-bold text-white no-underline transition-colors hover:bg-elite-medium dark:bg-elitenight dark:hover:bg-elitenight-medium" href="contacto.html">Contactar a Comercial Elite</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-elite-dark py-8 text-white dark:bg-[#0b1409]">
+    <div class="mx-auto grid max-w-6xl gap-8 px-4 min-[45em]:grid-cols-3">
+      <div>
+        <h2 class="text-white">Comercial Elite</h2>
+        <address class="not-italic">
+          Calle Los Curtidores N45-12 y Av. de los Talabarteros, Quito, Ecuador<br>
+          <a class="text-white hover:text-white/80 focus-visible:text-white/80" href="tel:+593999999999">099&nbsp;999&nbsp;9999</a> (WhatsApp)<br>
+          <a class="text-white hover:text-white/80 focus-visible:text-white/80" href="mailto:ventas@comercialelite.com">ventas@comercialelite.com</a>
+        </address>
+      </div>
+      <div>
+        <h2 class="text-white">Horario</h2>
+        <ul>
+          <li>Lunes a viernes: 08:30 – 18:00</li>
+          <li>Sábado: 09:00 – 13:00</li>
+        </ul>
+        <p class="mb-0"><a class="text-white hover:text-white/80 focus-visible:text-white/80" href="assets/catalogo.pdf">Descargar catálogo (PDF, 4 KB)</a></p>
+      </div>
+      <div>
+        <h2 class="text-white">Síguenos</h2>
+        <ul class="flex flex-wrap gap-3">
+          <li><a class="text-white hover:text-white/80 focus-visible:text-white/80" href="https://www.facebook.com/comercialelite" target="_blank" rel="noopener noreferrer">Facebook <span class="sr-only">(se abre en una pestaña nueva)</span></a></li>
+          <li><a class="text-white hover:text-white/80 focus-visible:text-white/80" href="https://www.instagram.com/comercialelite" target="_blank" rel="noopener noreferrer">Instagram <span class="sr-only">(se abre en una pestaña nueva)</span></a></li>
+        </ul>
+        <p class="mb-0"><a class="text-white hover:text-white/80 focus-visible:text-white/80" href="contacto.html">Cómo llegar y contacto</a></p>
+      </div>
+    </div>
+    <div class="mx-auto mt-8 max-w-6xl border-t border-white/25 px-4 pt-5 text-sm">
+      <p class="mb-0">© 2026 Comercial Elite. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/menu.js"></script>
+</body>
+</html>
