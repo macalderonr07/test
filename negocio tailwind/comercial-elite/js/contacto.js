@@ -24,7 +24,7 @@
   };
 
   const CLASES_INVALIDO = ["border-error", "bg-error-tint", "dark:border-error-dark", "dark:bg-error-darktint"];
-  const CLASES_VALIDO = ["border-elite-border", "dark:border-elitenight-border"];
+  const CLASES_VALIDO = ["border-elite-borderstrong", "dark:border-elitenight-border"];
 
   const estadoFormulario = document.getElementById("estadoFormulario");
   const CLASES_ESTADO_OK = ["border-elite-dark", "bg-elite-tint", "dark:border-elitenight-dark", "dark:bg-elitenight-tint"];

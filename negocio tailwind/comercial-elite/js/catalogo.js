@@ -97,7 +97,7 @@
     if (producto.novedad) {
       const chip = document.createElement("span");
       chip.className =
-        "inline-flex w-fit items-center gap-1 rounded-full border border-elite-border bg-elite-tint px-3 py-0.5 text-xs font-semibold text-elite-dark before:content-['●'] before:text-[0.7em] dark:border-elitenight-border dark:bg-elitenight-tint dark:text-elitenight-dark";
+        "inline-flex w-fit items-center gap-1 rounded-full bg-elite-lime px-3 py-0.5 text-xs font-bold text-elite-ink before:content-['●'] before:text-[0.7em]";
       chip.textContent = "Nuevo ingreso";
       cuerpo.append(chip);
     }

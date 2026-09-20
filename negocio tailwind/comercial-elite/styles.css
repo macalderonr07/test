@@ -1,11 +1,40 @@
 /* ==========================================================================
-   OVERRIDES SOBRE TAILWIND (Play CDN)
-   Tailwind solo genera utilidades a partir de las clases usadas en el DOM;
-   lo de aquí es lo que no conviene resolver con clases sueltas porque aplica
-   de forma global: el enlace "saltar al contenido", el anillo de foco visible,
-   el color/tamaño de los encabezados y enlaces, el espaciado de párrafos y el
-   respeto a "reduced motion". El resto del sitio (layout, tarjetas, formularios)
-   vive como utilidades de Tailwind directamente en el HTML.
+   COMERCIAL ELITE — capa base sobre Tailwind (Play CDN)
+   ==========================================================================
+   Identidad visual reconstruida a partir de assets/img/logo.png: el verde
+   lima (#93DC1D) y el negro del sello son el punto de partida de toda la
+   paleta. El resto de tonos NO son arbitrarios: se calcularon en el mismo
+   matiz del logo (H≈83°) subiendo/bajando luminosidad hasta cumplir WCAG 2.2
+   nivel AA. Contrastes verificados (fórmula de luminancia relativa de WCAG):
+
+     Modo claro (fondo #FFFFFF / tinte #E9F4D7)
+       elite            #4E6E1C   5.88:1 sobre blanco · 5.15:1 sobre tinte   -> enlaces, texto interactivo
+       elite-medium      #3A5214  8.76:1 sobre blanco                        -> hover/active de enlaces y botones outline
+       elite-dark        #2B3913  12.37:1 sobre blanco                       -> encabezados, foco visible
+       elite-lime        #93DC1D  12.50:1 con texto NEGRO (#000/ink)         -> SOLO fondo de insignias/botones, nunca texto sobre blanco
+       elite-borderstrong #719438 3.50:1 sobre blanco                        -> borde de campos/checkboxes (WCAG 1.4.11, no decorativo)
+       elite-border      #A7C577  1.93:1 sobre blanco                        -> separadores puramente decorativos (nunca el único indicador)
+       elite-ink         #14170F  18.12:1 con blanco                         -> cabecera/pie, superficie "negra" del sello
+
+     Modo oscuro (fondo #0D100A / tinte #273414)
+       elitenight        #74A91E  6.79:1 sobre fondo · 4.68:1 sobre tinte
+       elitenight-medium #90C639  9.42:1 sobre fondo · 6.50:1 sobre tinte
+       elitenight-dark   #A6D161  10.87:1 sobre fondo · 7.50:1 sobre tinte
+       elitenight-border #5E7538  3.72:1 sobre fondo                        -> también sirve como borde de campos (ya cumple 1.4.11)
+
+   Principios de IHC aplicados en este archivo y en las utilidades de Tailwind
+   del HTML (ver comentarios en cada página):
+     - Ley de Fitts: objetivos táctiles/clic >= 44px (min-h-11 / min-w-11).
+     - Ley de Hick: navegación a 4 opciones, filtros agrupados por categoría.
+     - Gestalt (proximidad/similitud): tarjetas con mismo marco visual
+       (shield-frame + verde lima) para agrupar por función, no solo por color.
+     - Reconocimiento antes que recuerdo: la insignia del logo se repite como
+       ícono de herradura en vez de inventar un ícono distinto por sección.
+     - Visibilidad del estado del sistema: foco visible propio, estados
+       hover/active con retroalimentación de color, aria-live en catálogo.
+     - No depender solo del color (WCAG 1.4.1): el enlace activo del menú no
+       solo cambia de color, cambia de forma (píldora rellena) y lleva
+       aria-current="page"; los enlaces de texto llevan subrayado.
    ========================================================================== */
 
 /* Enlace "Saltar al contenido": primer elemento tabulable (WCAG 2.4.1) */
@@ -14,11 +43,11 @@
   left: 0.75rem;
   top: -3rem;
   z-index: 1000;
-  background: #1f4d14;
+  background: #14170f;
   color: #fff;
   padding: 0.5rem 1.25rem;
   border-radius: 0.5rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   transition: top 0.18s ease;
 }
@@ -29,7 +58,7 @@
 
 /* Foco visible propio: nunca outline:none sin reemplazo (WCAG 2.4.7) */
 :focus-visible {
-  outline: 3px solid #1f4d14;
+  outline: 3px solid #2b3913;
   outline-offset: 2px;
   box-shadow: 0 0 0 2px #fff;
   border-radius: 2px;
@@ -40,7 +69,7 @@ h1,
 h2,
 h3,
 h4 {
-  color: #1f4d14;
+  color: #2b3913;
   letter-spacing: 0.01em;
   line-height: 1.25;
   margin: 0 0 0.75rem;
@@ -55,7 +84,7 @@ p {
    no deben llevar subrayado (nav, botones, tarjetas) lo quitan con la
    utilidad "no-underline" de Tailwind. */
 a {
-  color: #2f731f;
+  color: #4e6e1c;
   text-decoration-line: underline;
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.15em;
@@ -63,35 +92,57 @@ a {
 
 a:hover,
 a:focus-visible {
-  color: #1f4d14;
+  color: #2b3913;
 }
 
 @media (prefers-color-scheme: dark) {
   .skip-link {
-    background: #8fdc7a;
-    color: #10160f;
+    background: #a6d161;
+    color: #0d100a;
   }
 
   :focus-visible {
-    outline-color: #8fdc7a;
-    box-shadow: 0 0 0 2px #10160f;
+    outline-color: #a6d161;
+    box-shadow: 0 0 0 2px #0d100a;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    color: #8fdc7a;
+    color: #a6d161;
   }
 
   a {
-    color: #57b13c;
+    color: #74a91e;
   }
 
   a:hover,
   a:focus-visible {
-    color: #8fdc7a;
+    color: #a6d161;
   }
+}
+
+/* ==========================================================================
+   Silueta "sello de cuero": recorta cualquier caja al contorno de escudo del
+   logo (CSS3 clip-path). Se usa en la foto del hero y en las insignias de
+   categoría para que el resto de la página se sienta construida alrededor
+   del propio logo.png, no solo con sus colores.
+   ========================================================================== */
+.shield-frame {
+  border-radius: 0.5rem;
+  clip-path: polygon(
+    50% 0%,
+    82% 9%,
+    100% 34%,
+    91% 64%,
+    76% 90%,
+    50% 100%,
+    24% 90%,
+    9% 64%,
+    0% 34%,
+    18% 9%
+  );
 }
 
 /* Movimiento: respeta la preferencia del sistema (WCAG 2.3.3 / 2.2.2) */

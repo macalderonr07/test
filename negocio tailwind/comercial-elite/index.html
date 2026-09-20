@@ -10,7 +10,7 @@
   <meta property="og:title" content="Comercial Elite — Insumos para calzado y marroquinería">
   <meta property="og:description" content="Catálogo de cueros, sintéticos, suelas, adhesivos, herrajes y herramienta menor para talleres y artesanos en Quito.">
   <meta property="og:locale" content="es_EC">
-  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/logo.png" type="image/png">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -19,9 +19,27 @@
       theme: {
         extend: {
           colors: {
-            elite: { DEFAULT: "#2f731f", dark: "#1f4d14", medium: "#245e17", tint: "#e3efe0", border: "#8fbf7f", text: "#1a1a1a" },
-            elitenight: { DEFAULT: "#57b13c", dark: "#8fdc7a", medium: "#6fce55", tint: "#17301a", border: "#3f6b34", bg: "#10160f", text: "#eef3ec" },
-            error: { DEFAULT: "#b3261e", tint: "#fbeceb", dark: "#ff8a80", darktint: "#3a1613" },
+            elite: {
+              lime: "#93DC1D",
+              DEFAULT: "#4E6E1C",
+              medium: "#3A5214",
+              dark: "#2B3913",
+              tint: "#E9F4D7",
+              border: "#A7C577",
+              borderstrong: "#719438",
+              ink: "#14170F",
+              text: "#1A1A1A",
+            },
+            elitenight: {
+              DEFAULT: "#74A91E",
+              medium: "#90C639",
+              dark: "#A6D161",
+              tint: "#273414",
+              border: "#5E7538",
+              bg: "#0D100A",
+              text: "#EDF3E6",
+            },
+            error: { DEFAULT: "#B3261E", tint: "#FBECEB", dark: "#FF8A80", darktint: "#3A1613" },
           },
         },
       },
@@ -34,7 +52,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Comercial Elite",
-    "image": "https://www.comercialelite.com/assets/img/logo.svg",
+    "image": "https://www.comercialelite.com/assets/img/logo.png",
     "telephone": "+593999999999",
     "email": "ventas@comercialelite.com",
     "address": {
@@ -54,23 +72,24 @@
 <body class="bg-white font-sans leading-[1.55] text-elite-text antialiased dark:bg-elitenight-bg dark:text-elitenight-text">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <header class="sticky top-0 z-50 border-b border-elite-border bg-white dark:border-elitenight-border dark:bg-elitenight-bg">
-    <div class="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-5 px-4 py-3">
-      <a class="inline-flex items-center no-underline" href="index.html">
-        <img class="w-[clamp(9rem,8rem+4vw,12rem)]" src="assets/img/logo.svg" alt="Comercial Elite" width="180" height="68">
+  <header class="sticky top-0 z-50 bg-elite-ink">
+    <div class="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-5 px-4 py-2.5">
+      <a class="inline-flex items-center gap-3 no-underline" href="index.html">
+        <img class="h-14 w-14 shrink-0" src="assets/img/logo.png" alt="Comercial Elite" width="412" height="412">
+        <span class="text-lg font-bold tracking-wide text-white">Comercial Elite</span>
       </a>
-      <nav class="flex flex-wrap items-center gap-5" aria-label="Principal">
-        <button type="button" class="inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-lg border border-elite-border bg-elite-tint px-3 font-semibold text-elite-dark dark:border-elitenight-border dark:bg-elitenight-tint dark:text-elitenight-dark md:hidden" id="botonMenu" aria-expanded="false" aria-controls="listaNav">
+      <nav class="flex flex-wrap items-center gap-2" aria-label="Principal">
+        <button type="button" class="inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-lg border border-white/30 bg-white/10 px-3 font-semibold text-white md:hidden" id="botonMenu" aria-expanded="false" aria-controls="listaNav">
           <span aria-hidden="true">☰</span> Menú
         </button>
-        <ul class="hidden w-full flex-col gap-0 border-t border-elite-border pt-3 dark:border-elitenight-border md:flex md:w-auto md:flex-row md:gap-5 md:border-0 md:pt-0" id="listaNav">
-          <li><a class="flex min-h-11 items-center font-semibold text-elite-dark no-underline underline underline-offset-4 dark:text-elitenight-dark" href="index.html" aria-current="page">Inicio</a></li>
-          <li><a class="flex min-h-11 items-center font-semibold text-elite no-underline hover:text-elite-dark dark:text-elitenight dark:hover:text-elitenight-dark" href="catalogo.html">Catálogo</a></li>
-          <li><a class="flex min-h-11 items-center font-semibold text-elite no-underline hover:text-elite-dark dark:text-elitenight dark:hover:text-elitenight-dark" href="nosotros.html">Nosotros</a></li>
-          <li><a class="flex min-h-11 items-center font-semibold text-elite no-underline hover:text-elite-dark dark:text-elitenight dark:hover:text-elitenight-dark" href="contacto.html">Contacto</a></li>
+        <ul class="hidden w-full flex-col gap-1 border-t border-white/15 pt-3 md:flex md:w-auto md:flex-row md:gap-2 md:border-0 md:pt-0" id="listaNav">
+          <li><a class="flex min-h-11 items-center rounded-full bg-elite-lime px-4 font-bold text-elite-ink no-underline" href="index.html" aria-current="page">Inicio</a></li>
+          <li><a class="flex min-h-11 items-center rounded-full px-4 font-semibold text-elite-lime no-underline hover:bg-white/10" href="catalogo.html">Catálogo</a></li>
+          <li><a class="flex min-h-11 items-center rounded-full px-4 font-semibold text-elite-lime no-underline hover:bg-white/10" href="nosotros.html">Nosotros</a></li>
+          <li><a class="flex min-h-11 items-center rounded-full px-4 font-semibold text-elite-lime no-underline hover:bg-white/10" href="contacto.html">Contacto</a></li>
         </ul>
       </nav>
-      <a class="inline-flex min-h-11 items-center gap-1.5 font-semibold text-elite no-underline hover:text-elite-dark dark:text-elitenight dark:hover:text-elitenight-dark" href="tel:+593999999999">
+      <a class="inline-flex min-h-11 items-center gap-1.5 font-semibold text-white no-underline hover:text-elite-lime" href="tel:+593999999999">
         <span aria-hidden="true">📞</span> 099&nbsp;999&nbsp;9999
       </a>
     </div>
@@ -79,17 +98,24 @@
   <main id="contenido">
     <section class="mx-auto grid max-w-6xl gap-8 px-4 py-14 min-[60em]:grid-cols-[1.1fr_0.9fr] min-[60em]:items-center">
       <div>
-        <h1 class="text-3xl font-bold md:text-4xl lg:text-5xl">Insumos para calzado y marroquinería en Quito</h1>
+        <span class="inline-flex items-center gap-2 rounded-full bg-elite-lime px-4 py-1.5 text-sm font-bold text-elite-ink">
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18.14,8.7 A7.5,7.5 0 1 1 5.86,8.7"/><circle cx="18.14" cy="8.7" r="0.9" fill="currentColor" stroke="none"/><circle cx="5.86" cy="8.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+          Cueros y marroquinería en Quito
+        </span>
+        <h1 class="mt-4 text-3xl font-bold md:text-4xl lg:text-5xl">Insumos para calzado y marroquinería en Quito</h1>
         <p>Cueros, sintéticos, suelas, plantillas, hilos, adhesivos, herrajes y herramienta menor para talleres, fábricas pequeñas y artesanos. Más de dos décadas surtiendo a la industria del calzado.</p>
         <div class="flex flex-wrap gap-3">
-          <a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border-2 border-transparent bg-elite px-6 py-2.5 font-bold text-white no-underline transition-colors hover:bg-elite-medium dark:bg-elitenight dark:hover:bg-elitenight-medium" href="catalogo.html">Ver catálogo</a>
-          <a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border-2 border-elite-dark bg-white px-6 py-2.5 font-bold text-elite-dark no-underline transition-colors hover:bg-elite-tint dark:border-elitenight-dark dark:bg-elitenight-bg dark:text-elitenight-dark dark:hover:bg-elitenight-tint" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%20insumos%20de%20Comercial%20Elite" target="_blank" rel="noopener noreferrer">
+          <a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-elite-lime px-6 py-2.5 font-bold text-elite-ink no-underline transition hover:brightness-90 active:brightness-75" href="catalogo.html">Ver catálogo</a>
+          <a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border-2 border-elite-borderstrong bg-white px-6 py-2.5 font-bold text-elite-ink no-underline transition-colors hover:bg-elite-tint dark:border-elitenight-border dark:bg-elitenight-bg dark:text-elitenight-text dark:hover:bg-elitenight-tint" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%20insumos%20de%20Comercial%20Elite" target="_blank" rel="noopener noreferrer">
             Cotizar por WhatsApp <span class="sr-only">(se abre en una pestaña nueva)</span>
           </a>
         </div>
       </div>
-      <figure class="m-0">
-        <img class="rounded-lg" src="assets/img/ce-1042-cuero-graso.webp" width="800" height="600" alt="Plancha de cuero graso natural, uno de los insumos que distribuye Comercial Elite">
+      <figure class="relative m-0 mx-auto w-full max-w-sm">
+        <span class="shield-frame block aspect-square w-full overflow-hidden border-[6px] border-elite-ink bg-elite-tint dark:border-elitenight-border dark:bg-elitenight-tint">
+          <img class="h-full w-full object-cover" src="assets/img/ce-1042-cuero-graso.webp" width="800" height="600" alt="Plancha de cuero graso natural, uno de los insumos que distribuye Comercial Elite">
+        </span>
+        <img class="absolute -bottom-3 -right-3 h-20 w-20 drop-shadow-lg sm:h-24 sm:w-24" src="assets/img/logo.png" alt="" aria-hidden="true">
       </figure>
     </section>
 
@@ -101,25 +127,33 @@
         <ul class="grid grid-cols-1 gap-5 min-[30em]:grid-cols-2 md:grid-cols-4">
           <li>
             <a class="block rounded-lg border border-elite-border bg-white p-5 text-center no-underline shadow-[0_1px_3px_rgba(26,26,26,0.12)] transition-transform hover:-translate-y-0.5 focus-visible:-translate-y-0.5 dark:border-elitenight-border dark:bg-elitenight-bg" href="catalogo.html?cat=cueros">
-              <img class="mx-auto mb-2 h-14 w-14" src="assets/img/logo.svg" alt="" width="56" height="56">
+              <span class="shield-frame mx-auto mb-2 flex h-14 w-14 items-center justify-center bg-elite-lime text-elite-ink" aria-hidden="true">
+                <svg focusable="false" viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18.14,8.7 A7.5,7.5 0 1 1 5.86,8.7"/><circle cx="18.14" cy="8.7" r="0.9" fill="currentColor" stroke="none"/><circle cx="5.86" cy="8.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+              </span>
               <h3 class="mb-0 text-base font-semibold">Cueros</h3>
             </a>
           </li>
           <li>
             <a class="block rounded-lg border border-elite-border bg-white p-5 text-center no-underline shadow-[0_1px_3px_rgba(26,26,26,0.12)] transition-transform hover:-translate-y-0.5 focus-visible:-translate-y-0.5 dark:border-elitenight-border dark:bg-elitenight-bg" href="catalogo.html?cat=suelas">
-              <img class="mx-auto mb-2 h-14 w-14" src="assets/img/logo.svg" alt="" width="56" height="56">
+              <span class="shield-frame mx-auto mb-2 flex h-14 w-14 items-center justify-center bg-elite-lime text-elite-ink" aria-hidden="true">
+                <svg focusable="false" viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18.14,8.7 A7.5,7.5 0 1 1 5.86,8.7"/><circle cx="18.14" cy="8.7" r="0.9" fill="currentColor" stroke="none"/><circle cx="5.86" cy="8.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+              </span>
               <h3 class="mb-0 text-base font-semibold">Suelas</h3>
             </a>
           </li>
           <li>
             <a class="block rounded-lg border border-elite-border bg-white p-5 text-center no-underline shadow-[0_1px_3px_rgba(26,26,26,0.12)] transition-transform hover:-translate-y-0.5 focus-visible:-translate-y-0.5 dark:border-elitenight-border dark:bg-elitenight-bg" href="catalogo.html?cat=adhesivos">
-              <img class="mx-auto mb-2 h-14 w-14" src="assets/img/logo.svg" alt="" width="56" height="56">
+              <span class="shield-frame mx-auto mb-2 flex h-14 w-14 items-center justify-center bg-elite-lime text-elite-ink" aria-hidden="true">
+                <svg focusable="false" viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18.14,8.7 A7.5,7.5 0 1 1 5.86,8.7"/><circle cx="18.14" cy="8.7" r="0.9" fill="currentColor" stroke="none"/><circle cx="5.86" cy="8.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+              </span>
               <h3 class="mb-0 text-base font-semibold">Adhesivos</h3>
             </a>
           </li>
           <li>
             <a class="block rounded-lg border border-elite-border bg-white p-5 text-center no-underline shadow-[0_1px_3px_rgba(26,26,26,0.12)] transition-transform hover:-translate-y-0.5 focus-visible:-translate-y-0.5 dark:border-elitenight-border dark:bg-elitenight-bg" href="catalogo.html?cat=herrajes">
-              <img class="mx-auto mb-2 h-14 w-14" src="assets/img/logo.svg" alt="" width="56" height="56">
+              <span class="shield-frame mx-auto mb-2 flex h-14 w-14 items-center justify-center bg-elite-lime text-elite-ink" aria-hidden="true">
+                <svg focusable="false" viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18.14,8.7 A7.5,7.5 0 1 1 5.86,8.7"/><circle cx="18.14" cy="8.7" r="0.9" fill="currentColor" stroke="none"/><circle cx="5.86" cy="8.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+              </span>
               <h3 class="mb-0 text-base font-semibold">Herrajes</h3>
             </a>
           </li>
@@ -153,15 +187,24 @@
         </header>
         <div class="grid grid-cols-1 gap-5 min-[30em]:grid-cols-2">
           <article>
-            <h3 class="text-lg font-semibold md:text-xl">Trayectoria local</h3>
+            <h3 class="flex items-center gap-2 text-lg font-semibold md:text-xl">
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-elite dark:text-elitenight" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18.14,8.7 A7.5,7.5 0 1 1 5.86,8.7"/><circle cx="18.14" cy="8.7" r="0.9" fill="currentColor" stroke="none"/><circle cx="5.86" cy="8.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+              Trayectoria local
+            </h3>
             <p>Más de 20 años surtiendo a talleres y fábricas de calzado en Quito, con relación directa y sin intermediarios.</p>
           </article>
           <article>
-            <h3 class="text-lg font-semibold md:text-xl">Marcas representadas</h3>
+            <h3 class="flex items-center gap-2 text-lg font-semibold md:text-xl">
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-elite dark:text-elitenight" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18.14,8.7 A7.5,7.5 0 1 1 5.86,8.7"/><circle cx="18.14" cy="8.7" r="0.9" fill="currentColor" stroke="none"/><circle cx="5.86" cy="8.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+              Marcas representadas
+            </h3>
             <p>Distribución oficial de insumos de proveedores reconocidos en cueros, suelas y adhesivos industriales.</p>
           </article>
           <article>
-            <h3 class="text-lg font-semibold md:text-xl">Stock continuo</h3>
+            <h3 class="flex items-center gap-2 text-lg font-semibold md:text-xl">
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-elite dark:text-elitenight" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18.14,8.7 A7.5,7.5 0 1 1 5.86,8.7"/><circle cx="18.14" cy="8.7" r="0.9" fill="currentColor" stroke="none"/><circle cx="5.86" cy="8.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+              Stock continuo
+            </h3>
             <p>Reposición constante de las líneas de mayor rotación, con novedades publicadas apenas ingresan a bodega.</p>
           </article>
         </div>
@@ -169,32 +212,32 @@
     </section>
   </main>
 
-  <footer class="bg-elite-dark py-8 text-white dark:bg-[#0b1409]">
+  <footer class="bg-elite-ink py-8 text-white dark:bg-elitenight-tint dark:text-elitenight-text">
     <div class="mx-auto grid max-w-6xl gap-8 px-4 min-[45em]:grid-cols-3">
       <div>
-        <h2 class="text-white">Comercial Elite</h2>
+        <h2 class="flex items-center gap-2 text-white dark:text-elitenight-dark"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-5 w-5 shrink-0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18.14,8.7 A7.5,7.5 0 1 1 5.86,8.7"/><circle cx="18.14" cy="8.7" r="0.9" fill="currentColor" stroke="none"/><circle cx="5.86" cy="8.7" r="0.9" fill="currentColor" stroke="none"/></svg> Comercial Elite</h2>
         <address class="not-italic">
           Calle Los Curtidores N45-12 y Av. de los Talabarteros, Quito, Ecuador<br>
-          <a class="text-white hover:text-white/80 focus-visible:text-white/80" href="tel:+593999999999">099&nbsp;999&nbsp;9999</a> (WhatsApp)<br>
-          <a class="text-white hover:text-white/80 focus-visible:text-white/80" href="tel:+59320000000">(02)&nbsp;000&nbsp;0000</a><br>
-          <a class="text-white hover:text-white/80 focus-visible:text-white/80" href="mailto:ventas@comercialelite.com">ventas@comercialelite.com</a>
+          <a class="text-white hover:text-elite-lime focus-visible:text-elite-lime dark:text-elitenight-text dark:hover:text-elitenight-dark dark:focus-visible:text-elitenight-dark" href="tel:+593999999999">099&nbsp;999&nbsp;9999</a> (WhatsApp)<br>
+          <a class="text-white hover:text-elite-lime focus-visible:text-elite-lime dark:text-elitenight-text dark:hover:text-elitenight-dark dark:focus-visible:text-elitenight-dark" href="tel:+59320000000">(02)&nbsp;000&nbsp;0000</a><br>
+          <a class="text-white hover:text-elite-lime focus-visible:text-elite-lime dark:text-elitenight-text dark:hover:text-elitenight-dark dark:focus-visible:text-elitenight-dark" href="mailto:ventas@comercialelite.com">ventas@comercialelite.com</a>
         </address>
       </div>
       <div>
-        <h2 class="text-white">Horario</h2>
+        <h2 class="text-white dark:text-elitenight-dark">Horario</h2>
         <ul>
           <li>Lunes a viernes: 08:30 – 18:00</li>
           <li>Sábado: 09:00 – 13:00</li>
         </ul>
-        <p class="mb-0"><a class="text-white hover:text-white/80 focus-visible:text-white/80" href="assets/catalogo.pdf">Descargar catálogo (PDF, 4 KB)</a></p>
+        <p class="mb-0"><a class="text-white hover:text-elite-lime focus-visible:text-elite-lime dark:text-elitenight-text dark:hover:text-elitenight-dark dark:focus-visible:text-elitenight-dark" href="assets/catalogo.pdf">Descargar catálogo (PDF, 4 KB)</a></p>
       </div>
       <div>
-        <h2 class="text-white">Síguenos</h2>
+        <h2 class="text-white dark:text-elitenight-dark">Síguenos</h2>
         <ul class="flex flex-wrap gap-3">
-          <li><a class="text-white hover:text-white/80 focus-visible:text-white/80" href="https://www.facebook.com/comercialelite" target="_blank" rel="noopener noreferrer">Facebook <span class="sr-only">(se abre en una pestaña nueva)</span></a></li>
-          <li><a class="text-white hover:text-white/80 focus-visible:text-white/80" href="https://www.instagram.com/comercialelite" target="_blank" rel="noopener noreferrer">Instagram <span class="sr-only">(se abre en una pestaña nueva)</span></a></li>
+          <li><a class="text-white hover:text-elite-lime focus-visible:text-elite-lime dark:text-elitenight-text dark:hover:text-elitenight-dark dark:focus-visible:text-elitenight-dark" href="https://www.facebook.com/comercialelite" target="_blank" rel="noopener noreferrer">Facebook <span class="sr-only">(se abre en una pestaña nueva)</span></a></li>
+          <li><a class="text-white hover:text-elite-lime focus-visible:text-elite-lime dark:text-elitenight-text dark:hover:text-elitenight-dark dark:focus-visible:text-elitenight-dark" href="https://www.instagram.com/comercialelite" target="_blank" rel="noopener noreferrer">Instagram <span class="sr-only">(se abre en una pestaña nueva)</span></a></li>
         </ul>
-        <p class="mb-0"><a class="text-white hover:text-white/80 focus-visible:text-white/80" href="contacto.html">Cómo llegar y contacto</a></p>
+        <p class="mb-0"><a class="text-white hover:text-elite-lime focus-visible:text-elite-lime dark:text-elitenight-text dark:hover:text-elitenight-dark dark:focus-visible:text-elitenight-dark" href="contacto.html">Cómo llegar y contacto</a></p>
       </div>
     </div>
     <div class="mx-auto mt-8 max-w-6xl border-t border-white/25 px-4 pt-5 text-sm">
