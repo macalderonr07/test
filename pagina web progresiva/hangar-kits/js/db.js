@@ -103,7 +103,9 @@ export function vaciar(almacen) {
 
 // Reemplaza el catálogo completo en UNA transacción: o se guarda todo, o nada.
 // Así nunca queda un catálogo a medias si se corta la red o se cierra la pestaña.
-export async function reemplazarCatalogo(productos, version) {
+// Las categorías (7 registros pequeños) viajan dentro del registro "meta": no
+// necesitan almacén propio ni índices.
+export async function reemplazarCatalogo(productos, version, categorias = []) {
   const db = await abrir();
   return new Promise((resolver, rechazar) => {
     const tx = db.transaction([ALMACENES.productos, ALMACENES.meta], "readwrite");
@@ -115,6 +117,7 @@ export async function reemplazarCatalogo(productos, version) {
       version,
       sincronizado: new Date().toISOString(),
       total: productos.length,
+      categorias,
     });
     tx.oncomplete = () => resolver();
     tx.onerror = () => rechazar(tx.error);

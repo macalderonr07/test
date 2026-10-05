@@ -14,22 +14,19 @@
 //   - Resto (CSS, JS, imágenes, íconos): caché primero.
 //
 // Al cambiar cualquier archivo precargado hay que subir VERSION para que los
-// clientes descarguen la nueva versión (app.js muestra el aviso "Actualizar").
+// clientes descarguen la nueva versión (comun.js muestra el aviso "Actualizar").
 
-const VERSION = "v1.0.0";
+const VERSION = "v2.0.0";
 const CACHE_APP = `hangar-app-${VERSION}`;
 const CACHE_DATOS = `hangar-datos-${VERSION}`;
 
-const IMAGENES = [
-  "airfix-spitfire-mk1", "hg-graze", "hg-schwalbe-graze", "hguc-hi-nu-gundam", "hguc-nu-gundam",
-  "mg-delta-plus", "mg-rx78-2-oyw", "mg-zaku-ii-v2", "pg-wing-zero-custom", "revell-p39",
-  "rg-gp01", "tamiya-cromwell", "tamiya-jagdtiger", "tamiya-karmann-ghia", "tamiya-porsche-956",
-  "tamiya-type90", "vf-1s-valkyrie", "zoids-liger-zero",
-].map((nombre) => `./assets/img/${nombre}.webp`);
+// Las tres páginas del sitio. Se guardan SIN query string: producto.html?id=x y
+// producto.html?id=y son la misma página; el id lo lee producto.js desde la URL.
+const PAGINAS = ["./index.html", "./catalogo.html", "./producto.html"];
 
 const PRECARGA = [
   "./",
-  "./index.html",
+  ...PAGINAS,
   "./manifest.webmanifest",
   "./assets/styles.css",
   "./assets/icons/icon.svg",
@@ -37,14 +34,17 @@ const PRECARGA = [
   "./assets/icons/icon-512.png",
   "./assets/icons/icon-maskable-512.png",
   "./assets/icons/apple-touch-icon.png",
-  "./js/app.js",
+  "./js/comun.js",
+  "./js/inicio.js",
+  "./js/catalogo.js",
+  "./js/producto.js",
+  "./js/carrusel.js",
   "./js/repo.js",
   "./js/db.js",
   "./js/view.js",
   "./js/cart.js",
   "./js/contact.js",
   "./js/storage.js",
-  ...IMAGENES,
 ];
 const URL_DATOS = "./data/productos.json";
 
@@ -54,8 +54,17 @@ self.addEventListener("install", (evento) => {
       const app = await caches.open(CACHE_APP);
       // cache: "reload" salta la caché HTTP del navegador: se precarga la versión real del servidor.
       await app.addAll(PRECARGA.map((url) => new Request(url, { cache: "reload" })));
-      const datos = await caches.open(CACHE_DATOS);
-      await datos.add(new Request(URL_DATOS, { cache: "reload" }));
+      // Las imágenes se toman del propio catálogo: agregar un kit al JSON basta para
+      // que su foto quede disponible offline, sin mantener una lista a mano aquí.
+      const respuesta = await fetch(new Request(URL_DATOS, { cache: "reload" }));
+      if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status} al precargar el catálogo`);
+      const datos = await respuesta.clone().json();
+      await (await caches.open(CACHE_DATOS)).put(URL_DATOS, respuesta);
+      const imagenes = new Set([
+        ...(datos.productos ?? []).map((p) => p.imagen),
+        ...(datos.categorias ?? []).map((c) => c.imagen),
+      ].filter((ruta) => typeof ruta === "string" && ruta.startsWith("assets/img/")));
+      await app.addAll([...imagenes].map((ruta) => new Request(`./${ruta}`, { cache: "reload" })));
     })()
   );
   // No se llama a skipWaiting() aquí: la página decide cuándo activar la versión
@@ -81,12 +90,17 @@ self.addEventListener("message", (evento) => {
 
 async function redPrimeroHTML(request) {
   const cache = await caches.open(CACHE_APP);
+  // Clave sin query string: "producto.html?id=hg-exia" se guarda como "producto.html".
+  const url = new URL(request.url);
+  url.search = "";
+  const clave = url.pathname.endsWith("/") ? new URL("./index.html", url).href : url.href;
   try {
     const respuesta = await fetch(request);
-    if (respuesta.ok) cache.put("./index.html", respuesta.clone());
+    if (respuesta.ok) cache.put(clave, respuesta.clone());
     return respuesta;
   } catch {
-    return (await cache.match("./index.html")) ?? (await cache.match("./")) ?? Response.error();
+    // Sin red: la página pedida; si no está (p. ej. una URL desconocida), la portada.
+    return (await cache.match(clave)) ?? (await cache.match("./index.html")) ?? Response.error();
   }
 }
 

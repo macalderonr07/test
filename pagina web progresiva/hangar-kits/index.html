@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hangar Kits — Tienda de model kits (Gunpla, Tamiya, Zoids y más)</title>
-  <meta name="description" content="Catálogo progresivo de model kits por marca, franquicia y escala. Funciona sin conexión. Proyecto académico.">
+  <meta name="description" content="Tienda progresiva de model kits: novedades de Gunpla High Grade, Master Grade, Tamiya y más. Funciona sin conexión. Proyecto académico.">
   <meta name="theme-color" content="#0F1E3D">
   <meta name="color-scheme" content="light">
   <link rel="manifest" href="manifest.webmanifest">
@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
   <link rel="stylesheet" href="assets/styles.css">
   <!-- type="module": ES6+ con import/export; se ejecuta diferido y en modo estricto. -->
-  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/inicio.js"></script>
 </head>
 <body class="bg-slate-50 font-sans text-slate-900 antialiased">
   <!-- WCAG 2.4.1: saltar bloques repetidos -->
@@ -20,9 +20,9 @@
 
   <header class="sticky top-0 z-40 bg-navy-900 text-white shadow-lg">
     <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-3">
-      <a href="#inicio" class="flex items-center gap-2 rounded-lg text-lg font-extrabold tracking-tight sm:text-xl">
+      <a href="index.html" class="flex items-center gap-2 rounded-lg text-lg font-extrabold tracking-tight sm:text-xl">
         <img src="assets/icons/icon.svg" alt="" width="36" height="36" class="h-9 w-9">
-        <span>Hangar <span class="text-yellow-400">Kits</span></span>
+        <span>Hangar <span class="text-yellow-400">Kits</span><span class="sr-only">, ir al inicio</span></span>
       </a>
 
       <button type="button" id="boton-menu" class="btn ml-auto border-2 border-white/70 px-3 text-white hover:bg-navy-800 md:hidden"
@@ -32,11 +32,10 @@
 
       <nav id="menu-principal" aria-label="Principal" class="order-last hidden w-full md:order-none md:ml-6 md:block md:w-auto">
         <ul class="flex flex-col gap-1 md:flex-row md:gap-1" role="list">
-          <li><a href="#inicio" class="block min-h-tap rounded-lg px-3 py-2.5 font-medium hover:bg-navy-800">Inicio</a></li>
-          <li><a href="#categorias" class="block min-h-tap rounded-lg px-3 py-2.5 font-medium hover:bg-navy-800">Categorías</a></li>
-          <li><a href="#catalogo" class="block min-h-tap rounded-lg px-3 py-2.5 font-medium hover:bg-navy-800">Catálogo</a></li>
-          <li><a href="#contacto" class="block min-h-tap rounded-lg px-3 py-2.5 font-medium hover:bg-navy-800">Contacto</a></li>
-          <li><a href="#mis-datos" class="block min-h-tap rounded-lg px-3 py-2.5 font-medium hover:bg-navy-800">Mis datos</a></li>
+          <li><a href="index.html" aria-current="page" class="block min-h-tap rounded-lg px-3 py-2.5 font-medium hover:bg-navy-800 bg-navy-800 underline decoration-yellow-400 decoration-2 underline-offset-4">Inicio</a></li>
+          <li><a href="catalogo.html" class="block min-h-tap rounded-lg px-3 py-2.5 font-medium hover:bg-navy-800">Catálogo</a></li>
+          <li><a href="catalogo.html?orden=recientes" class="block min-h-tap rounded-lg px-3 py-2.5 font-medium hover:bg-navy-800">Novedades</a></li>
+          <li><a href="index.html#contacto" class="block min-h-tap rounded-lg px-3 py-2.5 font-medium hover:bg-navy-800">Contacto</a></li>
         </ul>
       </nav>
 
@@ -67,149 +66,55 @@
   </div>
 
   <main id="contenido" tabindex="-1" class="focus:outline-none">
-    <!-- ===================== INICIO ===================== -->
-    <section id="inicio" aria-labelledby="titulo-inicio" class="bg-navy-950 text-white">
-      <div class="mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 md:grid-cols-2 md:py-16">
-        <div>
-          <p class="font-semibold uppercase tracking-widest text-yellow-400">Tienda de modelismo</p>
-          <h1 id="titulo-inicio" class="mt-2 text-4xl font-extrabold leading-tight md:text-5xl">
-            Tu próximo kit, aunque te quedes sin señal.
-          </h1>
-          <p class="mt-4 max-w-prose text-lg text-slate-200">
-            Gunpla de Bandai, tanques de Tamiya, Zoids, Macross y aviones históricos.
-            Busca por marca, franquicia o escala; el catálogo y tu carrito se guardan en
-            tu dispositivo y funcionan sin conexión.
-          </p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#catalogo" class="btn-acento text-lg">Ver catálogo</a>
-            <a href="#categorias" class="btn border-2 border-white text-white hover:bg-navy-800">Explorar categorías</a>
-          </div>
-          <dl class="mt-8 grid max-w-md grid-cols-3 gap-4 text-center">
-            <div class="rounded-lg bg-navy-800 p-3"><dt class="text-sm text-slate-300">Kits</dt><dd id="dato-kits" class="text-2xl font-bold">—</dd></div>
-            <div class="rounded-lg bg-navy-800 p-3"><dt class="text-sm text-slate-300">Marcas</dt><dd id="dato-marcas" class="text-2xl font-bold">—</dd></div>
-            <div class="rounded-lg bg-navy-800 p-3"><dt class="text-sm text-slate-300">Escalas</dt><dd id="dato-escalas" class="text-2xl font-bold">—</dd></div>
-          </dl>
+    <h1 class="sr-only">Hangar Kits, tienda de model kits</h1>
+
+    <!-- ===================== NOVEDADES (carrusel) ===================== -->
+    <!-- Patrón Carousel de las WAI-ARIA APG: región con nombre, diapositivas como
+         grupos "1 de N", botón de pausa primero y selector de diapositivas. -->
+    <section id="novedades" aria-roledescription="carrusel" aria-labelledby="titulo-novedades" class="bg-navy-950 text-white">
+      <div class="mx-auto max-w-7xl px-4 pb-6 pt-8">
+        <div class="flex flex-wrap items-end justify-between gap-3">
+          <h2 id="titulo-novedades" class="text-3xl font-extrabold">Novedades</h2>
+          <a href="catalogo.html?orden=recientes" class="font-semibold text-yellow-300 underline underline-offset-4 hover:text-yellow-200">Ver todas las novedades</a>
         </div>
-        <figure class="overflow-hidden rounded-2xl border-4 border-yellow-400 bg-navy-800">
-          <img src="assets/img/mg-rx78-2-oyw.webp" width="800" height="600"
-               alt="Kit Master Grade del RX-78-2 Gundam armado, con su rifle y escudo"
-               class="aspect-[4/3] w-full object-cover" fetchpriority="high">
-          <figcaption class="px-3 py-2 text-sm text-slate-200">
-            MG RX-78-2 Gundam Ver. One Year War 0079 · Foto: Polycaps (CC BY-SA 2.0)
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- ===================== CATEGORÍAS ===================== -->
-    <section id="categorias" aria-labelledby="titulo-categorias" class="mx-auto max-w-7xl px-4 py-12">
-      <h2 id="titulo-categorias" class="text-3xl font-extrabold text-navy-900">Explora por categoría</h2>
-      <p class="mt-2 max-w-prose text-slate-700">Elige una categoría y el catálogo se filtra al instante. Puedes combinar filtros desde el panel del catálogo.</p>
-      <div class="mt-6 grid gap-6 md:grid-cols-3">
-        <section aria-labelledby="cat-marca" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h3 id="cat-marca" class="flex items-center gap-2 text-xl font-bold text-navy-900">
-            <span aria-hidden="true" class="inline-block h-3 w-3 rounded-full bg-blue-700"></span> Por marca
-          </h3>
-          <ul id="categorias-marca" class="mt-4 flex flex-wrap gap-2" role="list"></ul>
-        </section>
-        <section aria-labelledby="cat-franquicia" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h3 id="cat-franquicia" class="flex items-center gap-2 text-xl font-bold text-navy-900">
-            <span aria-hidden="true" class="inline-block h-3 w-3 rounded-full bg-red-700"></span> Por franquicia
-          </h3>
-          <ul id="categorias-franquicia" class="mt-4 flex flex-wrap gap-2" role="list"></ul>
-        </section>
-        <section aria-labelledby="cat-escala" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h3 id="cat-escala" class="flex items-center gap-2 text-xl font-bold text-navy-900">
-            <span aria-hidden="true" class="inline-block h-3 w-3 rounded-full bg-yellow-400 ring-1 ring-navy-900"></span> Por escala
-          </h3>
-          <ul id="categorias-escala" class="mt-4 flex flex-wrap gap-2" role="list"></ul>
-          <p class="ayuda">1/24 es el modelo más grande; 1/144, el más pequeño.</p>
-        </section>
-      </div>
-    </section>
-
-    <!-- ===================== CATÁLOGO ===================== -->
-    <section id="catalogo" aria-labelledby="titulo-catalogo" class="border-y border-slate-200 bg-white">
-      <div class="mx-auto max-w-7xl px-4 py-12">
-        <div class="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <h2 id="titulo-catalogo" tabindex="-1" class="text-3xl font-extrabold text-navy-900">Catálogo</h2>
-            <p id="origen-catalogo" class="mt-1 text-sm text-slate-600"></p>
+        <div class="mt-4 overflow-hidden rounded-2xl border-4 border-yellow-400 bg-navy-900">
+          <div data-pista class="carrusel-pista" aria-live="off">
+            <p class="p-10 text-slate-200">Cargando novedades…</p>
           </div>
-          <button type="button" id="boton-filtros" class="btn-secundario lg:hidden" aria-expanded="false" aria-controls="panel-filtros">
-            Mostrar filtros
+        </div>
+        <div class="mt-3 flex flex-wrap items-center justify-center gap-2">
+          <button type="button" data-pausa class="btn border-2 border-white/70 text-white hover:bg-navy-800">
+            <span data-icono aria-hidden="true">❚❚</span> <span data-texto>Pausar</span>
           </button>
-        </div>
-
-        <div class="mt-6 grid gap-8 lg:grid-cols-[17rem_minmax(0,1fr)]">
-          <!-- Panel de filtros: se guarda en sessionStorage -->
-          <aside id="panel-filtros" aria-labelledby="titulo-filtros" class="hidden lg:block">
-            <h3 id="titulo-filtros" class="sr-only">Filtros de búsqueda</h3>
-            <form id="form-filtros" role="search" aria-label="Filtrar catálogo" class="space-y-6">
-              <div>
-                <label for="filtro-texto" class="etiqueta">Buscar</label>
-                <input type="search" id="filtro-texto" name="texto" class="campo" placeholder="Ej.: zaku, 1/35, tamiya"
-                       autocomplete="off" aria-describedby="ayuda-texto">
-                <p id="ayuda-texto" class="ayuda">Busca en nombre, marca, franquicia, serie y escala.</p>
-              </div>
-
-              <div>
-                <label for="filtro-orden" class="etiqueta">Ordenar por</label>
-                <select id="filtro-orden" name="orden" class="campo">
-                  <option value="relevancia">Relevancia</option>
-                  <option value="precio-asc">Precio: menor a mayor</option>
-                  <option value="precio-desc">Precio: mayor a menor</option>
-                  <option value="nombre">Nombre (A–Z)</option>
-                  <option value="escala">Escala (grande a pequeña)</option>
-                </select>
-              </div>
-
-              <fieldset>
-                <legend class="etiqueta">Marca</legend>
-                <div id="filtro-marcas" class="mt-2 space-y-1"></div>
-              </fieldset>
-              <fieldset>
-                <legend class="etiqueta">Franquicia</legend>
-                <div id="filtro-franquicias" class="mt-2 space-y-1"></div>
-              </fieldset>
-              <fieldset>
-                <legend class="etiqueta">Escala</legend>
-                <div id="filtro-escalas" class="mt-2 space-y-1"></div>
-              </fieldset>
-
-              <button type="reset" class="btn-secundario w-full">Limpiar filtros</button>
-              <p class="ayuda">Tus filtros se recuerdan mientras esta pestaña siga abierta (sessionStorage).</p>
-            </form>
-          </aside>
-
-          <div>
-            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-3">
-              <p id="resumen-resultados" class="font-semibold text-slate-800" aria-live="polite" aria-atomic="true">Cargando catálogo…</p>
-              <fieldset class="flex items-center gap-2">
-                <legend class="sr-only">Vista del catálogo</legend>
-                <span aria-hidden="true" class="text-sm text-slate-600">Vista:</span>
-                <label class="inline-flex min-h-tap cursor-pointer items-center gap-2 rounded-lg border-2 border-slate-300 px-3 has-[:checked]:border-blue-700 has-[:checked]:bg-blue-50">
-                  <input type="radio" name="vista" value="cuadricula" class="h-4 w-4 accent-blue-700" checked> Cuadrícula
-                </label>
-                <label class="inline-flex min-h-tap cursor-pointer items-center gap-2 rounded-lg border-2 border-slate-300 px-3 has-[:checked]:border-blue-700 has-[:checked]:bg-blue-50">
-                  <input type="radio" name="vista" value="lista" class="h-4 w-4 accent-blue-700"> Lista
-                </label>
-              </fieldset>
-            </div>
-
-            <ul id="filtros-activos" class="mt-3 flex flex-wrap gap-2" role="list" aria-label="Filtros activos"></ul>
-
-            <ul id="lista-productos" role="list" class="mt-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3" aria-describedby="resumen-resultados"></ul>
-
-            <div id="sin-resultados" class="mt-8 rounded-2xl border-2 border-dashed border-slate-300 p-8 text-center" hidden>
-              <p class="text-lg font-semibold">No hay kits que coincidan con esos filtros.</p>
-              <button type="button" id="boton-limpiar-vacio" class="btn-primario mt-4">Limpiar filtros</button>
-            </div>
-
-            <div id="error-catalogo" role="alert" class="mt-8 rounded-2xl border-2 border-red-700 bg-red-50 p-6 text-red-900" hidden></div>
-          </div>
+          <button type="button" data-anterior class="btn-icono border-white/70 bg-transparent text-white hover:bg-navy-800" aria-label="Novedad anterior">‹</button>
+          <div data-puntos role="group" aria-label="Elegir novedad" class="flex flex-wrap items-center"></div>
+          <button type="button" data-siguiente class="btn-icono border-white/70 bg-transparent text-white hover:bg-navy-800" aria-label="Novedad siguiente">›</button>
         </div>
       </div>
+    </section>
+
+    <div id="error-catalogo" role="alert" class="mx-auto mt-8 max-w-7xl rounded-2xl border-2 border-red-700 bg-red-50 p-6 text-red-900" hidden></div>
+
+    <!-- Resumen rápido de la tienda -->
+    <section aria-label="La tienda en números" class="border-b border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-6 px-4 py-6">
+        <dl class="grid grid-cols-3 gap-4 text-center sm:gap-8">
+          <div><dt class="text-sm text-slate-600">Kits</dt><dd id="dato-kits" class="text-3xl font-extrabold text-navy-900">—</dd></div>
+          <div><dt class="text-sm text-slate-600">De Gundam</dt><dd id="dato-gundam" class="text-3xl font-extrabold text-navy-900">—</dd></div>
+          <div><dt class="text-sm text-slate-600">High Grade</dt><dd id="dato-hg" class="text-3xl font-extrabold text-navy-900">—</dd></div>
+        </dl>
+        <a href="catalogo.html" class="btn-primario text-lg">Ver catálogo completo</a>
+      </div>
+    </section>
+
+    <!-- ===================== CATEGORÍAS (barras diagonales) ===================== -->
+    <section id="categorias" aria-labelledby="titulo-categorias" class="py-12">
+      <div class="mx-auto max-w-7xl px-4">
+        <h2 id="titulo-categorias" class="text-3xl font-extrabold text-navy-900">Explora por categoría</h2>
+        <p class="mt-2 max-w-prose text-slate-700">Elige una línea y te llevamos al catálogo filtrado. Pasa el puntero o el foco por una barra para ver de qué se trata.</p>
+      </div>
+      <!-- Cada barra es un enlace a catalogo.html?categoria=… (ver view.js). -->
+      <ul id="barras-categorias" class="barras mx-auto mt-8 max-w-7xl" role="list"></ul>
     </section>
 
     <!-- ===================== CONTACTO ===================== -->
@@ -305,42 +210,7 @@
       </div>
     </section>
 
-    <!-- ===================== MIS DATOS (persistencia) ===================== -->
-    <section id="mis-datos" aria-labelledby="titulo-mis-datos" class="border-t border-slate-200 bg-white">
-      <div class="mx-auto max-w-7xl px-4 py-12">
-        <h2 id="titulo-mis-datos" class="text-3xl font-extrabold text-navy-900">Datos guardados en este dispositivo</h2>
-        <p class="mt-2 max-w-prose text-slate-700">
-          Transparencia: esto es lo que la tienda guarda en tu navegador para funcionar sin conexión.
-          Nada sale de tu dispositivo.
-        </p>
-        <!-- En móvil la tabla se desplaza en horizontal: tabindex="0" permite hacerlo con
-             las flechas del teclado (WCAG 2.1.1) y role/aria-label le dan nombre a la región. -->
-        <div class="mt-6 overflow-x-auto rounded-xl border border-slate-200" tabindex="0" role="region" aria-label="Tabla de datos guardados (desplazable)">
-          <table class="w-full min-w-[40rem] text-left">
-            <caption class="sr-only">Mecanismos de almacenamiento y su contenido actual</caption>
-            <thead class="bg-navy-900 text-white">
-              <tr>
-                <th scope="col" class="px-4 py-3">Mecanismo</th>
-                <th scope="col" class="px-4 py-3">Qué guarda</th>
-                <th scope="col" class="px-4 py-3">Duración</th>
-                <th scope="col" class="px-4 py-3">Estado actual</th>
-              </tr>
-            </thead>
-            <tbody id="tabla-persistencia" class="divide-y divide-slate-200"></tbody>
-          </table>
-        </div>
-        <div class="mt-4 flex flex-wrap gap-3">
-          <button type="button" id="boton-refrescar-datos" class="btn-secundario">Actualizar tabla</button>
-          <button type="button" id="boton-borrar-todo" class="btn-peligro" aria-describedby="ayuda-borrar-todo">Borrar todos mis datos locales</button>
-        </div>
-        <p id="ayuda-borrar-todo" class="ayuda">Vacía carrito, filtros, datos de contacto, pedidos y cookies. El catálogo se vuelve a descargar.</p>
-        <p id="confirmar-borrado" class="mt-3 rounded-lg border-2 border-red-700 bg-red-50 p-3 text-red-900" hidden>
-          ¿Seguro? Esta acción no se puede deshacer.
-          <button type="button" id="boton-confirmar-borrado" class="btn ml-2 bg-red-700 text-white hover:bg-red-800">Sí, borrar todo</button>
-          <button type="button" id="boton-cancelar-borrado" class="btn-secundario ml-2">Cancelar</button>
-        </p>
-      </div>
-    </section>
+
   </main>
 
   <footer class="bg-navy-950 text-slate-200">
@@ -352,8 +222,21 @@
           Tienda ficticia; precios referenciales. Las marcas y franquicias pertenecen a sus dueños.
         </p>
         <p class="mt-2 text-sm">Última visita: <span id="ultima-visita">primera visita</span></p>
+        <!-- Control de privacidad: el usuario puede borrar todo lo que la tienda guardó
+             en su navegador (carrito, filtros, contacto, pedidos, cookies). -->
+        <div class="mt-4">
+          <button type="button" id="boton-borrar-todo" class="btn border-2 border-slate-300 text-white hover:bg-navy-800" aria-describedby="ayuda-borrar-todo">
+            Borrar mis datos de este dispositivo
+          </button>
+          <p id="ayuda-borrar-todo" class="mt-1 text-sm text-slate-300">Vacía carrito, filtros, datos de contacto, pedidos y cookies. El catálogo se vuelve a descargar.</p>
+          <p id="confirmar-borrado" class="mt-3 rounded-lg border-2 border-red-300 bg-red-50 p-3 text-red-900" hidden>
+            ¿Seguro? Esta acción no se puede deshacer.
+            <button type="button" id="boton-confirmar-borrado" class="btn ml-2 bg-red-700 text-white hover:bg-red-800">Sí, borrar todo</button>
+            <button type="button" id="boton-cancelar-borrado" class="btn-secundario ml-2">Cancelar</button>
+          </p>
+        </div>
       </div>
-      <details class="rounded-xl bg-navy-900 p-4">
+      <details class="h-fit rounded-xl bg-navy-900 p-4">
         <summary class="min-h-tap cursor-pointer py-2 font-semibold text-white">Créditos de las fotografías</summary>
         <p class="mt-2 text-sm">Fotos de kits reales armados por sus autores, publicadas con licencias Creative Commons.</p>
         <ul id="lista-creditos" class="mt-3 space-y-2 text-sm" role="list"></ul>
@@ -378,7 +261,7 @@
       </div>
       <div class="border-t border-slate-200 px-5 py-4">
         <p class="flex justify-between text-lg font-bold"><span>Total</span><span id="carrito-total">$0.00</span></p>
-        <p class="ayuda">El carrito se guarda en localStorage; los pedidos, en IndexedDB.</p>
+        <p class="ayuda">El carrito se guarda en tu dispositivo; los pedidos también, aunque no tengas conexión.</p>
         <div class="mt-3 grid grid-cols-2 gap-3">
           <button type="button" id="boton-vaciar-carrito" class="btn-peligro">Vaciar</button>
           <button type="button" id="boton-confirmar-pedido" class="btn-primario">Confirmar pedido</button>
@@ -386,35 +269,6 @@
       </div>
     </div>
   </dialog>
-
-  <!-- Plantilla de tarjeta de producto (se clona en view.js; los datos se insertan con
-       textContent, nunca con innerHTML, para evitar XSS desde el JSON). -->
-  <template id="tpl-producto">
-    <li class="producto">
-      <article class="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md" data-contenedor>
-        <figure class="relative bg-slate-200" data-figura>
-          <img data-img width="800" height="600" loading="lazy" decoding="async" class="aspect-[4/3] w-full object-cover" alt="">
-          <span data-escala class="chip absolute left-3 top-3 bg-yellow-400 text-navy-950"></span>
-          <figcaption data-credito class="px-3 py-1 text-xs text-slate-700"></figcaption>
-        </figure>
-        <div class="flex flex-1 flex-col p-4">
-          <p data-marca class="text-sm font-semibold uppercase tracking-wide text-blue-800"></p>
-          <h3 data-nombre class="mt-1 text-lg font-bold leading-snug text-navy-900"></h3>
-          <p data-franquicia class="mt-1 text-sm text-slate-700"></p>
-          <p data-descripcion class="mt-2 text-sm text-slate-700"></p>
-          <dl class="mt-3 grid grid-cols-2 gap-x-3 gap-y-1 text-sm">
-            <dt class="text-slate-600">Línea</dt><dd data-linea class="font-medium"></dd>
-            <dt class="text-slate-600">Dificultad</dt><dd data-dificultad class="font-medium"></dd>
-            <dt class="text-slate-600">Stock</dt><dd data-stock class="font-medium"></dd>
-          </dl>
-          <div class="mt-auto flex items-center justify-between gap-3 pt-4">
-            <p data-precio class="text-2xl font-extrabold text-navy-900"></p>
-            <button type="button" data-agregar class="btn-primario">Agregar</button>
-          </div>
-        </div>
-      </article>
-    </li>
-  </template>
 
   <!-- Región de anuncios para lectores de pantalla (acciones como "agregado al carrito"). -->
   <div id="anuncios" class="sr-only" aria-live="polite" aria-atomic="true"></div>

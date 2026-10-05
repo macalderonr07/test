@@ -13,7 +13,19 @@ export const fecha = (iso) => {
   return Number.isNaN(d.getTime()) ? "—" : formatoFecha.format(d);
 };
 
-function el(etiqueta, { clase, texto, attrs } = {}, hijos = []) {
+// "2026-10-03" -> "3 oct 2026". Se arma la fecha en hora local para que no
+// retroceda un día por la zona horaria (new Date("2026-10-03") es medianoche UTC).
+const formatoDia = new Intl.DateTimeFormat("es-EC", { day: "numeric", month: "short", year: "numeric" });
+export const dia = (iso) => {
+  const [a, m, d] = String(iso).split("-").map(Number);
+  return a && m && d ? formatoDia.format(new Date(a, m - 1, d)) : "—";
+};
+
+/** URL de la ficha de un producto. encodeURIComponent: el id viene del JSON. */
+export const urlProducto = (id) => `producto.html?id=${encodeURIComponent(id)}`;
+export const urlCategoria = (id) => `catalogo.html?categoria=${encodeURIComponent(id)}`;
+
+export function el(etiqueta, { clase, texto, attrs } = {}, hijos = []) {
   const nodo = document.createElement(etiqueta);
   if (clase) nodo.className = clase;
   if (texto !== undefined) nodo.textContent = texto;
@@ -26,7 +38,7 @@ function el(etiqueta, { clase, texto, attrs } = {}, hijos = []) {
 let temporizadorAnuncio;
 export function anunciar(mensaje) {
   const region = $("#anuncios");
-  // Vaciar y reescribir en el siguiente frame fuerza a que se lea aunque el texto se repita.
+  // Vaciar y reescribir un instante después fuerza a que se lea aunque el texto se repita.
   region.textContent = "";
   clearTimeout(temporizadorAnuncio);
   temporizadorAnuncio = setTimeout(() => {
@@ -48,59 +60,66 @@ export function mostrarEstadoRed(enLinea) {
     : "▲ Sin conexión: estás usando el catálogo guardado en tu dispositivo. Carrito, pedidos y mensajes siguen funcionando.";
 }
 
-export function mostrarOrigenCatalogo(origen, meta) {
+export function mostrarOrigenCatalogo(nodo, origen, meta) {
+  if (!nodo) return;
   const nombres = { red: "descargado de la red", indexeddb: "cargado desde IndexedDB (copia local)" };
   const sincronizado = meta?.sincronizado ? ` · última sincronización: ${fecha(meta.sincronizado)}` : "";
-  $("#origen-catalogo").textContent = `Catálogo ${nombres[origen] ?? origen}${sincronizado}.`;
+  nodo.textContent = `Catálogo ${nombres[origen] ?? origen}${sincronizado}.`;
 }
 
-// ---------- Datos del hero ----------
-export function mostrarResumenTienda(productos, facetas) {
-  $("#dato-kits").textContent = String(productos.length);
-  $("#dato-marcas").textContent = String(facetas.marcas.length);
-  $("#dato-escalas").textContent = String(facetas.escalas.length);
-}
-
-// ---------- Categorías (accesos rápidos) ----------
-export function renderCategorias(contenedor, opciones, campo, alElegir) {
+// ---------- Portada: categorías en barras diagonales ----------
+/**
+ * Cada categoría es un ENLACE real a catalogo.html?categoria=…: funciona con
+ * teclado, con clic central (pestaña nueva) y aunque falle el JavaScript de la
+ * página de destino. La inclinación es solo visual (CSS); el orden de lectura
+ * y de tabulación sigue siendo el del DOM.
+ */
+export function renderCategoriasDiagonales(contenedor, categorias, facetasCategorias) {
+  const totales = new Map(facetasCategorias.map((f) => [f.valor, f.total]));
   contenedor.replaceChildren(
-    ...opciones.map(({ valor, total }) => {
-      const boton = el("button", {
-        clase: "btn border-2 border-slate-300 bg-slate-50 text-slate-900 hover:border-blue-700 hover:bg-blue-50",
-        attrs: { type: "button", "aria-label": `${valor}, ${total} ${total === 1 ? "kit" : "kits"}` },
-      }, [
-        el("span", { texto: valor }),
-        el("span", { clase: "chip bg-navy-900 text-white", texto: String(total), attrs: { "aria-hidden": "true" } }),
-      ]);
-      boton.addEventListener("click", () => alElegir(campo, valor));
-      return el("li", {}, [boton]);
-    })
+    ...categorias
+      .filter((c) => totales.has(c.id))
+      .map((c) => {
+        const total = totales.get(c.id);
+        return el("li", { clase: "barra" }, [
+          el("a", { clase: "barra-enlace", attrs: { href: urlCategoria(c.id) } }, [
+            // alt="": la imagen es decorativa; el nombre del enlace lo da el texto.
+            el("img", { clase: "barra-img", attrs: { src: c.imagen, alt: "", width: "800", height: "600", loading: "lazy", decoding: "async" } }),
+            el("span", { clase: "barra-texto" }, [
+              el("span", { clase: "barra-subtitulo", texto: c.subtitulo ?? "" }),
+              el("span", { clase: "barra-nombre", texto: c.nombre }),
+              el("span", { clase: "barra-descripcion", texto: c.descripcion ?? "" }),
+              el("span", { clase: "barra-total", texto: `${total} ${total === 1 ? "kit" : "kits"} →` }),
+            ]),
+          ]),
+        ]);
+      })
   );
 }
 
 // ---------- Filtros ----------
 export function renderOpcionesFiltro(contenedor, nombre, opciones, seleccionados) {
   contenedor.replaceChildren(
-    ...opciones.map(({ valor, total }, i) => {
+    ...opciones.map(({ valor, etiqueta, total }, i) => {
       const id = `f-${nombre}-${i}`;
       const input = el("input", {
         clase: "h-5 w-5 accent-blue-700",
         attrs: { type: "checkbox", id, name: nombre, value: valor },
       });
       input.checked = seleccionados.includes(valor);
-      const label = el("label", { clase: "flex min-h-tap cursor-pointer items-center gap-3 rounded-lg px-2 hover:bg-slate-100", attrs: { for: id } }, [
+      return el("label", { clase: "flex min-h-tap cursor-pointer items-center gap-3 rounded-lg px-2 hover:bg-slate-100", attrs: { for: id } }, [
         input,
-        el("span", { clase: "flex-1", texto: valor }),
+        el("span", { clase: "flex-1", texto: etiqueta ?? valor }),
         el("span", { clase: "text-sm text-slate-600", texto: `(${total})` }),
       ]);
-      return label;
     })
   );
 }
 
-export function renderFiltrosActivos(contenedor, filtros, alQuitar) {
+export function renderFiltrosActivos(contenedor, filtros, nombreCategoria, alQuitar) {
   const activos = [
     ...(filtros.texto ? [{ campo: "texto", valor: filtros.texto, etiqueta: `Texto: “${filtros.texto}”` }] : []),
+    ...filtros.categorias.map((v) => ({ campo: "categorias", valor: v, etiqueta: `Categoría: ${nombreCategoria(v)}` })),
     ...filtros.marcas.map((v) => ({ campo: "marcas", valor: v, etiqueta: `Marca: ${v}` })),
     ...filtros.franquicias.map((v) => ({ campo: "franquicias", valor: v, etiqueta: `Franquicia: ${v}` })),
     ...filtros.escalas.map((v) => ({ campo: "escalas", valor: v, etiqueta: `Escala: ${v}` })),
@@ -118,20 +137,23 @@ export function renderFiltrosActivos(contenedor, filtros, alQuitar) {
 }
 
 // ---------- Productos ----------
-function etiquetaStock(stock) {
+export function etiquetaStock(stock) {
   if (stock === 0) return "Agotado";
   if (stock <= 3) return `¡Últimas ${stock}!`;
   return `${stock} disponibles`;
 }
 
-export function renderProductos(productos, { vista, unidadesEnCarrito, alAgregar }) {
-  const lista = $("#lista-productos");
+/**
+ * Pinta tarjetas de producto clonando <template id="tpl-producto">.
+ * @param {HTMLElement} lista  <ul> destino (catálogo o "relacionados" en la ficha)
+ */
+export function renderProductos(lista, productos, { vista = "cuadricula", unidadesEnCarrito, alAgregar, columnas }) {
   const plantilla = $("#tpl-producto");
   const enLista = vista === "lista";
 
   // Grid de CSS: la vista cuadrícula usa columnas responsivas; la vista lista, una
   // sola columna con la tarjeta en dos columnas internas (imagen | datos).
-  lista.className = enLista ? "mt-6 grid gap-4" : "mt-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3";
+  lista.className = enLista ? "mt-6 grid gap-4" : `mt-6 grid gap-6 ${columnas ?? "sm:grid-cols-2 xl:grid-cols-3"}`;
 
   lista.replaceChildren(
     ...productos.map((p) => {
@@ -143,11 +165,15 @@ export function renderProductos(productos, { vista, unidadesEnCarrito, alAgregar
       img.src = p.imagen;
       img.alt = p.alt ?? `Kit ${p.nombre}`;
       $("[data-escala]", nodo).textContent = `Escala ${p.escala}`;
+      const insignia = $("[data-nuevo]", nodo);
+      if (insignia) insignia.hidden = p.nuevo !== true;
       $("[data-credito]", nodo).textContent = p.credito ? `Foto: ${p.credito.autor} (${p.credito.licencia})` : "";
       $("[data-marca]", nodo).textContent = p.marca;
       const titulo = $("[data-nombre]", nodo);
-      titulo.textContent = p.nombre;
       titulo.id = `prod-${p.id}`;
+      const enlace = $("[data-enlace]", nodo);
+      enlace.textContent = p.nombre;
+      enlace.href = urlProducto(p.id);
       articulo.setAttribute("aria-labelledby", titulo.id);
       $("[data-franquicia]", nodo).textContent = `${p.franquicia} · ${p.serie}`;
       $("[data-descripcion]", nodo).textContent = p.descripcion;
@@ -161,7 +187,7 @@ export function renderProductos(productos, { vista, unidadesEnCarrito, alAgregar
       const boton = $("[data-agregar]", nodo);
       const enCarrito = unidadesEnCarrito(p.id);
       boton.textContent = enCarrito > 0 ? `Agregar (${enCarrito} en carrito)` : "Agregar al carrito";
-      // El nombre accesible incluye el producto: "Agregar al carrito" repetido 18 veces
+      // El nombre accesible incluye el producto: "Agregar al carrito" repetido 29 veces
       // no ayuda a quien navega por lista de botones (WCAG 2.4.6 / 2.5.3: el texto visible
       // está contenido al inicio del nombre accesible).
       boton.setAttribute("aria-label", `${boton.textContent}: ${p.nombre}`);
@@ -180,11 +206,9 @@ export function renderResumenResultados(mostrados, total) {
   $("#sin-resultados").hidden = mostrados !== 0;
 }
 
-export function mostrarErrorCatalogo(mensaje) {
-  const caja = $("#error-catalogo");
-  caja.textContent = mensaje;
-  caja.hidden = false;
-  $("#resumen-resultados").textContent = "No se pudo cargar el catálogo.";
+export function mostrarError(nodo, mensaje) {
+  nodo.textContent = mensaje;
+  nodo.hidden = false;
 }
 
 // ---------- Carrito ----------
@@ -218,7 +242,7 @@ export function renderCarrito(lineas, total, { alCambiar, alQuitar }) {
       return el("li", { clase: "grid grid-cols-[4.5rem_minmax(0,1fr)] gap-3 py-4", attrs: { "data-id": p.id } }, [
         el("img", { clase: "h-[3.375rem] w-[4.5rem] rounded-md object-cover", attrs: { src: p.imagen, alt: "", width: "72", height: "54" } }),
         el("div", {}, [
-          el("p", { clase: "font-semibold leading-snug", texto: p.nombre }),
+          el("a", { clase: "font-semibold leading-snug underline-offset-2 hover:underline", texto: p.nombre, attrs: { href: urlProducto(p.id) } }),
           el("p", { clase: "text-sm text-slate-600", texto: `${precio(p.precio)} c/u · Escala ${p.escala}` }),
           el("div", { clase: "mt-2 flex flex-wrap items-center gap-2" }, [
             el("label", { clase: "sr-only", texto: `Cantidad de ${p.nombre}`, attrs: { for: idCantidad } }),
@@ -247,7 +271,9 @@ export function mostrarPedidoConfirmado(pedido) {
 
 // ---------- Créditos ----------
 export function renderCreditos(productos) {
-  $("#lista-creditos").replaceChildren(
+  const lista = $("#lista-creditos");
+  if (!lista) return;
+  lista.replaceChildren(
     ...productos.map((p) =>
       el("li", {}, [
         el("span", { clase: "font-semibold text-white", texto: `${p.nombre}: ` }),
@@ -257,20 +283,6 @@ export function renderCreditos(productos) {
           texto: "Ver original",
           attrs: { href: p.credito.fuente, rel: "noopener noreferrer", target: "_blank", "aria-label": `Ver foto original de ${p.nombre} (abre en pestaña nueva)` },
         }),
-      ])
-    )
-  );
-}
-
-// ---------- Tabla de persistencia ----------
-export function renderTablaPersistencia(filas) {
-  $("#tabla-persistencia").replaceChildren(
-    ...filas.map(({ mecanismo, guarda, duracion, estado }) =>
-      el("tr", { clase: "align-top" }, [
-        el("th", { clase: "px-4 py-3 font-semibold text-navy-900", texto: mecanismo, attrs: { scope: "row" } }),
-        el("td", { clase: "px-4 py-3", texto: guarda }),
-        el("td", { clase: "px-4 py-3", texto: duracion }),
-        el("td", { clase: "px-4 py-3 font-medium", texto: estado }),
       ])
     )
   );

@@ -4,9 +4,9 @@
 // sin red la página quedaría sin estilos. Un CSS estático sí entra en la caché del
 // Service Worker y funciona offline.
 module.exports = {
-  // Se escanean también los módulos JS porque view.js arma clases de Tailwind al
+  // Se escanean las tres páginas (*.html) y también los módulos JS porque view.js arma clases de Tailwind al
   // renderizar tarjetas, chips y el carrito.
-  content: ["./index.html", "./js/**/*.js"],
+  content: ["./*.html", "./js/**/*.js"],
   theme: {
     extend: {
       colors: {

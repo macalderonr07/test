@@ -15,8 +15,27 @@ python3 -m http.server 8080        # o: npm run serve
 ```
 
 Para probar el modo offline: abrir la página una vez con red → DevTools → *Network* → *Offline*
-(o desconectar el wifi) → recargar. La tienda abre completa: catálogo, imágenes, filtros, carrito,
-pedidos y formulario.
+(o desconectar el wifi) → recargar. La tienda abre completa: portada, catálogo, fichas de producto,
+imágenes, filtros, carrito, pedidos y formulario.
+
+## Páginas
+
+| Página | Qué muestra |
+|---|---|
+| `index.html` | Carrusel de **novedades** (productos con `"nuevo": true`, del ingreso más reciente al más antiguo), categorías en **barras diagonales** que llevan a `catalogo.html?categoria=…`, y formulario de contacto |
+| `catalogo.html` | Catálogo con filtros (categoría, marca, franquicia, escala, texto), orden y vista cuadrícula/lista. Los filtros se leen de la URL (`?categoria=high-grade&orden=precio-asc`) y se reflejan en ella con `history.replaceState`, así el enlace se puede compartir |
+| `producto.html?id=…` | Ficha del kit: foto, precio, stock, cantidad, especificaciones, migas de pan y productos relacionados (misma categoría, luego misma franquicia) |
+
+**Carrusel** (patrón *Carousel* de las WAI-ARIA APG): botón Pausar/Reanudar primero en el orden de
+tabulación (WCAG 2.2.2), anterior/siguiente y un punto por diapositiva con `aria-current`. Rota cada 6 s;
+se detiene si el foco entra al carrusel, se pausa mientras el ratón está encima y arranca pausado con
+`prefers-reduced-motion`. Las diapositivas ocultas llevan `inert`.
+
+**Barras diagonales**: cada barra es un enlace real (funciona con teclado, clic central y sin JS en la
+página destino). En escritorio son columnas inclinadas con `skewX(-12deg)` y el contenido se
+contra-inclina para que la foto quede derecha; con hover o foco la barra se ensancha y muestra la
+descripción. En móvil se apilan y la diagonal se hace con `clip-path`. El foco se dibuja sobre el bloque
+de texto porque el contorno del enlace quedaría recortado por `overflow: hidden`.
 
 Si se modifica `assets/tailwind.css` o se agregan clases nuevas en el HTML/JS:
 
@@ -32,18 +51,26 @@ npm run build:css    # regenera assets/styles.css
 ## Estructura
 
 ```
-index.html              header, nav, main (secciones), footer, <dialog> del carrito, <template>
+index.html              portada: carrusel de novedades, barras de categorías, contacto
+catalogo.html           catálogo con filtros + <template> de tarjeta
+producto.html           ficha de producto + relacionados
+                        (las tres comparten header, footer y el <dialog> del carrito)
 manifest.webmanifest    instalación como app
 sw.js                   Service Worker (en la raíz para que su scope cubra todo el sitio)
 assets/
   tailwind.css          fuente de estilos (Tailwind + capa base/componentes)
   styles.css            CSS compilado (NO editar a mano)
-  img/                  18 fotos de kits reales (WebP 800×600)
+  img/                  29 fotos de kits reales (WebP 800×600)
   icons/                íconos de la PWA
-data/productos.json     catálogo (marca, franquicia, serie, escala, precio, stock, crédito de la foto)
+data/productos.json     categorías + catálogo (marca, línea, franquicia, serie, escala, precio,
+                        stock, categoría, nuevo/ingreso, crédito de la foto)
 js/
-  app.js                punto de entrada: orquesta todo
-  repo.js               catálogo: IndexedDB primero, red después; filtros y facetas
+  comun.js              marco común: menú, carrito, estado de red, SW, instalación, borrado de datos
+  inicio.js             portada (carrusel + barras + contacto)
+  catalogo.js           filtros (URL + sessionStorage), orden, vista
+  producto.js           ficha, compra con cantidad, relacionados
+  carrusel.js           clase Carrusel accesible
+  repo.js               catálogo: IndexedDB primero, red después; filtros, facetas, novedades, relacionados
   db.js                 envoltorio de IndexedDB con Promesas
   storage.js            localStorage / sessionStorage / cookies
   cart.js               carrito (clase con campos privados, EventTarget)
@@ -55,20 +82,29 @@ js/
 
 | Mecanismo | Qué guarda | Por qué ahí |
 |---|---|---|
-| **IndexedDB** | Catálogo completo, pedidos, bandeja de salida | Datos estructurados y voluminosos, consultas por índice (marca/franquicia/escala), asíncrono |
-| **sessionStorage** | Filtros de búsqueda; nombre, documento, dirección y mensaje | Deben durar solo mientras la pestaña está abierta; los datos delicados mueren al cerrarla |
-| **localStorage** | Correo y teléfono; carrito | Deben sobrevivir entre visitas (el usuario puede desactivar "Recordar") |
-| **Cookies** | Vista preferida, fecha de última visita | Preferencias mínimas sin datos personales (`SameSite=Lax`) |
-| **Cache Storage** | HTML, CSS, JS, imágenes, JSON | Lo usa el Service Worker para abrir la app sin red |
+| Mecanismo | Qué guarda | Duración | Por qué ahí |
+|---|---|---|---|
+| **IndexedDB** (`HangarKitsDB`) | Catálogo completo (almacén `productos`, con índices por marca/franquicia/escala), categorías y versión (`meta`), pedidos confirmados (`pedidos`), bandeja de salida de mensajes (`bandeja`) | Permanente, hasta que se borre | Datos estructurados y voluminosos, consultas por índice, asíncrono (no bloquea la página). Las tres páginas leen de aquí, así el catálogo se descarga una sola vez |
+| **sessionStorage** | Filtros del catálogo (`hk_filtros_v1`); nombre, documento, dirección y mensaje del formulario (`hk_contacto_privado_v1`) | Hasta cerrar la pestaña | Los filtros solo importan durante la visita; los datos delicados mueren al cerrar la pestaña |
+| **localStorage** | Correo y teléfono (`hk_contacto_v1`) si se marca "Recordar"; carrito (`hk_carrito_v1`, solo `{id, cantidad}`) | Permanente | Deben sobrevivir entre visitas. El carrito no guarda precios: se recalculan siempre contra el catálogo |
+| **Cookies** | Vista preferida del catálogo (`hk_vista`), fecha de la última visita (`hk_ultima_visita`) | 180 días | Preferencias mínimas sin datos personales (`SameSite=Lax`, `Secure` con HTTPS) |
+| **Cache Storage** | Las tres páginas, CSS, JS, íconos, imágenes y `productos.json` | Hasta que se publique una versión nueva del SW | Lo usa el Service Worker para abrir la app sin red |
+| **URL** (no es almacenamiento, pero conserva estado) | Filtros del catálogo (`?categoria=…&marca=…&q=…&orden=…`) e id del producto | Mientras exista el enlace | Permite compartir una búsqueda o una ficha |
 
-La sección **"Mis datos"** de la página muestra el estado real de cada mecanismo y permite borrarlo todo.
+**Cómo inspeccionarlo**: DevTools → *Application* (Chrome) o *Almacenamiento* (Firefox) muestra cada
+mecanismo. El botón **"Borrar mis datos de este dispositivo"** del pie de página vacía carrito, filtros,
+contacto, pedidos, bandeja y cookies, y recarga para volver a descargar el catálogo (confirmación en línea,
+sin `window.confirm`).
 
 ## Estrategia offline
 
-1. **Instalación del SW**: precarga app shell + 18 imágenes + `productos.json` (35 archivos).
+1. **Instalación del SW**: precarga las tres páginas, CSS, JS, íconos y `productos.json`; las imágenes se
+   leen del propio JSON (productos y categorías), así agregar un kit no obliga a tocar `sw.js`.
 2. **Catálogo**: `repo.js` pinta primero desde IndexedDB (instantáneo, sin red) y en paralelo pide
    el JSON; si hay versión nueva, la guarda en IndexedDB en **una sola transacción** y vuelve a pintar.
-3. **HTML**: red primero, caché de respaldo. **JSON**: *stale-while-revalidate*. **Estáticos**: caché primero.
+3. **HTML**: red primero, caché de respaldo. Cada página se guarda con su ruta y **sin query string**
+   (`producto.html?id=hg-exia` → `producto.html`), así cualquier ficha abre offline.
+   **JSON**: *stale-while-revalidate*. **Estáticos**: caché primero.
 4. **Acciones sin red**: los pedidos se guardan en IndexedDB; los mensajes de contacto quedan
    "pendientes" en la bandeja y se procesan con el evento `online` (envío simulado: no hay backend).
 
@@ -105,5 +141,5 @@ Igual conviene una revisión manual con lector de pantalla (NVDA/Orca).
 Fotos de kits reales armados por sus autores, obtenidas de Flickr/Wikimedia Commons vía
 Openverse con licencias **CC BY 2.0 / CC BY-SA 2.0**. Autor, licencia y enlace al original de
 cada foto están en `data/productos.json` y en el pie de la página ("Créditos de las fotografías").
-Las fotos se recortaron a 4:3 y se convirtieron a WebP (obra derivada, misma licencia en las BY-SA).
+Las fotos se recortaron a 4:3 (las verticales se encajan sobre un fondo desenfocado de la misma foto, para no cortar el kit) y se convirtieron a WebP (obra derivada, misma licencia en las BY-SA).
 Marcas y franquicias pertenecen a sus dueños; precios referenciales.

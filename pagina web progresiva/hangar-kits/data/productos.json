@@ -1,7 +1,58 @@
 {
-  "version": "2026-10-05",
+  "version": "2026-10-05b",
   "moneda": "USD",
   "nota": "Precios referenciales con fines académicos.",
+  "categorias": [
+    {
+      "id": "high-grade",
+      "nombre": "High Grade",
+      "subtitulo": "HG · HGUC · HGBF · 1/144",
+      "descripcion": "La línea de entrada de Gunpla: armado a presión, buen precio y la mayor variedad de mobile suits.",
+      "imagen": "assets/img/hg-barbatos.webp"
+    },
+    {
+      "id": "master-grade",
+      "nombre": "Master Grade",
+      "subtitulo": "MG · 1/100",
+      "descripcion": "Marco interno completo y más detalle para quien ya armó algunos HG.",
+      "imagen": "assets/img/mg-rx78-2-oyw.webp"
+    },
+    {
+      "id": "real-perfect",
+      "nombre": "Real y Perfect Grade",
+      "subtitulo": "RG 1/144 · PG 1/60",
+      "descripcion": "La gama alta de Bandai: máximo detalle y articulación.",
+      "imagen": "assets/img/pg-wing-zero-custom.webp"
+    },
+    {
+      "id": "mechas",
+      "nombre": "Mechas clásicos",
+      "subtitulo": "Macross · Zoids",
+      "descripcion": "Valkyries transformables y Zoids de Tomy.",
+      "imagen": "assets/img/zoids-liger-zero.webp"
+    },
+    {
+      "id": "blindados",
+      "nombre": "Blindados",
+      "subtitulo": "Tamiya · 1/35",
+      "descripcion": "Tanques históricos y modernos en la escala militar por excelencia.",
+      "imagen": "assets/img/tamiya-jagdtiger.webp"
+    },
+    {
+      "id": "aviones",
+      "nombre": "Aviación",
+      "subtitulo": "Airfix · Revell · 1/72",
+      "descripcion": "Cazas de la Segunda Guerra Mundial para empezar en el modelismo estático.",
+      "imagen": "assets/img/airfix-spitfire-mk1.webp"
+    },
+    {
+      "id": "autos",
+      "nombre": "Autos",
+      "subtitulo": "Tamiya · 1/24",
+      "descripcion": "Clásicos de calle y prototipos de Le Mans.",
+      "imagen": "assets/img/tamiya-porsche-956.webp"
+    }
+  ],
   "productos": [
     {
       "id": "mg-rx78-2-oyw",
@@ -21,7 +72,10 @@
         "autor": "Polycaps",
         "licencia": "CC BY-SA 2.0",
         "fuente": "https://www.flickr.com/photos/54132475@N02/7845310994"
-      }
+      },
+      "categoria": "master-grade",
+      "nuevo": false,
+      "ingreso": "2026-02-10"
     },
     {
       "id": "hguc-nu-gundam",
@@ -41,7 +95,10 @@
         "autor": "FHKE",
         "licencia": "CC BY-SA 2.0",
         "fuente": "https://www.flickr.com/photos/16226024@N00/2671058875"
-      }
+      },
+      "categoria": "high-grade",
+      "nuevo": false,
+      "ingreso": "2026-02-10"
     },
     {
       "id": "hguc-hi-nu-gundam",
@@ -61,7 +118,10 @@
         "autor": "Masaru Kamikura",
         "licencia": "CC BY 2.0",
         "fuente": "https://www.flickr.com/photos/20119192@N00/3538699100"
-      }
+      },
+      "categoria": "high-grade",
+      "nuevo": false,
+      "ingreso": "2026-02-10"
     },
     {
       "id": "mg-zaku-ii-v2",
@@ -81,7 +141,10 @@
         "autor": "FHKE",
         "licencia": "CC BY-SA 2.0",
         "fuente": "https://www.flickr.com/photos/16226024@N00/1502238617"
-      }
+      },
+      "categoria": "master-grade",
+      "nuevo": false,
+      "ingreso": "2026-02-10"
     },
     {
       "id": "hg-graze",
@@ -101,7 +164,10 @@
         "autor": "Marco Hazard",
         "licencia": "CC BY-SA 2.0",
         "fuente": "https://www.flickr.com/photos/42405591@N02/23024569332"
-      }
+      },
+      "categoria": "high-grade",
+      "nuevo": false,
+      "ingreso": "2026-02-10"
     },
     {
       "id": "hg-schwalbe-graze",
@@ -121,7 +187,10 @@
         "autor": "Marco Hazard",
         "licencia": "CC BY-SA 2.0",
         "fuente": "https://www.flickr.com/photos/42405591@N02/23139671124"
-      }
+      },
+      "categoria": "high-grade",
+      "nuevo": false,
+      "ingreso": "2026-02-10"
     },
     {
       "id": "rg-gp01",
@@ -141,7 +210,10 @@
         "autor": "othree",
         "licencia": "CC BY 2.0",
         "fuente": "https://www.flickr.com/photos/12452841@N00/9483371361"
-      }
+      },
+      "categoria": "real-perfect",
+      "nuevo": false,
+      "ingreso": "2026-02-10"
     },
     {
       "id": "pg-wing-zero-custom",
@@ -161,7 +233,10 @@
         "autor": "Fernando Marcelino",
         "licencia": "CC BY-SA 2.0",
         "fuente": "https://www.flickr.com/photos/13651330@N04/3511576169"
-      }
+      },
+      "categoria": "real-perfect",
+      "nuevo": false,
+      "ingreso": "2026-02-10"
     },
     {
       "id": "mg-delta-plus",
@@ -181,7 +256,10 @@
         "autor": "Polycaps",
         "licencia": "CC BY-SA 2.0",
         "fuente": "https://www.flickr.com/photos/54132475@N02/7688339092"
-      }
+      },
+      "categoria": "master-grade",
+      "nuevo": true,
+      "ingreso": "2026-09-25"
     },
     {
       "id": "vf-1s-valkyrie",
@@ -201,7 +279,10 @@
         "autor": "ocean yamaha",
         "licencia": "CC BY 2.0",
         "fuente": "https://www.flickr.com/photos/50527177@N00/13015732404"
-      }
+      },
+      "categoria": "mechas",
+      "nuevo": false,
+      "ingreso": "2026-09-18"
     },
     {
       "id": "zoids-liger-zero",
@@ -221,7 +302,10 @@
         "autor": "JOE WU",
         "licencia": "CC BY 2.0",
         "fuente": "https://www.flickr.com/photos/34186984@N00/2580299117"
-      }
+      },
+      "categoria": "mechas",
+      "nuevo": false,
+      "ingreso": "2026-02-10"
     },
     {
       "id": "tamiya-cromwell",
@@ -241,7 +325,10 @@
         "autor": "TDelCoro",
         "licencia": "CC BY-SA 2.0",
         "fuente": "https://www.flickr.com/photos/45549579@N05/21619198058"
-      }
+      },
+      "categoria": "blindados",
+      "nuevo": false,
+      "ingreso": "2026-02-10"
     },
     {
       "id": "tamiya-type90",
@@ -261,7 +348,10 @@
         "autor": "TDelCoro",
         "licencia": "CC BY-SA 2.0",
         "fuente": "https://www.flickr.com/photos/45549579@N05/22156309849"
-      }
+      },
+      "categoria": "blindados",
+      "nuevo": false,
+      "ingreso": "2026-02-10"
     },
     {
       "id": "tamiya-jagdtiger",
@@ -281,7 +371,10 @@
         "autor": "TDelCoro",
         "licencia": "CC BY-SA 2.0",
         "fuente": "https://www.flickr.com/photos/45549579@N05/6190757120"
-      }
+      },
+      "categoria": "blindados",
+      "nuevo": false,
+      "ingreso": "2026-02-10"
     },
     {
       "id": "tamiya-porsche-956",
@@ -301,7 +394,10 @@
         "autor": "wbaiv",
         "licencia": "CC BY-SA 2.0",
         "fuente": "https://www.flickr.com/photos/9998127@N06/6252744908"
-      }
+      },
+      "categoria": "autos",
+      "nuevo": false,
+      "ingreso": "2026-02-10"
     },
     {
       "id": "tamiya-karmann-ghia",
@@ -321,7 +417,10 @@
         "autor": "Bill Abbott",
         "licencia": "CC BY-SA 2.0",
         "fuente": "https://commons.wikimedia.org/wiki/File:Tamiya_1-24_Volkswagen_Karman_Ghia_(15816410384).jpg"
-      }
+      },
+      "categoria": "autos",
+      "nuevo": false,
+      "ingreso": "2026-02-10"
     },
     {
       "id": "airfix-spitfire-mk1",
@@ -341,7 +440,10 @@
         "autor": "ATom.UK",
         "licencia": "CC BY-SA 2.0",
         "fuente": "https://www.flickr.com/photos/58613084@N02/8493469429"
-      }
+      },
+      "categoria": "aviones",
+      "nuevo": false,
+      "ingreso": "2026-02-10"
     },
     {
       "id": "revell-p39",
@@ -361,7 +463,263 @@
         "autor": "wbaiv",
         "licencia": "CC BY-SA 2.0",
         "fuente": "https://www.flickr.com/photos/9998127@N06/5199582522"
-      }
+      },
+      "categoria": "aviones",
+      "nuevo": false,
+      "ingreso": "2026-02-10"
+    },
+    {
+      "id": "hg-barbatos",
+      "nombre": "HG ASW-G-08 Gundam Barbatos",
+      "marca": "Bandai",
+      "linea": "High Grade Iron-Blooded Orphans",
+      "franquicia": "Gundam",
+      "serie": "Iron-Blooded Orphans",
+      "escala": "1/144",
+      "precio": 17.9,
+      "stock": 12,
+      "dificultad": "Principiante",
+      "descripcion": "El Gundam de Mikazuki Augus con su maza y su espada larga. Marco interno visible y armado a presión: ideal como primer kit.",
+      "imagen": "assets/img/hg-barbatos.webp",
+      "alt": "Foto del kit HG Gundam Barbatos armado, sosteniendo su maza junto a otro mobile suit azul",
+      "nuevo": true,
+      "ingreso": "2026-10-01",
+      "credito": {
+        "autor": "Marco Hazard",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://www.flickr.com/photos/42405591@N02/24702985641"
+      },
+      "categoria": "high-grade"
+    },
+    {
+      "id": "hg-grimgerde",
+      "nombre": "HG V08-1228 Grimgerde",
+      "marca": "Bandai",
+      "linea": "High Grade Iron-Blooded Orphans",
+      "franquicia": "Gundam",
+      "serie": "Iron-Blooded Orphans",
+      "escala": "1/144",
+      "precio": 21.9,
+      "stock": 5,
+      "dificultad": "Principiante",
+      "descripcion": "El mobile suit rojo de McGillis Fareed con sus dos espadas valkyrie. Silueta estilizada y piezas en color, sin pintura obligatoria.",
+      "imagen": "assets/img/hg-grimgerde.webp",
+      "alt": "Foto del kit HG Grimgerde rojo armado, en pose de ataque con sus espadas",
+      "nuevo": true,
+      "ingreso": "2026-09-28",
+      "credito": {
+        "autor": "Marco Hazard",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://www.flickr.com/photos/42405591@N02/24979868179"
+      },
+      "categoria": "high-grade"
+    },
+    {
+      "id": "hg-graze-kai",
+      "nombre": "HG EB-06rs Graze Custom (Graze Kai)",
+      "marca": "Bandai",
+      "linea": "High Grade Iron-Blooded Orphans",
+      "franquicia": "Gundam",
+      "serie": "Iron-Blooded Orphans",
+      "escala": "1/144",
+      "precio": 18.9,
+      "stock": 8,
+      "dificultad": "Principiante",
+      "descripcion": "Graze modificado por Tekkadan con blindaje recuperado y combinación verde y blanca. Comparte el marco Graze, muy fácil de armar.",
+      "imagen": "assets/img/hg-graze-kai.webp",
+      "alt": "Foto del kit HG Graze Custom verde y blanco armado sobre fondo blanco",
+      "nuevo": false,
+      "ingreso": "2026-06-12",
+      "credito": {
+        "autor": "A_Polato",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://www.flickr.com/photos/52807141@N07/27062267181"
+      },
+      "categoria": "high-grade"
+    },
+    {
+      "id": "hg-exia",
+      "nombre": "HG GN-001 Gundam Exia",
+      "marca": "Bandai",
+      "linea": "High Grade Gundam 00",
+      "franquicia": "Gundam",
+      "serie": "Mobile Suit Gundam 00",
+      "escala": "1/144",
+      "precio": 19.9,
+      "stock": 9,
+      "dificultad": "Principiante",
+      "descripcion": "El Gundam espadachín de Setsuna F. Seiei con su GN Sword plegable y piezas transparentes verdes para los GN Condensers.",
+      "imagen": "assets/img/hg-exia.webp",
+      "alt": "Foto del kit HG Gundam Exia azul y blanco armado, primer plano",
+      "nuevo": true,
+      "ingreso": "2026-09-22",
+      "credito": {
+        "autor": "FHKE",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://www.flickr.com/photos/16226024@N00/2124600538"
+      },
+      "categoria": "high-grade"
+    },
+    {
+      "id": "hgbf-sengoku-astray",
+      "nombre": "HGBF Sengoku Astray Gundam",
+      "marca": "Bandai",
+      "linea": "High Grade Build Fighters",
+      "franquicia": "Gundam",
+      "serie": "Gundam Build Fighters",
+      "escala": "1/144",
+      "precio": 24.9,
+      "stock": 4,
+      "dificultad": "Intermedio",
+      "descripcion": "Astray con armadura de samurái y casco con cuernos dorados. Muchas piezas pequeñas de detalle: un buen paso después de los primeros HG.",
+      "imagen": "assets/img/hgbf-sengoku-astray.webp",
+      "alt": "Foto en primer plano del rostro del kit HGBF Sengoku Astray rojo con cuernos",
+      "nuevo": true,
+      "ingreso": "2026-09-30",
+      "credito": {
+        "autor": "matsuyuki",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://www.flickr.com/photos/12173213@N00/11728452444"
+      },
+      "categoria": "high-grade"
+    },
+    {
+      "id": "hguc-sazabi",
+      "nombre": "HGUC MSN-04 Sazabi",
+      "marca": "Bandai",
+      "linea": "High Grade Universal Century",
+      "franquicia": "Gundam",
+      "serie": "Char's Counterattack",
+      "escala": "1/144",
+      "precio": 39.9,
+      "stock": 3,
+      "dificultad": "Intermedio",
+      "descripcion": "El mobile suit de Char Aznable en Char's Counterattack: gran volumen, funnels desmontables y la eterna rivalidad con el ν Gundam.",
+      "imagen": "assets/img/hguc-sazabi.webp",
+      "alt": "Foto del kit HGUC Sazabi rojo armado sobre una mesa de trabajo",
+      "nuevo": true,
+      "ingreso": "2026-10-03",
+      "credito": {
+        "autor": "FHKE",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://www.flickr.com/photos/16226024@N00/2722353343"
+      },
+      "categoria": "high-grade"
+    },
+    {
+      "id": "hguc-gouf-custom",
+      "nombre": "HGUC MS-07B-3 Gouf Custom",
+      "marca": "Bandai",
+      "linea": "High Grade Universal Century",
+      "franquicia": "Gundam",
+      "serie": "The 08th MS Team",
+      "escala": "1/144",
+      "precio": 21.9,
+      "stock": 7,
+      "dificultad": "Principiante",
+      "descripcion": "El Gouf de Norris Packard con escudo, sable térmico y gatling. Uno de los HGUC más queridos por sus proporciones.",
+      "imagen": "assets/img/hguc-gouf-custom.webp",
+      "alt": "Foto del kit HGUC Gouf Custom azul armado sobre una mesa de trabajo",
+      "nuevo": false,
+      "ingreso": "2026-05-20",
+      "credito": {
+        "autor": "FHKE",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://www.flickr.com/photos/16226024@N00/5279435245"
+      },
+      "categoria": "high-grade"
+    },
+    {
+      "id": "hguc-guncannon",
+      "nombre": "HGUC RX-77-2 Guncannon",
+      "marca": "Bandai",
+      "linea": "High Grade Universal Century",
+      "franquicia": "Gundam",
+      "serie": "Mobile Suit Gundam (0079)",
+      "escala": "1/144",
+      "precio": 18.9,
+      "stock": 6,
+      "dificultad": "Principiante",
+      "descripcion": "El apoyo de artillería de la White Base con sus dos cañones de hombro. Versión Revive con articulaciones modernas.",
+      "imagen": "assets/img/hguc-guncannon.webp",
+      "alt": "Foto del kit HGUC Guncannon naranja armado sobre una base de diorama con su placa",
+      "nuevo": false,
+      "ingreso": "2026-04-15",
+      "credito": {
+        "autor": "FHKE",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://www.flickr.com/photos/16226024@N00/28534149800"
+      },
+      "categoria": "high-grade"
+    },
+    {
+      "id": "hguc-zaku-f2",
+      "nombre": "HGUC MS-06F-2 Zaku II F2 (Federación)",
+      "marca": "Bandai",
+      "linea": "High Grade Universal Century",
+      "franquicia": "Gundam",
+      "serie": "Stardust Memory (0083)",
+      "escala": "1/144",
+      "precio": 19.9,
+      "stock": 0,
+      "dificultad": "Principiante",
+      "descripcion": "Zaku capturado por la Federación, en esquema crema y verde, con bazuca y rifle MMP-80.",
+      "imagen": "assets/img/hguc-zaku-f2.webp",
+      "alt": "Foto del kit HGUC Zaku II F2 color crema armado, apuntando con su rifle",
+      "nuevo": false,
+      "ingreso": "2026-03-02",
+      "credito": {
+        "autor": "FHKE",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://www.flickr.com/photos/16226024@N00/4843481835"
+      },
+      "categoria": "high-grade"
+    },
+    {
+      "id": "hguc-gp03-dendrobium",
+      "nombre": "HGUC RX-78GP03 Gundam GP03 Dendrobium",
+      "marca": "Bandai",
+      "linea": "High Grade Universal Century",
+      "franquicia": "Gundam",
+      "serie": "Stardust Memory (0083)",
+      "escala": "1/550",
+      "precio": 189.0,
+      "stock": 2,
+      "dificultad": "Avanzado",
+      "descripcion": "La armadura Orchis con el Stamen acoplado: más de 1 m de largo armado pese a la escala 1/550. Pieza central de cualquier colección UC.",
+      "imagen": "assets/img/hguc-gp03-dendrobium.webp",
+      "alt": "Foto en primer plano del kit GP03 Dendrobium con el Stamen dentro de la armadura Orchis gris",
+      "nuevo": false,
+      "ingreso": "2026-07-08",
+      "credito": {
+        "autor": "othree",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://www.flickr.com/photos/12452841@N00/9486169610"
+      },
+      "categoria": "high-grade"
+    },
+    {
+      "id": "hg-beargguy",
+      "nombre": "HG Beargguy (versión rosa)",
+      "marca": "Bandai",
+      "linea": "High Grade Build Fighters",
+      "franquicia": "Gundam",
+      "serie": "Gundam Build Fighters",
+      "escala": "1/144",
+      "precio": 16.9,
+      "stock": 10,
+      "dificultad": "Principiante",
+      "descripcion": "El Acguy convertido en oso de peluche. Pocas piezas y muy expresivo: perfecto para regalar o para iniciarse.",
+      "imagen": "assets/img/hg-beargguy.webp",
+      "alt": "Foto del kit HG Beargguy rosa armado, de pie junto a una ventana",
+      "nuevo": false,
+      "ingreso": "2026-08-18",
+      "credito": {
+        "autor": "Polycaps",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://www.flickr.com/photos/54132475@N02/6529511981"
+      },
+      "categoria": "high-grade"
     }
   ]
 }
