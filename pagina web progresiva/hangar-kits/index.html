@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hangar Kits — Tienda de model kits (Gunpla, Tamiya, Zoids y más)</title>
+  <meta name="description" content="Catálogo progresivo de model kits por marca, franquicia y escala. Funciona sin conexión. Proyecto académico.">
+  <meta name="theme-color" content="#0F1E3D">
+  <meta name="color-scheme" content="light">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/styles.css">
+  <!-- type="module": ES6+ con import/export; se ejecuta diferido y en modo estricto. -->
+  <script type="module" src="js/app.js"></script>
+</head>
+<body class="bg-slate-50 font-sans text-slate-900 antialiased">
+  <!-- WCAG 2.4.1: saltar bloques repetidos -->
+  <a href="#contenido" class="sr-only-focusable fixed left-4 top-4 z-50 rounded-lg bg-yellow-400 px-4 py-3 font-bold text-navy-950">Saltar al contenido principal</a>
+
+  <header class="sticky top-0 z-40 bg-navy-900 text-white shadow-lg">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-3">
+      <a href="#inicio" class="flex items-center gap-2 rounded-lg text-lg font-extrabold tracking-tight sm:text-xl">
+        <img src="assets/icons/icon.svg" alt="" width="36" height="36" class="h-9 w-9">
+        <span>Hangar <span class="text-yellow-400">Kits</span></span>
+      </a>
+
+      <button type="button" id="boton-menu" class="btn ml-auto border-2 border-white/70 px-3 text-white hover:bg-navy-800 md:hidden"
+              aria-expanded="false" aria-controls="menu-principal">
+        <span aria-hidden="true">☰</span> Menú
+      </button>
+
+      <nav id="menu-principal" aria-label="Principal" class="order-last hidden w-full md:order-none md:ml-6 md:block md:w-auto">
+        <ul class="flex flex-col gap-1 md:flex-row md:gap-1" role="list">
+          <li><a href="#inicio" class="block min-h-tap rounded-lg px-3 py-2.5 font-medium hover:bg-navy-800">Inicio</a></li>
+          <li><a href="#categorias" class="block min-h-tap rounded-lg px-3 py-2.5 font-medium hover:bg-navy-800">Categorías</a></li>
+          <li><a href="#catalogo" class="block min-h-tap rounded-lg px-3 py-2.5 font-medium hover:bg-navy-800">Catálogo</a></li>
+          <li><a href="#contacto" class="block min-h-tap rounded-lg px-3 py-2.5 font-medium hover:bg-navy-800">Contacto</a></li>
+          <li><a href="#mis-datos" class="block min-h-tap rounded-lg px-3 py-2.5 font-medium hover:bg-navy-800">Mis datos</a></li>
+        </ul>
+      </nav>
+
+      <div class="flex items-center gap-2 md:ml-auto">
+        <button type="button" id="boton-instalar" class="btn border-2 border-yellow-400 text-yellow-300 hover:bg-navy-800" hidden>
+          Instalar app
+        </button>
+        <button type="button" id="boton-carrito" class="btn-acento" aria-haspopup="dialog" aria-controls="dialogo-carrito">
+          <span aria-hidden="true">🛒</span>
+          <span class="sr-only sm:not-sr-only">Carrito</span>
+          <span id="contador-carrito" class="chip bg-navy-900 text-white">0</span>
+          <span class="sr-only" id="contador-carrito-texto">, 0 unidades</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Estado de conexión: role="status" lo anuncia sin robar el foco (WCAG 4.1.3). -->
+    <div id="estado-red" role="status" class="border-t border-navy-700">
+      <p id="estado-red-texto" class="mx-auto max-w-7xl px-4 py-1.5 text-sm text-slate-200">Comprobando conexión…</p>
+    </div>
+  </header>
+
+  <div id="aviso-actualizacion" class="bg-blue-700 text-white" hidden>
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-2">
+      <p class="font-medium">Hay una versión nueva de la tienda lista para usar.</p>
+      <button type="button" id="boton-actualizar" class="btn-acento">Actualizar ahora</button>
+    </div>
+  </div>
+
+  <main id="contenido" tabindex="-1" class="focus:outline-none">
+    <!-- ===================== INICIO ===================== -->
+    <section id="inicio" aria-labelledby="titulo-inicio" class="bg-navy-950 text-white">
+      <div class="mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 md:grid-cols-2 md:py-16">
+        <div>
+          <p class="font-semibold uppercase tracking-widest text-yellow-400">Tienda de modelismo</p>
+          <h1 id="titulo-inicio" class="mt-2 text-4xl font-extrabold leading-tight md:text-5xl">
+            Tu próximo kit, aunque te quedes sin señal.
+          </h1>
+          <p class="mt-4 max-w-prose text-lg text-slate-200">
+            Gunpla de Bandai, tanques de Tamiya, Zoids, Macross y aviones históricos.
+            Busca por marca, franquicia o escala; el catálogo y tu carrito se guardan en
+            tu dispositivo y funcionan sin conexión.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#catalogo" class="btn-acento text-lg">Ver catálogo</a>
+            <a href="#categorias" class="btn border-2 border-white text-white hover:bg-navy-800">Explorar categorías</a>
+          </div>
+          <dl class="mt-8 grid max-w-md grid-cols-3 gap-4 text-center">
+            <div class="rounded-lg bg-navy-800 p-3"><dt class="text-sm text-slate-300">Kits</dt><dd id="dato-kits" class="text-2xl font-bold">—</dd></div>
+            <div class="rounded-lg bg-navy-800 p-3"><dt class="text-sm text-slate-300">Marcas</dt><dd id="dato-marcas" class="text-2xl font-bold">—</dd></div>
+            <div class="rounded-lg bg-navy-800 p-3"><dt class="text-sm text-slate-300">Escalas</dt><dd id="dato-escalas" class="text-2xl font-bold">—</dd></div>
+          </dl>
+        </div>
+        <figure class="overflow-hidden rounded-2xl border-4 border-yellow-400 bg-navy-800">
+          <img src="assets/img/mg-rx78-2-oyw.webp" width="800" height="600"
+               alt="Kit Master Grade del RX-78-2 Gundam armado, con su rifle y escudo"
+               class="aspect-[4/3] w-full object-cover" fetchpriority="high">
+          <figcaption class="px-3 py-2 text-sm text-slate-200">
+            MG RX-78-2 Gundam Ver. One Year War 0079 · Foto: Polycaps (CC BY-SA 2.0)
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== CATEGORÍAS ===================== -->
+    <section id="categorias" aria-labelledby="titulo-categorias" class="mx-auto max-w-7xl px-4 py-12">
+      <h2 id="titulo-categorias" class="text-3xl font-extrabold text-navy-900">Explora por categoría</h2>
+      <p class="mt-2 max-w-prose text-slate-700">Elige una categoría y el catálogo se filtra al instante. Puedes combinar filtros desde el panel del catálogo.</p>
+      <div class="mt-6 grid gap-6 md:grid-cols-3">
+        <section aria-labelledby="cat-marca" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <h3 id="cat-marca" class="flex items-center gap-2 text-xl font-bold text-navy-900">
+            <span aria-hidden="true" class="inline-block h-3 w-3 rounded-full bg-blue-700"></span> Por marca
+          </h3>
+          <ul id="categorias-marca" class="mt-4 flex flex-wrap gap-2" role="list"></ul>
+        </section>
+        <section aria-labelledby="cat-franquicia" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <h3 id="cat-franquicia" class="flex items-center gap-2 text-xl font-bold text-navy-900">
+            <span aria-hidden="true" class="inline-block h-3 w-3 rounded-full bg-red-700"></span> Por franquicia
+          </h3>
+          <ul id="categorias-franquicia" class="mt-4 flex flex-wrap gap-2" role="list"></ul>
+        </section>
+        <section aria-labelledby="cat-escala" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <h3 id="cat-escala" class="flex items-center gap-2 text-xl font-bold text-navy-900">
+            <span aria-hidden="true" class="inline-block h-3 w-3 rounded-full bg-yellow-400 ring-1 ring-navy-900"></span> Por escala
+          </h3>
+          <ul id="categorias-escala" class="mt-4 flex flex-wrap gap-2" role="list"></ul>
+          <p class="ayuda">1/24 es el modelo más grande; 1/144, el más pequeño.</p>
+        </section>
+      </div>
+    </section>
+
+    <!-- ===================== CATÁLOGO ===================== -->
+    <section id="catalogo" aria-labelledby="titulo-catalogo" class="border-y border-slate-200 bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-12">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <h2 id="titulo-catalogo" tabindex="-1" class="text-3xl font-extrabold text-navy-900">Catálogo</h2>
+            <p id="origen-catalogo" class="mt-1 text-sm text-slate-600"></p>
+          </div>
+          <button type="button" id="boton-filtros" class="btn-secundario lg:hidden" aria-expanded="false" aria-controls="panel-filtros">
+            Mostrar filtros
+          </button>
+        </div>
+
+        <div class="mt-6 grid gap-8 lg:grid-cols-[17rem_minmax(0,1fr)]">
+          <!-- Panel de filtros: se guarda en sessionStorage -->
+          <aside id="panel-filtros" aria-labelledby="titulo-filtros" class="hidden lg:block">
+            <h3 id="titulo-filtros" class="sr-only">Filtros de búsqueda</h3>
+            <form id="form-filtros" role="search" aria-label="Filtrar catálogo" class="space-y-6">
+              <div>
+                <label for="filtro-texto" class="etiqueta">Buscar</label>
+                <input type="search" id="filtro-texto" name="texto" class="campo" placeholder="Ej.: zaku, 1/35, tamiya"
+                       autocomplete="off" aria-describedby="ayuda-texto">
+                <p id="ayuda-texto" class="ayuda">Busca en nombre, marca, franquicia, serie y escala.</p>
+              </div>
+
+              <div>
+                <label for="filtro-orden" class="etiqueta">Ordenar por</label>
+                <select id="filtro-orden" name="orden" class="campo">
+                  <option value="relevancia">Relevancia</option>
+                  <option value="precio-asc">Precio: menor a mayor</option>
+                  <option value="precio-desc">Precio: mayor a menor</option>
+                  <option value="nombre">Nombre (A–Z)</option>
+                  <option value="escala">Escala (grande a pequeña)</option>
+                </select>
+              </div>
+
+              <fieldset>
+                <legend class="etiqueta">Marca</legend>
+                <div id="filtro-marcas" class="mt-2 space-y-1"></div>
+              </fieldset>
+              <fieldset>
+                <legend class="etiqueta">Franquicia</legend>
+                <div id="filtro-franquicias" class="mt-2 space-y-1"></div>
+              </fieldset>
+              <fieldset>
+                <legend class="etiqueta">Escala</legend>
+                <div id="filtro-escalas" class="mt-2 space-y-1"></div>
+              </fieldset>
+
+              <button type="reset" class="btn-secundario w-full">Limpiar filtros</button>
+              <p class="ayuda">Tus filtros se recuerdan mientras esta pestaña siga abierta (sessionStorage).</p>
+            </form>
+          </aside>
+
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-3">
+              <p id="resumen-resultados" class="font-semibold text-slate-800" aria-live="polite" aria-atomic="true">Cargando catálogo…</p>
+              <fieldset class="flex items-center gap-2">
+                <legend class="sr-only">Vista del catálogo</legend>
+                <span aria-hidden="true" class="text-sm text-slate-600">Vista:</span>
+                <label class="inline-flex min-h-tap cursor-pointer items-center gap-2 rounded-lg border-2 border-slate-300 px-3 has-[:checked]:border-blue-700 has-[:checked]:bg-blue-50">
+                  <input type="radio" name="vista" value="cuadricula" class="h-4 w-4 accent-blue-700" checked> Cuadrícula
+                </label>
+                <label class="inline-flex min-h-tap cursor-pointer items-center gap-2 rounded-lg border-2 border-slate-300 px-3 has-[:checked]:border-blue-700 has-[:checked]:bg-blue-50">
+                  <input type="radio" name="vista" value="lista" class="h-4 w-4 accent-blue-700"> Lista
+                </label>
+              </fieldset>
+            </div>
+
+            <ul id="filtros-activos" class="mt-3 flex flex-wrap gap-2" role="list" aria-label="Filtros activos"></ul>
+
+            <ul id="lista-productos" role="list" class="mt-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3" aria-describedby="resumen-resultados"></ul>
+
+            <div id="sin-resultados" class="mt-8 rounded-2xl border-2 border-dashed border-slate-300 p-8 text-center" hidden>
+              <p class="text-lg font-semibold">No hay kits que coincidan con esos filtros.</p>
+              <button type="button" id="boton-limpiar-vacio" class="btn-primario mt-4">Limpiar filtros</button>
+            </div>
+
+            <div id="error-catalogo" role="alert" class="mt-8 rounded-2xl border-2 border-red-700 bg-red-50 p-6 text-red-900" hidden></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACTO ===================== -->
+    <section id="contacto" aria-labelledby="titulo-contacto" class="mx-auto max-w-7xl px-4 py-12">
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+        <div>
+          <h2 id="titulo-contacto" class="text-3xl font-extrabold text-navy-900">Contacto y consultas</h2>
+          <p class="mt-2 max-w-prose text-slate-700">
+            ¿Buscas un kit que no está en el catálogo? Escríbenos. Si no tienes conexión, el mensaje queda
+            en la bandeja de salida de tu dispositivo y se envía al reconectar.
+          </p>
+          <p class="mt-2 text-sm text-slate-600">Los campos marcados con <span aria-hidden="true">*</span><span class="sr-only">asterisco</span> son obligatorios.</p>
+
+          <div id="resumen-errores" class="mt-4 rounded-xl border-2 border-red-700 bg-red-50 p-4 text-red-900" tabindex="-1" hidden>
+            <h3 class="font-bold">Revisa estos campos:</h3>
+            <ul id="lista-errores" class="mt-2 list-disc pl-5"></ul>
+          </div>
+
+          <form id="form-contacto" class="mt-6 grid gap-5 sm:grid-cols-2" novalidate>
+            <fieldset class="contents">
+              <legend class="sr-only">Datos para responderte</legend>
+              <div>
+                <label for="c-email" class="etiqueta">Correo electrónico <span aria-hidden="true">*</span></label>
+                <input id="c-email" name="email" type="email" class="campo" autocomplete="email" required
+                       aria-describedby="c-email-ayuda c-email-error" inputmode="email" spellcheck="false">
+                <p id="c-email-ayuda" class="ayuda">Se guarda en este dispositivo (localStorage).</p>
+                <p id="c-email-error" class="error-campo" hidden></p>
+              </div>
+              <div>
+                <label for="c-telefono" class="etiqueta">Teléfono <span aria-hidden="true">*</span></label>
+                <input id="c-telefono" name="telefono" type="tel" class="campo" autocomplete="tel" required
+                       aria-describedby="c-telefono-ayuda c-telefono-error" inputmode="tel" placeholder="+593 99 123 4567">
+                <p id="c-telefono-ayuda" class="ayuda">De 7 a 15 dígitos; puedes usar +, espacios o guiones. Se guarda en localStorage.</p>
+                <p id="c-telefono-error" class="error-campo" hidden></p>
+              </div>
+            </fieldset>
+
+            <fieldset class="contents">
+              <legend class="sr-only">Datos personales (solo durante esta sesión)</legend>
+              <div>
+                <label for="c-nombre" class="etiqueta">Nombre completo <span aria-hidden="true">*</span></label>
+                <input id="c-nombre" name="nombre" type="text" class="campo" autocomplete="name" required
+                       aria-describedby="c-nombre-error" maxlength="80">
+                <p id="c-nombre-error" class="error-campo" hidden></p>
+              </div>
+              <div>
+                <label for="c-documento" class="etiqueta">Cédula o documento <span class="font-normal text-slate-600">(opcional)</span></label>
+                <input id="c-documento" name="documento" type="text" class="campo" autocomplete="off" inputmode="numeric"
+                       aria-describedby="c-documento-ayuda c-documento-error" maxlength="20">
+                <p id="c-documento-ayuda" class="ayuda">Solo para facturar. Se guarda en sessionStorage y se borra al cerrar la pestaña.</p>
+                <p id="c-documento-error" class="error-campo" hidden></p>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="c-direccion" class="etiqueta">Dirección de envío <span class="font-normal text-slate-600">(opcional)</span></label>
+                <input id="c-direccion" name="direccion" type="text" class="campo" autocomplete="street-address" maxlength="160"
+                       aria-describedby="c-direccion-ayuda">
+                <p id="c-direccion-ayuda" class="ayuda">Se guarda solo durante esta sesión (sessionStorage).</p>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="c-mensaje" class="etiqueta">Mensaje <span aria-hidden="true">*</span></label>
+                <textarea id="c-mensaje" name="mensaje" rows="5" class="campo" required maxlength="1000"
+                          aria-describedby="c-mensaje-ayuda c-mensaje-error"></textarea>
+                <p id="c-mensaje-ayuda" class="ayuda"><span id="c-mensaje-contador">0</span> de 1000 caracteres.</p>
+                <p id="c-mensaje-error" class="error-campo" hidden></p>
+              </div>
+            </fieldset>
+
+            <div class="sm:col-span-2">
+              <label class="inline-flex min-h-tap cursor-pointer items-center gap-3">
+                <input type="checkbox" id="c-recordar" name="recordar" class="h-5 w-5 accent-blue-700" checked>
+                <span>Recordar mi correo y teléfono en este dispositivo</span>
+              </label>
+            </div>
+
+            <div class="flex flex-wrap gap-3 sm:col-span-2">
+              <button type="submit" class="btn-primario">Enviar consulta</button>
+              <button type="button" id="boton-borrar-contacto" class="btn-peligro">Borrar mis datos del formulario</button>
+            </div>
+            <p id="estado-contacto" role="status" class="sm:col-span-2 font-semibold text-green-800"></p>
+          </form>
+        </div>
+
+        <aside aria-labelledby="titulo-tienda" class="h-fit rounded-2xl bg-navy-900 p-6 text-white">
+          <h3 id="titulo-tienda" class="text-xl font-bold text-yellow-400">La tienda</h3>
+          <address class="mt-3 space-y-2 not-italic text-slate-200">
+            <p>Hangar Kits (tienda ficticia, proyecto académico)</p>
+            <p>Horario: lunes a sábado, 10:00–19:00</p>
+            <p>Correo: <span class="font-semibold text-white">hola@hangarkits.example</span></p>
+          </address>
+          <h4 class="mt-6 font-bold text-yellow-400">Bandeja de salida</h4>
+          <p id="bandeja-resumen" class="mt-1 text-slate-200" aria-live="polite">Sin mensajes pendientes.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===================== MIS DATOS (persistencia) ===================== -->
+    <section id="mis-datos" aria-labelledby="titulo-mis-datos" class="border-t border-slate-200 bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-12">
+        <h2 id="titulo-mis-datos" class="text-3xl font-extrabold text-navy-900">Datos guardados en este dispositivo</h2>
+        <p class="mt-2 max-w-prose text-slate-700">
+          Transparencia: esto es lo que la tienda guarda en tu navegador para funcionar sin conexión.
+          Nada sale de tu dispositivo.
+        </p>
+        <!-- En móvil la tabla se desplaza en horizontal: tabindex="0" permite hacerlo con
+             las flechas del teclado (WCAG 2.1.1) y role/aria-label le dan nombre a la región. -->
+        <div class="mt-6 overflow-x-auto rounded-xl border border-slate-200" tabindex="0" role="region" aria-label="Tabla de datos guardados (desplazable)">
+          <table class="w-full min-w-[40rem] text-left">
+            <caption class="sr-only">Mecanismos de almacenamiento y su contenido actual</caption>
+            <thead class="bg-navy-900 text-white">
+              <tr>
+                <th scope="col" class="px-4 py-3">Mecanismo</th>
+                <th scope="col" class="px-4 py-3">Qué guarda</th>
+                <th scope="col" class="px-4 py-3">Duración</th>
+                <th scope="col" class="px-4 py-3">Estado actual</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-persistencia" class="divide-y divide-slate-200"></tbody>
+          </table>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <button type="button" id="boton-refrescar-datos" class="btn-secundario">Actualizar tabla</button>
+          <button type="button" id="boton-borrar-todo" class="btn-peligro" aria-describedby="ayuda-borrar-todo">Borrar todos mis datos locales</button>
+        </div>
+        <p id="ayuda-borrar-todo" class="ayuda">Vacía carrito, filtros, datos de contacto, pedidos y cookies. El catálogo se vuelve a descargar.</p>
+        <p id="confirmar-borrado" class="mt-3 rounded-lg border-2 border-red-700 bg-red-50 p-3 text-red-900" hidden>
+          ¿Seguro? Esta acción no se puede deshacer.
+          <button type="button" id="boton-confirmar-borrado" class="btn ml-2 bg-red-700 text-white hover:bg-red-800">Sí, borrar todo</button>
+          <button type="button" id="boton-cancelar-borrado" class="btn-secundario ml-2">Cancelar</button>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-navy-950 text-slate-200">
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 md:grid-cols-2">
+      <div>
+        <p class="text-lg font-bold text-white">Hangar <span class="text-yellow-400">Kits</span></p>
+        <p class="mt-2 max-w-prose text-sm">
+          Proyecto académico de Desarrollo Web: PWA con HTML5 semántico, Tailwind CSS, Grid y JavaScript ES6+.
+          Tienda ficticia; precios referenciales. Las marcas y franquicias pertenecen a sus dueños.
+        </p>
+        <p class="mt-2 text-sm">Última visita: <span id="ultima-visita">primera visita</span></p>
+      </div>
+      <details class="rounded-xl bg-navy-900 p-4">
+        <summary class="min-h-tap cursor-pointer py-2 font-semibold text-white">Créditos de las fotografías</summary>
+        <p class="mt-2 text-sm">Fotos de kits reales armados por sus autores, publicadas con licencias Creative Commons.</p>
+        <ul id="lista-creditos" class="mt-3 space-y-2 text-sm" role="list"></ul>
+      </details>
+    </div>
+  </footer>
+
+  <!-- ===================== CARRITO (diálogo modal) ===================== -->
+  <!-- <dialog> con showModal(): el navegador confina el foco, Esc cierra y el resto
+       de la página queda inerte. Es la opción del estándar frente a un modal hecho a mano. -->
+  <dialog id="dialogo-carrito" aria-labelledby="titulo-carrito"
+          class="m-0 ml-auto h-full max-h-full w-full max-w-md bg-white p-0 text-slate-900 shadow-2xl">
+    <div class="flex h-full flex-col">
+      <div class="flex items-center justify-between bg-navy-900 px-5 py-4 text-white">
+        <h2 id="titulo-carrito" class="text-xl font-bold">Tu carrito</h2>
+        <button type="button" id="boton-cerrar-carrito" class="btn-icono border-white/60 bg-transparent text-white hover:bg-navy-800" aria-label="Cerrar carrito">✕</button>
+      </div>
+      <div class="flex-1 overflow-y-auto px-5 py-4">
+        <p id="carrito-vacio" class="text-slate-700">Tu carrito está vacío.</p>
+        <ul id="lista-carrito" class="divide-y divide-slate-200" role="list"></ul>
+        <div id="pedido-confirmado" role="status" class="mt-4 rounded-xl border-2 border-green-700 bg-green-50 p-4 text-green-900" hidden></div>
+      </div>
+      <div class="border-t border-slate-200 px-5 py-4">
+        <p class="flex justify-between text-lg font-bold"><span>Total</span><span id="carrito-total">$0.00</span></p>
+        <p class="ayuda">El carrito se guarda en localStorage; los pedidos, en IndexedDB.</p>
+        <div class="mt-3 grid grid-cols-2 gap-3">
+          <button type="button" id="boton-vaciar-carrito" class="btn-peligro">Vaciar</button>
+          <button type="button" id="boton-confirmar-pedido" class="btn-primario">Confirmar pedido</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Plantilla de tarjeta de producto (se clona en view.js; los datos se insertan con
+       textContent, nunca con innerHTML, para evitar XSS desde el JSON). -->
+  <template id="tpl-producto">
+    <li class="producto">
+      <article class="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md" data-contenedor>
+        <figure class="relative bg-slate-200" data-figura>
+          <img data-img width="800" height="600" loading="lazy" decoding="async" class="aspect-[4/3] w-full object-cover" alt="">
+          <span data-escala class="chip absolute left-3 top-3 bg-yellow-400 text-navy-950"></span>
+          <figcaption data-credito class="px-3 py-1 text-xs text-slate-700"></figcaption>
+        </figure>
+        <div class="flex flex-1 flex-col p-4">
+          <p data-marca class="text-sm font-semibold uppercase tracking-wide text-blue-800"></p>
+          <h3 data-nombre class="mt-1 text-lg font-bold leading-snug text-navy-900"></h3>
+          <p data-franquicia class="mt-1 text-sm text-slate-700"></p>
+          <p data-descripcion class="mt-2 text-sm text-slate-700"></p>
+          <dl class="mt-3 grid grid-cols-2 gap-x-3 gap-y-1 text-sm">
+            <dt class="text-slate-600">Línea</dt><dd data-linea class="font-medium"></dd>
+            <dt class="text-slate-600">Dificultad</dt><dd data-dificultad class="font-medium"></dd>
+            <dt class="text-slate-600">Stock</dt><dd data-stock class="font-medium"></dd>
+          </dl>
+          <div class="mt-auto flex items-center justify-between gap-3 pt-4">
+            <p data-precio class="text-2xl font-extrabold text-navy-900"></p>
+            <button type="button" data-agregar class="btn-primario">Agregar</button>
+          </div>
+        </div>
+      </article>
+    </li>
+  </template>
+
+  <!-- Región de anuncios para lectores de pantalla (acciones como "agregado al carrito"). -->
+  <div id="anuncios" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <noscript>
+    <p class="bg-yellow-300 p-4 text-center font-semibold text-navy-950">
+      Esta tienda necesita JavaScript para mostrar el catálogo y funcionar sin conexión.
+    </p>
+  </noscript>
+</body>
+</html>

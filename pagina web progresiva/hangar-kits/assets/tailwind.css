@@ -1,0 +1,75 @@
+/* Fuente de Tailwind. NO editar assets/styles.css a mano: se regenera con
+   `npm run build:css` a partir de este archivo. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    /* WCAG 2.4.11 (Foco no oculto): el header es sticky, así que al saltar a un
+       ancla o tabular hacia arriba el elemento enfocado no debe quedar debajo. */
+    scroll-padding-top: 7.5rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+
+  /* Foco de dos tonos (amarillo + anillo marino): visible tanto sobre fondos claros
+     como sobre el header oscuro. Cumple 2.4.7 y el contraste 3:1 de 1.4.11. */
+  :focus-visible {
+    outline: 3px solid #facc15;
+    outline-offset: 0;
+    box-shadow: 0 0 0 6px #0f1e3d;
+    border-radius: 0.375rem;
+  }
+
+  [hidden] { display: none !important; }
+
+  /* El texto de campos inválidos usa además un icono y texto, nunca solo color (1.4.1). */
+  [aria-invalid="true"] {
+    border-color: #b91c1c !important;
+    box-shadow: inset 0 0 0 1px #b91c1c;
+  }
+
+  dialog::backdrop { background: rgb(10 21 48 / 0.65); }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-h-tap items-center justify-center gap-2 rounded-lg px-4 py-2 font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-primario {
+    @apply btn bg-blue-700 text-white hover:bg-blue-800;
+  }
+  .btn-secundario {
+    @apply btn border-2 border-blue-700 bg-white text-blue-800 hover:bg-blue-50;
+  }
+  .btn-acento {
+    @apply btn bg-yellow-400 text-navy-950 hover:bg-yellow-300;
+  }
+  .btn-peligro {
+    @apply btn border-2 border-red-700 bg-white text-red-800 hover:bg-red-50;
+  }
+  .btn-icono {
+    @apply inline-flex min-h-tap min-w-tap items-center justify-center rounded-lg border-2 border-slate-400 bg-white text-lg font-bold text-slate-900 hover:bg-slate-100;
+  }
+  .campo {
+    @apply mt-1 block w-full min-h-tap rounded-lg border-2 border-slate-400 bg-white px-3 py-2 text-slate-900 placeholder:text-slate-500;
+  }
+  .etiqueta {
+    @apply block font-semibold text-slate-900;
+  }
+  .ayuda {
+    @apply mt-1 text-sm text-slate-600;
+  }
+  .error-campo {
+    @apply mt-1 text-sm font-semibold text-red-800;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+  .sr-only-focusable:not(:focus) {
+    @apply sr-only;
+  }
+}
