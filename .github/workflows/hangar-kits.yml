@@ -1,0 +1,52 @@
+# Verifica Hangar Kits (pagina web progresiva/hangar-kits) en cada push o PR que
+# toque esa carpeta. Usa las mismas verificaciones que el repo publicado
+# (macalderonr07/pagina-de-persistencia), pero aquí no publica: este repo es el
+# de trabajo y la publicación se hace desde el otro.
+
+name: Hangar Kits · verificar
+
+on:
+  push:
+    paths:
+      - "pagina web progresiva/hangar-kits/**"
+      - ".github/workflows/hangar-kits.yml"
+  pull_request:
+    paths:
+      - "pagina web progresiva/hangar-kits/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: "pagina web progresiva/hangar-kits"
+
+jobs:
+  verificar:
+    name: Verificar el sitio
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: "pagina web progresiva/hangar-kits/package-lock.json"
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Verificación estática (JS, catálogo, SW, manifest, enlaces, CSS al día)
+        run: npm run verificar:estatico
+
+      - name: Validación de HTML
+        run: npm run verificar:html
+
+      - name: Instalar Chromium para las pruebas
+        run: npx playwright install --with-deps chromium
+
+      - name: Pruebas en navegador (escritorio, celulares, accesibilidad, offline)
+        run: npm run verificar:e2e
